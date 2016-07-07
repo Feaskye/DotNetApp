@@ -98,6 +98,10 @@
       <Private>True</Private>
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="TECIT.TBarCode, Version=11.0.0.0, Culture=neutral, PublicKeyToken=1b5f4306b234b83d, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ProgramData\TEC-IT\TBarCode\11.2\Examples\Visual Studio .NET\WindowsFormControl\bin\Debug\TECIT.TBarCode.dll</HintPath>
+    </Reference>
     <Reference Include="ThoughtWorks.QRCode">
       <HintPath>..\packages\ThoughtWorks.QRCode.dll</HintPath>
     </Reference>

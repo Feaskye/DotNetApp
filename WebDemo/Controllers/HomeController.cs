@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TECIT.TBarCode;
 using WebDemo.Models;
 
 namespace WebDemo.Controllers
@@ -15,7 +16,7 @@ namespace WebDemo.Controllers
         {
             BarCodeEncoder _Code = new BarCodeEncoder();
             _Code.ValueFont = new Font("宋体", 100);
-            System.Drawing.Bitmap imgTemp = _Code.GetCodeImage("PH201606231026418896", BarCodeEncoder.Encode.Code128B);
+            System.Drawing.Bitmap imgTemp = _Code.GetCodeImage("PH201606231026418896", BarCodeEncoder.Encode.Code128C);
             var imgPath = System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "BarCode.gif";
             imgTemp.Save(imgPath, System.Drawing.Imaging.ImageFormat.Gif);
 
@@ -28,9 +29,7 @@ namespace WebDemo.Controllers
         {
             Code39 _Code39 = new Code39();
 
-            _Code39.Height = 120;
-            _Code39.Magnify = 1;
-            _Code39.ViewFont = new Font("宋体", 20);
+            _Code39.Height = 70;
 
 
             System.Drawing.Image _CodeImage = _Code39.GetCodeImage("PH201606231026418896", Code39.Code39Model.Code39Normal, true);
@@ -61,6 +60,19 @@ namespace WebDemo.Controllers
 
         public ActionResult Contact()
         {
+            Barcode barcode = new Barcode();
+               barcode.License("John Smith", LicenseType.DeveloperOrWeb, 1, "00000000",
+ TBarCodeProduct.Barcode1D); // 1D License
+//barcode.License("John Smith", LicenseType.DeveloperOrWeb, 1, "00000000",
+// TBarCodeProduct.Barcode2D); // 2D License
+
+//                barcode.Licensee = "John Smith";
+//barcode.LicenseType = LicenseType.DeveloperOrWeb;
+//barcode.LicenseCount = 1;
+//barcode.LicenseKey = "00000000";
+//barcode.LicensedProduct = TBarCodeProduct.Barcode1D;
+
+
             return View();
         }
     }
