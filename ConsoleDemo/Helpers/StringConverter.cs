@@ -17,18 +17,20 @@ namespace ConsoleDemo.Helpers
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            var str = (string)value;
-            if (str == null)
+            if (value == null)
             {
+                var str = (String)value;
+
                 writer.WriteStartObject();
-                writer.WriteValue("");
+                writer.WritePropertyName(writer.Path);
+                writer.WriteValue(string.Empty);
                 writer.WriteEndObject();
             }
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            return (string)reader.Value;
         }
     }
 }

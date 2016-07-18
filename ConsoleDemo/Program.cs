@@ -6,6 +6,7 @@ using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Messaging;
 using System.Text;
@@ -24,18 +25,16 @@ namespace ConsoleDemo
 
             var jSettings = new JsonSerializerSettings()
             {
+                //NullValueHandling = NullValueHandling.Include,
                 ContractResolver = new ConverterContractResolver()
             };
 
 
-            var ss = JsonConvert.SerializeObject(person);
+            var ss = JsonConvert.SerializeObject(person, jSettings);
             Console.WriteLine(ss);
-
-            string test = null;
-            var ps = JsonConvert.SerializeObject(test, jSettings);
-            Console.WriteLine(ps);
         }
         
+
 
     }
 

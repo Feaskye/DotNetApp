@@ -17,7 +17,7 @@ namespace ConsoleDemo.Helpers
         protected override JsonContract CreateContract(Type objectType)
         {
             JsonContract contract = base.CreateContract(objectType);
-            if (objectType == typeof(string))
+            if (objectType == typeof(String))
             {
                 contract.Converter = new StringConverter();
             }
@@ -28,15 +28,15 @@ namespace ConsoleDemo.Helpers
             return contract;
         }
 
-        protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
-        {
-            JsonProperty property = base.CreateProperty(member, memberSerialization);
-            if (property.DeclaringType == typeof(string))
-            {
-                property.Converter = new StringConverter();
-            }
-            return base.CreateProperty(member, memberSerialization);
-        }
+        //protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
+        //{
+        //    JsonProperty property = base.CreateProperty(member, memberSerialization);
+        //    if (property.PropertyType.Name == typeof(String).Name)
+        //    {
+        //        property.Converter = new StringConverter();
+        //    }
+        //    return base.CreateProperty(member, memberSerialization);
+        //}
 
     }
 }
