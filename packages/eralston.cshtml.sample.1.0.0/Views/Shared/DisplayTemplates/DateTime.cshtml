@@ -1,0 +1,8 @@
+﻿@model DateTime?
+
+@if (Model.HasValue)
+{
+    <time class="localized-date-time" datetime="@Model.Value.ToString("yyyy-MM-dd HH:mm:ssZ")">
+        @Model.Value.ToString("g")
+    </time>
+}
