@@ -18,6 +18,7 @@ namespace ConsoleDemo
     {
         static void Main(string[] args)
         {
+
             //var result = "false".Equals(false);
 
 
@@ -25,7 +26,7 @@ namespace ConsoleDemo
 
             var jSettings = new JsonSerializerSettings()
             {
-                //NullValueHandling = NullValueHandling.Include,
+                NullValueHandling = NullValueHandling.Include,
                 ContractResolver = new ConverterContractResolver()
             };
 
