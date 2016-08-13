@@ -9,6 +9,9 @@ using WebDemo.Models;
 
 namespace WebDemo.Controllers
 {
+    /// <summary>
+    /// 条形码代码
+    /// </summary>
     public class HomeController : Controller
     {
         public ActionResult Index()
