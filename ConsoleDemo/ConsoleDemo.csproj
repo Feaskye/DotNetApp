@@ -49,6 +49,8 @@
     <Compile Include="Demo\AsyncDemo.cs" />
     <Compile Include="Demo\MessageQueueDemo.cs" />
     <Compile Include="Demo\MyThread.cs" />
+    <Compile Include="FactoryTest\IFile.cs" />
+    <Compile Include="FactoryTest\IFileFactory.cs" />
     <Compile Include="Helpers\ConverterContractResolver.cs" />
     <Compile Include="Helpers\StringConverter.cs" />
     <Compile Include="Models\Product.cs" />
