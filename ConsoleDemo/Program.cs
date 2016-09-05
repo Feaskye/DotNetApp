@@ -21,18 +21,22 @@ namespace ConsoleDemo
 
             //var result = "false".Equals(false);
 
+            #region Json.Net字段序列化
+            //var person = new Product() { ExpiryDate = DateTime.Now, Name = "小明" };
 
-            var person = new Product() { ExpiryDate = DateTime.Now, Name = "小明" };
-
-            var jSettings = new JsonSerializerSettings()
-            {
-                NullValueHandling = NullValueHandling.Include,
-                ContractResolver = new ConverterContractResolver()
-            };
+            //var jSettings = new JsonSerializerSettings()
+            //{
+            //    NullValueHandling = NullValueHandling.Include,
+            //    ContractResolver = new ConverterContractResolver()
+            //};
 
 
-            var ss = JsonConvert.SerializeObject(person, jSettings);
-            Console.WriteLine(ss);
+            //var ss = JsonConvert.SerializeObject(person, jSettings);
+            //Console.WriteLine(ss);
+            #endregion
+
+            //HttpListenerApp.HttpProvider.Init();
+
         }
         
 

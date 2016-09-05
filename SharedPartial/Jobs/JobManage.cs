@@ -61,7 +61,6 @@ namespace SharedPartial.Jobs
                                                         triggerXElement.Attribute("expression").Value);
                         //添加定时器
                         scheduler.ScheduleJob(jobDetail, cronTrigger);
-                        scheduler.AddJob(,)
                     }
                 }
 
