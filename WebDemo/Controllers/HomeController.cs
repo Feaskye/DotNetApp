@@ -16,12 +16,14 @@ namespace WebDemo.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.UserId = Session["uid"] + "";
+
             BarCodeEncoder _Code = new BarCodeEncoder();
             _Code.ValueFont = new Font("宋体", 100);
             System.Drawing.Bitmap imgTemp = _Code.GetCodeImage("PH201606231026418896", BarCodeEncoder.Encode.Code128B);
             var imgPath = System.AppDomain.CurrentDomain.BaseDirectory + "\\" + "BarCode.gif";
             imgTemp.Save(imgPath, System.Drawing.Imaging.ImageFormat.Gif);
-
+            
             return View();
         }
 

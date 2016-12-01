@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDemo", "WebDemo\WebDemo.csproj", "{A0FC675F-48BD-4D95-943F-ED839E16ABBE}"
 EndProject
@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{29D92F
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MvcMovieCore", "MvcMovieCore\src\MvcMovie\MvcMovieCore.xproj", "{5B3844ED-AAEF-4C94-90C1-92D96CDFB705}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{47AF5E99-A51C-4A63-84CC-BD0429336A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47AF5E99-A51C-4A63-84CC-BD0429336A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47AF5E99-A51C-4A63-84CC-BD0429336A9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B3844ED-AAEF-4C94-90C1-92D96CDFB705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B3844ED-AAEF-4C94-90C1-92D96CDFB705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B3844ED-AAEF-4C94-90C1-92D96CDFB705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B3844ED-AAEF-4C94-90C1-92D96CDFB705}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
