@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDemo", "WebDemo\WebDemo.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleDemo", "ConsoleDemo\ConsoleDemo.csproj", "{0EC7CF54-FD32-4EF5-83D5-B4A67FBF9AD7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedPartial", "SharedPartial\SharedPartial.csproj", "{47AF5E99-A51C-4A63-84CC-BD0429336A9C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{29D92FFB-E46F-48DD-8E26-5F425111CAC2}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
@@ -30,10 +28,6 @@ Global
 		{0EC7CF54-FD32-4EF5-83D5-B4A67FBF9AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EC7CF54-FD32-4EF5-83D5-B4A67FBF9AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EC7CF54-FD32-4EF5-83D5-B4A67FBF9AD7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{47AF5E99-A51C-4A63-84CC-BD0429336A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47AF5E99-A51C-4A63-84CC-BD0429336A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47AF5E99-A51C-4A63-84CC-BD0429336A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47AF5E99-A51C-4A63-84CC-BD0429336A9C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5B3844ED-AAEF-4C94-90C1-92D96CDFB705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5B3844ED-AAEF-4C94-90C1-92D96CDFB705}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B3844ED-AAEF-4C94-90C1-92D96CDFB705}.Release|Any CPU.ActiveCfg = Release|Any CPU
