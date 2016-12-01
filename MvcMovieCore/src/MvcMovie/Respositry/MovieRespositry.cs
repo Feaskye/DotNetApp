@@ -12,4 +12,15 @@ namespace MvcMovie.Respositry
             return Guid.NewGuid().ToString();
         }
     }
+
+
+    public class UserRespositry : IUserRespositry
+    {
+        public string GetUserName()
+        {
+            return "15768217356";
+        }
+    }
+
+
 }

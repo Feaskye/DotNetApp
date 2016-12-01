@@ -30,6 +30,7 @@ namespace MvcMovie
             // Add framework services.
             services.AddMvc();
             services.AddTransient<Respositry.IMovieRespositry, Respositry.MovieRespositry>();
+            services.AddTransient<Respositry.IUserRespositry, Respositry.UserRespositry>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

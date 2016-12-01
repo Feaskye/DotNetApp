@@ -9,4 +9,12 @@ namespace MvcMovie.Respositry
     {
         string GetMovies();
     }
+
+
+    public interface IUserRespositry
+    {
+        string GetUserName();
+    }
+
+
 }
