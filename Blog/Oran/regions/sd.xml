@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--山东-->
+<!--http://www.code-studio.net LikeCode-->
+<regions>
+  <region>济南</region>
+  <region>滨州</region>
+  <region>德州</region>
+  <region>东营</region>
+  <region>肥城</region>
+  <region>海阳</region>
+  <region>菏泽</region>
+  <region>济宁</region>
+  <region>莱芜</region>
+  <region>莱阳</region>
+  <region>聊城</region>
+  <region>临沂</region>
+  <region>平度</region>
+  <region>青岛</region>
+  <region>青州</region>
+  <region>日照</region>
+  <region>泰安</region>
+  <region>威海</region>
+  <region>潍坊</region>
+  <region>烟台</region>
+  <region>枣庄</region>
+  <region>章丘</region>
+  <region>淄博</region>
+</regions>

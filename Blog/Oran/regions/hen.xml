@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--河南-->
+<!--http://www.code-studio.net LikeCode-->
+<regions>
+  <region>郑州</region>
+  <region>安阳</region>
+  <region>鹤壁</region>
+  <region>济源</region>
+  <region>焦作</region>
+  <region>开封</region>
+  <region>洛阳</region>
+  <region>漯河</region>
+  <region>南阳</region>
+  <region>平顶山</region>
+  <region>濮阳</region>
+  <region>三门峡</region>
+  <region>商丘</region>
+  <region>新乡</region>
+  <region>信阳</region>
+  <region>许昌</region>
+  <region>周口</region>
+  <region>驻马店</region>
+</regions>

@@ -1,0 +1,22 @@
+﻿http://hdx.nww158.com/JS/menu.js
+
+关注说明
+http://www.admin5.com/article/20140725/553814.shtml
+
+http://www.cnblogs.com/txw1958/p/weixin71-oauth20.html
+微信开发后台
+微信交流社区/网页版聊天工具
+
+测试地址http://school.wechat007.com/ 测试账号weijing1 密码123456
+
+
+
+
+
+
+
+智海生物的需求是：
+1、砍价功能   2、支付功能  3、在线购买功能  4、会员注册功能   5、资料（检测报告）上传功能
+
+
+

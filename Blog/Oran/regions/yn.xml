@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--云南-->
+<!--http://www.code-studio.net LikeCode-->
+<regions>
+  <region>昆明</region>
+  <region>保山</region>
+  <region>楚雄</region>
+  <region>大理</region>
+  <region>德宏</region>
+  <region>迪庆</region>
+  <region>个旧</region>
+  <region>丽江</region>
+  <region>临沧</region>
+  <region>怒江</region>
+  <region>曲靖</region>
+  <region>思茅</region>
+  <region>文山</region>
+  <region>西双版纳</region>
+  <region>玉溪</region>
+  <region>昭通</region>
+</regions>

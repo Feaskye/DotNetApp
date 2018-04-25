@@ -1,0 +1,142 @@
+﻿
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>PICTURE BROWSE</title>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <link href="product_exp.css" type=text/css rel=stylesheet>
+    <script language="JavaScript">
+<!--
+var scale=0;
+var original=0;
+var change=0;
+var iratio=0;
+var objImg=null;
+
+window.onload=function()
+{
+    objImg= ifm_show_prd.document.getElementById('objImg');
+    objImg.src=opener.document.getElementById('hid_bigpicurl').value;
+}
+
+function doZoomIn()
+{
+    if(original==0)
+    {
+        original=objImg.width;
+        scale=objImg.width;
+        iratio=objImg.width/objImg.height;
+    }
+
+	if(scale-original>2048) return false;
+
+	scale+=5;
+	change+=5;
+    if(change>100) {change=0; return false;}
+	objImg.width=scale;
+	objImg.height=scale/iratio;
+	window.setTimeout("doZoomIn()",50);
+	return true;
+}
+
+function doZoomOut()
+{
+	if(original==0)
+    {
+        original=objImg.width;
+        scale=objImg.width;
+        iratio=objImg.width/objImg.height;
+    }
+
+	if(scale<=100) return false;
+	scale-=5;
+	change+=5;
+    if(change>100) {change=0; return false;}
+	objImg.width=scale;
+	objImg.height=scale/iratio;
+    window.setTimeout("doZoomOut()",50);
+	return true;
+}
+
+
+function doReset()
+{
+    if(original==0)
+    {
+        original=objImg.width;
+        scale=objImg.width;
+        iratio=objImg.width/objImg.height;
+    }
+    else
+    {
+        objImg.width=original;
+	    objImg.height=original/iratio;
+	    scale=original;
+    }
+
+	return true;
+}
+
+
+var last_img_btn_chg_prd_over=null;
+var last_img_btn_chg_prd_click=null;
+function ImgBtnChgPrd_Mouseover(obj)
+{
+    if(last_img_btn_chg_prd_over!=null)
+        last_img_btn_chg_prd_over.className='img_btn_chg_prd';
+    last_img_btn_chg_prd_over=obj;
+    obj.className='img_btn_chg_prd_active';
+}
+
+
+
+function ImgBtnChgPrd_Click(obj,bigpicurl)
+{
+    if(last_img_btn_chg_prd_click!=null)
+        last_img_btn_chg_prd_click.className='img_btn_chg_prd';
+    last_img_btn_chg_prd_click=obj;
+
+    if(last_img_btn_chg_prd_over==last_img_btn_chg_prd_click)
+        last_img_btn_chg_prd_over=null;
+
+    obj.className='img_btn_chg_prd_active';
+     objImg.src=bigpicurl;
+
+        original=objImg.width;
+        scale=objImg.width;
+        iratio=objImg.width/objImg.height;
+}
+//-->
+    </script>
+    <meta content="MSHTML 6.00.2900.3059" name=GENERATOR>
+</head>
+<body>
+    <table class=vpTable>
+        <tbody>
+            <tr>
+                <td align=middle>
+                    <iframe id=ifm_show_prd name=ifm_show_prd
+                            src="PicBox.htm" frameborder=0></iframe>
+                </td>
+            </tr>
+            <tr>
+                <td align=middle>
+                    <img onclick=doZoomIn() height=21 src="picture_zoom1.gif" width=21>
+                    <img onclick=doReset() height=21 src="picture_zoom.gif" width=21>
+                    <img onclick=doZoomOut() height=21 src="picture_zoom-.gif" width=21>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div id=dvTPUrls></div>
+    <table class=vpCloseTable>
+        <tbody>
+            <tr>
+                <td align=middle>
+                    <span class=spnClose onclick=window.close()>[ CLOSE ]</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

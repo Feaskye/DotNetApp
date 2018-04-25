@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--湖北-->
+<!--http://www.code-studio.net LikeCode-->
+<regions>
+  <region>武汉</region>
+  <region>鄂州</region>
+  <region>恩施</region>
+  <region>黄冈</region>
+  <region>黄石</region>
+  <region>荆门</region>
+  <region>荆州</region>
+  <region>潜江</region>
+  <region>十堰</region>
+  <region>随州</region>
+  <region>天门</region>
+  <region>仙桃</region>
+  <region>咸宁</region>
+  <region>襄樊</region>
+  <region>孝感</region>
+  <region>宜昌</region>
+</regions>
