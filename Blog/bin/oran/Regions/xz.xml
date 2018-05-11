@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--西藏-->
+<!--http://www.code-studio.net LikeCode-->
+<regions>
+  <region>拉萨</region>
+  <region>阿里</region>
+  <region>昌都</region>
+  <region>林芝</region>
+  <region>那曲</region>
+  <region>日喀则</region>
+  <region>山南</region>
+</regions>

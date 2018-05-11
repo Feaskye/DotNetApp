@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--台湾-->
+<!--http://www.code-studio.net LikeCode-->
+<regions>
+  <region>台北</region>
+  <region>高雄</region>
+  <region>台南</region>
+  <region>台中</region>
+</regions>

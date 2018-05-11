@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OranChinaRegion</name>
+    </assembly>
+    <members>
+        <member name="T:Oran.WebControl.ChinaRegion">
+            <summary>
+            行政区域异步加载联动下拉列表
+            <remarks>中国所有省，自治区，自辖市，特别行政区，包括所属的市/区</remarks>
+            </summary>
+        </member>
+        <member name="M:Oran.WebControl.ChinaRegion.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            以HTML代码呈现控件
+            </summary>
+            <param name="output">HTML书写器</param>
+        </member>
+        <member name="P:Oran.WebControl.ChinaRegion.XmlFolderPath">
+            <summary>
+            获取或设置 XML 文件所在文件夹（默认为 oran/region，可以在 web.config/appSettings/ChinaRegionXmlFolderPath 配置），e.g.:folder1/folder2/region
+            </summary>
+        </member>
+        <member name="P:Oran.WebControl.ChinaRegion.ParentRegion">
+            <summary>
+            获取或设置一级行政区，e.g.:省/自治区/直辖市/特别行政区等
+            </summary>
+        </member>
+        <member name="P:Oran.WebControl.ChinaRegion.ChildRegion">
+            <summary>
+            获取或设置二级行政区，e.g.:市/区等
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--广东-->
+<!--http://www.code-studio.net LikeCode-->
+<regions>
+  <region>广州</region>
+  <region>潮州</region>
+  <region>从化</region>
+  <region>东莞</region>
+  <region>佛山</region>
+  <region>河源</region>
+  <region>鹤山</region>
+  <region>化州</region>
+  <region>惠州</region>
+  <region>江门</region>
+  <region>揭阳</region>
+  <region>茂名</region>
+  <region>梅州</region>
+  <region>清远</region>
+  <region>汕头</region>
+  <region>汕尾</region>
+  <region>韶关</region>
+  <region>深圳</region>
+  <region>阳江</region>
+  <region>云浮</region>
+  <region>湛江</region>
+  <region>肇庆</region>
+  <region>中山</region>
+  <region>珠海</region>
+</regions>

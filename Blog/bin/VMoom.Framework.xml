@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VMoom.Framework</name>
+    </assembly>
+    <members>
+        <member name="T:VMoom.Framework.HttpModules.UrlRewriter.MyRewriteAction">
+            <summary>
+            实现 Intelligencia.UrlRewriter 的自定义动作的类。
+            </summary>
+        </member>
+        <member name="M:VMoom.Framework.HttpModules.UrlRewriter.MyRewriteAction.#ctor(System.String,Intelligencia.UrlRewriter.RewriteProcessing)">
+            <summary>
+            构造函数。
+            </summary>
+            <param name="location">重写目标。</param>
+            <param name="processing">重写动作。</param>
+        </member>
+        <member name="M:VMoom.Framework.HttpModules.UrlRewriter.MyRewriteAction.Execute(Intelligencia.UrlRewriter.RewriteContext)">
+            <summary>
+            执行重写。
+            </summary>
+            <param name="context">RewriteContext</param>
+        </member>
+        <member name="M:VMoom.Framework.HttpModules.UrlRewriter.MyRewriteAction.IsMatch(Intelligencia.UrlRewriter.RewriteContext)">
+            <summary>
+            判断重写规则是否合法。
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VMoom.Framework.Security.Cryptography.CryptographyProvider.Encrypt(System.String)">
+            <summary>
+            执行加密操作。
+            </summary>
+            <param name="s">要加密的字符串。</param>
+            <returns>string</returns>
+        </member>
+        <member name="M:VMoom.Framework.Security.Cryptography.CryptographyProvider.Decrypt(System.String)">
+            <summary>
+            执行解密操作。
+            </summary>
+            <param name="s">要解密的字符串。</param>
+            <returns>string</returns>
+        </member>
+        <member name="P:VMoom.Framework.Security.Cryptography.CryptographyProvider.Key">
+            <summary>
+            获取密钥（密钥仅对对称算法有效）。
+            </summary>
+        </member>
+        <member name="T:VMoom.Framework.Crypto">
+            <summary>
+            包含常用加密算法的外观封装。
+            </summary>
+        </member>
+        <member name="P:VMoom.Framework.Crypto.XXTEA">
+            <summary>
+            获取 XXTEA 加密算法的实例。
+            </summary>
+        </member>
+        <member name="T:VMoom.Framework.HttpModules.UrlRewriter.XXTEADecodeTransform">
+            <summary>
+            XXTEA 解密。
+            </summary>
+        </member>
+        <member name="M:VMoom.Framework.HttpModules.UrlRewriter.XXTEADecodeTransform.ApplyTransform(System.String)">
+            <summary>
+            使用 XXTEA 算法解密指定字符串。
+            </summary>
+            <param name="input">预定义字符串。</param>
+            <returns>转换结果。</returns>
+        </member>
+        <member name="P:VMoom.Framework.HttpModules.UrlRewriter.XXTEADecodeTransform.Name">
+            <summary>
+            本转换器的名称。
+            </summary>
+        </member>
+        <member name="T:VMoom.Framework.Security.Cryptography.XXTEACryptoService">
+            <summary>
+            标准 XXTEA 加密算法的实现。本算法支持自定义密钥，且为可逆的。
+            </summary>
+        </member>
+        <member name="M:VMoom.Framework.Security.Cryptography.XXTEACryptoService.#ctor">
+            <summary>
+            初始化 XXTEA 算法。
+            </summary>
+        </member>
+        <member name="M:VMoom.Framework.Security.Cryptography.XXTEACryptoService.#ctor(System.String)">
+            <summary>
+            使用密钥初始化 XXTEA 算法。
+            </summary>
+            <param name="key">要使用的密钥。</param>
+        </member>
+        <member name="M:VMoom.Framework.Security.Cryptography.XXTEACryptoService.Encrypt(System.String)">
+            <summary>
+            加密字符串
+            </summary>
+            <param name="s">传入的明文</param>
+            <returns>返回密文</returns>
+        </member>
+        <member name="M:VMoom.Framework.Security.Cryptography.XXTEACryptoService.Decrypt(System.String)">
+            <summary>
+            解密字符串
+            </summary>
+            <param name="s">传入的加密字符串</param>
+            <returns>返回明文</returns>
+        </member>
+        <member name="T:VMoom.Framework.HttpModules.UrlRewriter.XXTEAEncodeTransform">
+            <summary>
+            XXTEA 加密。
+            </summary>
+        </member>
+        <member name="M:VMoom.Framework.HttpModules.UrlRewriter.XXTEAEncodeTransform.ApplyTransform(System.String)">
+            <summary>
+            使用 XXTEA 算法加密指定字符串。
+            </summary>
+            <param name="input">预定义字符串。</param>
+            <returns>转换结果。</returns>
+        </member>
+        <member name="P:VMoom.Framework.HttpModules.UrlRewriter.XXTEAEncodeTransform.Name">
+            <summary>
+            本转换器的名称。
+            </summary>
+        </member>
+        <member name="T:VMoom.Framework.HttpModules.UrlRewriter.MyRewriteActionParser">
+            <summary>
+            问沫聚合门户系统 实现 Intelligencia.UrlRewriter 的自定义动作的解析器。
+            </summary>
+        </member>
+        <member name="M:VMoom.Framework.HttpModules.UrlRewriter.MyRewriteActionParser.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:VMoom.Framework.HttpModules.UrlRewriter.MyRewriteActionParser.Parse(System.Xml.XmlNode,System.Object)">
+            <summary>
+            解析节点。
+            </summary>
+            <param name="node">要解析的节点。</param>
+            <param name="config">重写设置。</param>
+            <returns>已经解析的动作接口。</returns>
+        </member>
+        <member name="P:VMoom.Framework.HttpModules.UrlRewriter.MyRewriteActionParser.Name">
+            <summary>
+            动作名。
+            </summary>
+        </member>
+        <member name="P:VMoom.Framework.HttpModules.UrlRewriter.MyRewriteActionParser.AllowsNestedActions">
+            <summary>
+            允许任意嵌套。
+            </summary>
+        </member>
+        <member name="P:VMoom.Framework.HttpModules.UrlRewriter.MyRewriteActionParser.AllowsAttributes">
+            <summary>
+            允许任意属性。
+            </summary>
+        </member>
+    </members>
+</doc>

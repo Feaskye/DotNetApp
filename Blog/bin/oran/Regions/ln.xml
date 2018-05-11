@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--辽宁-->
+<!--http://www.code-studio.net LikeCode-->
+<regions>
+  <region>沈阳</region>
+  <region>鞍山</region>
+  <region>本溪</region>
+  <region>朝阳</region>
+  <region>大连</region>
+  <region>丹东</region>
+  <region>抚顺</region>
+  <region>阜新</region>
+  <region>葫芦岛</region>
+  <region>锦州</region>
+  <region>辽阳</region>
+  <region>盘锦</region>
+  <region>铁岭</region>
+  <region>营口</region>
+</regions>
