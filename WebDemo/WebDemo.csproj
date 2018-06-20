@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,9 +42,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BarcodeLib.Barcode.ASP.NET">
-      <HintPath>..\..\..\BarcodeLib_NETBarcode_Trial\BarcodeLib_NETBarcode_Trial\barcode\Bin\BarcodeLib.Barcode.ASP.NET.dll</HintPath>
-    </Reference>
     <Reference Include="DS.Web.UCenter">
       <HintPath>..\..\UCenterAPIForDotNet\src\DS.Web.UCenter\bin\Debug\DS.Web.UCenter.dll</HintPath>
     </Reference>
@@ -153,8 +151,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\ProgramData\TEC-IT\TBarCode\11.2\Examples\Visual Studio .NET\WindowsFormControl\bin\Debug\TECIT.TBarCode.dll</HintPath>
     </Reference>
-    <Reference Include="ThoughtWorks.QRCode">
-      <HintPath>..\packages\ThoughtWorks.QRCode.dll</HintPath>
+    <Reference Include="ThoughtWorks.QRCode, Version=1.0.4778.30637, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ThoughtWorks.QRCode.1.1.0\lib\ThoughtWorks.QRCode.dll</HintPath>
     </Reference>
     <Reference Include="WebActivator, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WebActivator.1.5.1\lib\net40\WebActivator.dll</HintPath>
@@ -168,9 +166,11 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="zxing, Version=0.14.0.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\zxing二维码\二维码\zxing.dll</HintPath>
+    <Reference Include="zxing, Version=0.16.4.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.4\lib\net45\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.4.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.4\lib\net45\zxing.presentation.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -183,30 +183,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DemoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\QR.aspx.cs">
-      <DependentUpon>QR.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controllers\QR.aspx.designer.cs">
-      <DependentUpon>QR.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\QrCodeNetController.cs" />
     <Compile Include="Controllers\TestController.cs" />
-    <Compile Include="Controllers\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controllers\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\WebForm2.aspx.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controllers\WebForm2.aspx.designer.cs">
-      <DependentUpon>WebForm2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\ZXingController.cs" />
+    <Compile Include="Controllers\QRCodeController.cs" />
     <Compile Include="Controllers\ZXingHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -221,9 +199,6 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Controllers\QR.aspx" />
-    <Content Include="Controllers\WebForm1.aspx" />
-    <Content Include="Controllers\WebForm2.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -261,7 +236,7 @@
     <Content Include="uc.ashx" />
     <Content Include="Views\QrCodeNet\Index.cshtml" />
     <Content Include="Views\Demo\Index.cshtml" />
-    <Content Include="Views\ZXing\Index.cshtml" />
+    <Content Include="Views\QRCode\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

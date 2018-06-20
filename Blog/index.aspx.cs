@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 using System.Drawing;
-using System.Runtime.Caching;
+//using System.Runtime.Caching;
 
 public partial class index : System.Web.UI.Page
 {
@@ -21,7 +21,7 @@ public partial class index : System.Web.UI.Page
         }
         catch (Exception ex)
         {
-            LogHelper.WriteLog(ex.ToString());
+            //LogHelper.WriteLog(ex.ToString());
         }
 
     }
@@ -29,18 +29,18 @@ public partial class index : System.Web.UI.Page
 
     protected void btnUpLoad_Click(object sender, EventArgs e)
     {
-        if (FileUpload1.HasFile)
-        {
-            string FileName = DateTime.Now.ToString("yyyyMMddhhmmssfff")+Path.GetExtension(FileUpload1.PostedFile.FileName);
-            FileUpload1.SaveAs(Server.MapPath("UploadFiles/" + FileName));
-            string sourseFile = Server.MapPath("UploadFiles/" + FileName);
-            string targetFileName = Server.MapPath("UploadFiles/" + DateTime.Now.ToString("yyyyMMddhhmmssfff") + "_water" + Path.GetExtension(FileUpload1.PostedFile.FileName));
+        //if (FileUpload1.HasFile)
+        //{
+        //    string FileName = DateTime.Now.ToString("yyyyMMddhhmmssfff")+Path.GetExtension(FileUpload1.PostedFile.FileName);
+        //    FileUpload1.SaveAs(Server.MapPath("UploadFiles/" + FileName));
+        //    string sourseFile = Server.MapPath("UploadFiles/" + FileName);
+        //    string targetFileName = Server.MapPath("UploadFiles/" + DateTime.Now.ToString("yyyyMMddhhmmssfff") + "_water" + Path.GetExtension(FileUpload1.PostedFile.FileName));
 
-            Color fontColor = Color.FromName("Gray");
-            Color fontShodowColor = Color.FromName("Gray");
+        //    Color fontColor = Color.FromName("Gray");
+        //    Color fontShodowColor = Color.FromName("Gray");
 
-            WebGDI.GetWaterMarkTextImage(sourseFile, "麦勒商城", "黑体", wmPosition.RB, targetFileName, fontColor, fontShodowColor, true, 30, 70);
-        }
+        //    WebGDI.GetWaterMarkTextImage(sourseFile, "麦勒商城", "黑体", wmPosition.RB, targetFileName, fontColor, fontShodowColor, true, 30, 70);
+        //}
     }
 
 

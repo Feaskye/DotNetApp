@@ -12,7 +12,7 @@ public partial class Oran_Oran : System.Web.UI.Page
         //ChinaRegion1.ParentRegion
         //dvChina.InnerHtml = ChinaRegion1.ParentRegion + "" + ChinaRegion1.ChildRegion;
         //IndexNavigator1.PageCount=100;
-        IndexNavigator1.RecordCount = 100;
+        //IndexNavigator1.RecordCount = 100;
         
     }
 }

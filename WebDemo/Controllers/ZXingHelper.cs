@@ -1,50 +1,67 @@
-﻿using com.google.zxing;
-using com.google.zxing.common;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Web;
+using ZXing;
+using ZXing.Common;
+using ZXing.QrCode;
+using ZXing.QrCode.Internal;
 
 namespace WebDemo.Controllers
 {
+    /// <summary>
+    /// http://www.cnblogs.com/tianma3798/p/5426869.html
+    /// </summary>
     public class ZXingHelper
     {
-        public static void EAN13Encode(String contents, int width, int height, String imgPath)
+        /// <summary>
+        /// 生成二维码,保存成图片
+        /// </summary>
+        public static void QRCode(string text)
         {
-            int codeWidth = 3 + // start guard  
-                    (7 * 6) + // left bars  
-                    5 + // middle guard  
-                    (7 * 6) + // right bars  
-                    3; // end guard  
-            codeWidth = Math.Max(codeWidth, width);
+            BarcodeWriter writer = new BarcodeWriter();
+            writer.Format = BarcodeFormat.QR_CODE;
+            QrCodeEncodingOptions options = new QrCodeEncodingOptions();
+            options.DisableECI = true;
+            //设置内容编码
+            options.CharacterSet = "UTF-8";
+            //设置二维码的宽度和高度
+            options.Width = 500;
+            options.Height = 500;
+            //设置二维码的边距,单位不是固定像素
+            options.Margin = 1;
+            writer.Options = options;
 
-             ByteMatrix byteMatrix = new MultiFormatWriter().encode("PH201609261515507467", BarcodeFormat.CODE_128, 200, 100);
-
-            writeToFile(byteMatrix, System.Drawing.Imaging.ImageFormat.Png,HttpContext.Current.Server.MapPath(imgPath));
+            Bitmap map = writer.Write(text);
+            string filename = @"H:\桌面\截图\generate1.png";
+            map.Save(filename, ImageFormat.Png);
+            map.Dispose();
         }
 
-        public static void writeToFile(ByteMatrix matrix, System.Drawing.Imaging.ImageFormat format, string file)
+        /// <summary>
+        /// 生成条形码
+        /// </summary>
+        /// <param name="text"></param>
+        public static void BarCode(string text)
         {
-            Bitmap bmap = toBitmap(matrix);
-            bmap.Save(file, format);
-        }
-
-
-
-        public static Bitmap toBitmap(ByteMatrix matrix)
-        {
-            int width = matrix.Width;
-            int height = matrix.Height;
-            Bitmap bmap = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-            for (int x = 0; x < width; x++)
+            BarcodeWriter writer = new BarcodeWriter();
+            //使用ITF 格式，不能被现在常用的支付宝、微信扫出来
+            //如果想生成可识别的可以使用 CODE_128 格式
+            //writer.Format = BarcodeFormat.ITF;
+            writer.Format = BarcodeFormat.CODE_128;
+            EncodingOptions options = new EncodingOptions()
             {
-                for (int y = 0; y < height; y++)
-                {
-                    bmap.SetPixel(x, y, matrix.get_Renamed(x, y) != -1 ? ColorTranslator.FromHtml("0xFF000000") : ColorTranslator.FromHtml("0xFFFFFFFF"));
-                }
-            }
-            return bmap;
+                Width = 150,
+                Height = 50,
+                Margin = 2
+            };
+            writer.Options = options;
+            Bitmap map = writer.Write(text);
+            string filename = @"H:\桌面\截图\generate2.png";
+            map.Save(filename, ImageFormat.Png);
         }
 
     }

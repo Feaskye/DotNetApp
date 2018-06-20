@@ -13,7 +13,7 @@ public partial class js_ueditor_index : System.Web.UI.Page
             if (Request.Form["txtContent"]!=null)
             {
                 //Response.Write(Request.Form["txtContent"].ToString());
-                hideContent.Value = Request.Form["txtContent"].ToString();
+                //hideContent.Value = Request.Form["txtContent"].ToString();
             }
         }
     }
