@@ -1,0 +1,794 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4ACD29FD-C754-4E75-AB50-E07BC72BEB32}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web</RootNamespace>
+    <AssemblyName>Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Intelligencia.UrlRewriter.dll" />
+    <Content Include="bin\log4net.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.pdb" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\Oran.WebControl.IndexNavigator.dll" />
+    <Content Include="bin\Oran.WebControl.OranPager.dll" />
+    <Content Include="bin\Oran.WebControl.OranPager.xml" />
+    <Content Include="bin\OranChinaRegion.dll" />
+    <Content Include="bin\OranChinaRegion.xml" />
+    <Content Include="bin\oran\Regions\ah.xml" />
+    <Content Include="bin\oran\Regions\am.xml" />
+    <Content Include="bin\oran\Regions\bj.xml" />
+    <Content Include="bin\oran\Regions\cq.xml" />
+    <Content Include="bin\oran\Regions\fj.xml" />
+    <Content Include="bin\oran\Regions\gd.xml" />
+    <Content Include="bin\oran\Regions\gs.xml" />
+    <Content Include="bin\oran\Regions\gx.xml" />
+    <Content Include="bin\oran\Regions\gz.xml" />
+    <Content Include="bin\oran\Regions\hb.xml" />
+    <Content Include="bin\oran\Regions\hen.xml" />
+    <Content Include="bin\oran\Regions\hlj.xml" />
+    <Content Include="bin\oran\Regions\hn.xml" />
+    <Content Include="bin\oran\Regions\hub.xml" />
+    <Content Include="bin\oran\Regions\hun.xml" />
+    <Content Include="bin\oran\Regions\jl.xml" />
+    <Content Include="bin\oran\Regions\js.xml" />
+    <Content Include="bin\oran\Regions\jx.xml" />
+    <Content Include="bin\oran\Regions\ln.xml" />
+    <Content Include="bin\oran\Regions\nmg.xml" />
+    <Content Include="bin\oran\Regions\nx.xml" />
+    <Content Include="bin\oran\Regions\qh.xml" />
+    <Content Include="bin\oran\Regions\regions.xml" />
+    <Content Include="bin\oran\Regions\sc.xml" />
+    <Content Include="bin\oran\Regions\sd.xml" />
+    <Content Include="bin\oran\Regions\sh.xml" />
+    <Content Include="bin\oran\Regions\shanx.xml" />
+    <Content Include="bin\oran\Regions\sx.xml" />
+    <Content Include="bin\oran\Regions\tj.xml" />
+    <Content Include="bin\oran\Regions\tw.xml" />
+    <Content Include="bin\oran\Regions\xg.xml" />
+    <Content Include="bin\oran\Regions\xj.xml" />
+    <Content Include="bin\oran\Regions\xz.xml" />
+    <Content Include="bin\oran\Regions\yn.xml" />
+    <Content Include="bin\oran\Regions\zj.xml" />
+    <Content Include="bin\URLRewriter.dll" />
+    <Content Include="bin\VMoom.Framework.dll" />
+    <Content Include="bin\VMoom.Framework.xml" />
+    <Content Include="Default.aspx" />
+    <Content Include="fs\css\zzsc.css" />
+    <Content Include="fs\images\1.jpg" />
+    <Content Include="fs\images\2.jpg" />
+    <Content Include="fs\images\3.jpg" />
+    <Content Include="fs\images\4.jpg" />
+    <Content Include="fs\images\5.jpg" />
+    <Content Include="fs\images\icon.png" />
+    <Content Include="fs\images\icon_ie6.png" />
+    <Content Include="fs\index.html" />
+    <Content Include="fs\js\if.js" />
+    <Content Include="fs\js\jquery.js" />
+    <Content Include="fs\js\marquee.js" />
+    <Content Include="fs\js\zzsc.js" />
+    <Content Include="fs\p\imsges\BJ.png" />
+    <Content Include="fs\p\index.html" />
+    <Content Include="fs\p\js\if.js" />
+    <Content Include="fs\p\js\jquery-1.8.3.min.js" />
+    <Content Include="fs\p\js\TAB.js" />
+    <Content Include="fs\p\text.html" />
+    <Content Include="Global.asax" />
+    <Content Include="index.aspx" />
+    <Content Include="jsalert.html" />
+    <Content Include="js\artDialog\artDialog.js" />
+    <Content Include="js\artDialog\artDialog.source.js" />
+    <Content Include="js\artDialog\index - 副本.html" />
+    <Content Include="js\artDialog\index.html" />
+    <Content Include="js\artDialog\jquery.artDialog.js" />
+    <Content Include="js\artDialog\jquery.artDialog.source.js" />
+    <Content Include="js\artDialog\license.txt" />
+    <Content Include="js\artDialog\plugins\iframeTools.js" />
+    <Content Include="js\artDialog\plugins\iframeTools.source.js" />
+    <Content Include="js\artDialog\skins\aero.css" />
+    <Content Include="js\artDialog\skins\aero\aero_s.png" />
+    <Content Include="js\artDialog\skins\aero\aero_s2.png" />
+    <Content Include="js\artDialog\skins\aero\ie6\aui_close.hover.png" />
+    <Content Include="js\artDialog\skins\aero\ie6\aui_close.png" />
+    <Content Include="js\artDialog\skins\aero\ie6\aui_e.png" />
+    <Content Include="js\artDialog\skins\aero\ie6\aui_n.png" />
+    <Content Include="js\artDialog\skins\aero\ie6\aui_ne.png" />
+    <Content Include="js\artDialog\skins\aero\ie6\aui_nw.png" />
+    <Content Include="js\artDialog\skins\aero\ie6\aui_s.png" />
+    <Content Include="js\artDialog\skins\aero\ie6\aui_se.png" />
+    <Content Include="js\artDialog\skins\aero\ie6\aui_sw.png" />
+    <Content Include="js\artDialog\skins\aero\ie6\aui_title_icon.png" />
+    <Content Include="js\artDialog\skins\aero\ie6\aui_w.png" />
+    <Content Include="js\artDialog\skins\black.css" />
+    <Content Include="js\artDialog\skins\black\bg.png" />
+    <Content Include="js\artDialog\skins\black\bg2.png" />
+    <Content Include="js\artDialog\skins\black\bg_css3.png" />
+    <Content Include="js\artDialog\skins\black\bg_css3_2.png" />
+    <Content Include="js\artDialog\skins\black\ie6\close.hover.png" />
+    <Content Include="js\artDialog\skins\black\ie6\close.png" />
+    <Content Include="js\artDialog\skins\black\ie6\e.png" />
+    <Content Include="js\artDialog\skins\black\ie6\n.png" />
+    <Content Include="js\artDialog\skins\black\ie6\ne.png" />
+    <Content Include="js\artDialog\skins\black\ie6\nw.png" />
+    <Content Include="js\artDialog\skins\black\ie6\s.png" />
+    <Content Include="js\artDialog\skins\black\ie6\se.png" />
+    <Content Include="js\artDialog\skins\black\ie6\sw.png" />
+    <Content Include="js\artDialog\skins\black\ie6\w.png" />
+    <Content Include="js\artDialog\skins\blue.css" />
+    <Content Include="js\artDialog\skins\blue\bg.png" />
+    <Content Include="js\artDialog\skins\blue\bg2.png" />
+    <Content Include="js\artDialog\skins\blue\bg_css3.png" />
+    <Content Include="js\artDialog\skins\blue\bg_css3_2.png" />
+    <Content Include="js\artDialog\skins\blue\ie6\close.hover.png" />
+    <Content Include="js\artDialog\skins\blue\ie6\close.png" />
+    <Content Include="js\artDialog\skins\blue\ie6\e.png" />
+    <Content Include="js\artDialog\skins\blue\ie6\n.png" />
+    <Content Include="js\artDialog\skins\blue\ie6\ne.png" />
+    <Content Include="js\artDialog\skins\blue\ie6\nw.png" />
+    <Content Include="js\artDialog\skins\blue\ie6\s.png" />
+    <Content Include="js\artDialog\skins\blue\ie6\se.png" />
+    <Content Include="js\artDialog\skins\blue\ie6\sw.png" />
+    <Content Include="js\artDialog\skins\blue\ie6\w.png" />
+    <Content Include="js\artDialog\skins\chrome.css" />
+    <Content Include="js\artDialog\skins\chrome\border.png" />
+    <Content Include="js\artDialog\skins\chrome\chrome_s.png" />
+    <Content Include="js\artDialog\skins\default.css" />
+    <Content Include="js\artDialog\skins\green.css" />
+    <Content Include="js\artDialog\skins\green\bg.png" />
+    <Content Include="js\artDialog\skins\green\bg2.png" />
+    <Content Include="js\artDialog\skins\green\bg_css3.png" />
+    <Content Include="js\artDialog\skins\green\bg_css3_2.png" />
+    <Content Include="js\artDialog\skins\green\color_bg.png" />
+    <Content Include="js\artDialog\skins\green\ie6\close.hover.png" />
+    <Content Include="js\artDialog\skins\green\ie6\close.png" />
+    <Content Include="js\artDialog\skins\green\ie6\e.png" />
+    <Content Include="js\artDialog\skins\green\ie6\n.png" />
+    <Content Include="js\artDialog\skins\green\ie6\ne.png" />
+    <Content Include="js\artDialog\skins\green\ie6\nw.png" />
+    <Content Include="js\artDialog\skins\green\ie6\s.png" />
+    <Content Include="js\artDialog\skins\green\ie6\se.png" />
+    <Content Include="js\artDialog\skins\green\ie6\sw.png" />
+    <Content Include="js\artDialog\skins\green\ie6\w.png" />
+    <Content Include="js\artDialog\skins\icons\error.png" />
+    <Content Include="js\artDialog\skins\icons\face-sad.png" />
+    <Content Include="js\artDialog\skins\icons\face-smile.png" />
+    <Content Include="js\artDialog\skins\icons\loading.gif" />
+    <Content Include="js\artDialog\skins\icons\question.png" />
+    <Content Include="js\artDialog\skins\icons\succeed.png" />
+    <Content Include="js\artDialog\skins\icons\warning.png" />
+    <Content Include="js\artDialog\skins\idialog.css" />
+    <Content Include="js\artDialog\skins\idialog\idialog_s.png" />
+    <Content Include="js\artDialog\skins\idialog\idialog_s2.png" />
+    <Content Include="js\artDialog\skins\idialog\ie6\aui_close.hover.png" />
+    <Content Include="js\artDialog\skins\idialog\ie6\aui_close.png" />
+    <Content Include="js\artDialog\skins\idialog\ie6\aui_e.png" />
+    <Content Include="js\artDialog\skins\idialog\ie6\aui_n.png" />
+    <Content Include="js\artDialog\skins\idialog\ie6\aui_ne.png" />
+    <Content Include="js\artDialog\skins\idialog\ie6\aui_nw.png" />
+    <Content Include="js\artDialog\skins\idialog\ie6\aui_s.png" />
+    <Content Include="js\artDialog\skins\idialog\ie6\aui_se.png" />
+    <Content Include="js\artDialog\skins\idialog\ie6\aui_sw.png" />
+    <Content Include="js\artDialog\skins\idialog\ie6\aui_w.png" />
+    <Content Include="js\artDialog\skins\opera.css" />
+    <Content Include="js\artDialog\skins\opera\ie6\aui_close.hover.png" />
+    <Content Include="js\artDialog\skins\opera\ie6\aui_close.png" />
+    <Content Include="js\artDialog\skins\opera\ie6\aui_e.png" />
+    <Content Include="js\artDialog\skins\opera\ie6\aui_n.png" />
+    <Content Include="js\artDialog\skins\opera\ie6\aui_ne.png" />
+    <Content Include="js\artDialog\skins\opera\ie6\aui_nw.png" />
+    <Content Include="js\artDialog\skins\opera\ie6\aui_s.png" />
+    <Content Include="js\artDialog\skins\opera\ie6\aui_se.png" />
+    <Content Include="js\artDialog\skins\opera\ie6\aui_sw.png" />
+    <Content Include="js\artDialog\skins\opera\ie6\aui_w.png" />
+    <Content Include="js\artDialog\skins\opera\s1.png" />
+    <Content Include="js\artDialog\skins\opera\s2.png" />
+    <Content Include="js\artDialog\skins\simple.css" />
+    <Content Include="js\artDialog\skins\twitter.css" />
+    <Content Include="js\artDialog\test.html" />
+    <Content Include="js\artDialog\_doc\ajaxContent\content.html" />
+    <Content Include="js\artDialog\_doc\ajaxContent\googleMaps.html" />
+    <Content Include="js\artDialog\_doc\ajaxContent\login.html" />
+    <Content Include="js\artDialog\_doc\API.html" />
+    <Content Include="js\artDialog\_doc\demo.css" />
+    <Content Include="js\artDialog\_doc\demo.js" />
+    <Content Include="js\artDialog\_doc\down.html" />
+    <Content Include="js\artDialog\_doc\frameset.html" />
+    <Content Include="js\artDialog\_doc\googleMaps.html" />
+    <Content Include="js\artDialog\_doc\helloWorld.html" />
+    <Content Include="js\artDialog\_doc\highlight\AUTHORS.en.txt" />
+    <Content Include="js\artDialog\_doc\highlight\export.html" />
+    <Content Include="js\artDialog\_doc\highlight\highlight.js" />
+    <Content Include="js\artDialog\_doc\highlight\highlight.pack.js" />
+    <Content Include="js\artDialog\_doc\highlight\languages\javascript.js" />
+    <Content Include="js\artDialog\_doc\highlight\readme.eng.txt" />
+    <Content Include="js\artDialog\_doc\highlight\styles\magula.css" />
+    <Content Include="js\artDialog\_doc\highlight\test.html" />
+    <Content Include="js\artDialog\_doc\iframe.html" />
+    <Content Include="js\artDialog\_doc\iframeA.html" />
+    <Content Include="js\artDialog\_doc\iframeB.html" />
+    <Content Include="js\artDialog\_doc\iframeTop.html" />
+    <Content Include="js\artDialog\_doc\iframe_frameset.html" />
+    <Content Include="js\artDialog\_doc\images\alipay.jpg" />
+    <Content Include="js\artDialog\_doc\images\bg.png" />
+    <Content Include="js\artDialog\_doc\images\bottom.png" />
+    <Content Include="js\artDialog\_doc\images\doc.png" />
+    <Content Include="js\artDialog\_doc\images\lixiaolong.png" />
+    <Content Include="js\artDialog\_doc\images\logo.png" />
+    <Content Include="js\artDialog\_doc\images\opensource.gif" />
+    <Content Include="js\artDialog\_doc\images\photo.jpg" />
+    <Content Include="js\artDialog\_doc\images\text.png" />
+    <Content Include="js\artDialog\_doc\labs.html" />
+    <Content Include="js\artDialog\_doc\license.html" />
+    <Content Include="js\artDialog\_doc\log.html" />
+    <Content Include="js\artDialog\_doc\login_iframe.html" />
+    <Content Include="js\artDialog\_doc\login_iframe_2.html" />
+    <Content Include="js\artDialog\_doc\new.html" />
+    <Content Include="js\artDialog\_doc\plugin.iframe.html" />
+    <Content Include="js\artDialog\_doc\topFrame.html" />
+    <Content Include="js\artDialog\_doc\upd.txt" />
+    <Content Include="js\base64.js" />
+    <Content Include="js\jqm\jquery.mobile-1.3.2.min.css" />
+    <Content Include="js\jqm\jquery.mobile-1.3.2.min.js" />
+    <Content Include="js\jquery-1.9.1.min.js" />
+    <Content Include="js\layer\extend\layer.ext.js" />
+    <Content Include="js\layer\layer.min.js" />
+    <Content Include="js\layer\skin\default\icon_ext.png" />
+    <Content Include="js\layer\skin\default\textbg.png" />
+    <Content Include="js\layer\skin\default\xubox_ico0.png" />
+    <Content Include="js\layer\skin\default\xubox_loading0.gif" />
+    <Content Include="js\layer\skin\default\xubox_loading1.gif" />
+    <Content Include="js\layer\skin\default\xubox_loading2.gif" />
+    <Content Include="js\layer\skin\default\xubox_loading3.gif" />
+    <Content Include="js\layer\skin\default\xubox_title0.png" />
+    <Content Include="js\layer\skin\layer.css" />
+    <Content Include="js\layer\skin\layer.ext.css" />
+    <Content Include="js\ueditor\dialogs\anchor\anchor.html" />
+    <Content Include="js\ueditor\dialogs\attachment\attachment.css" />
+    <Content Include="js\ueditor\dialogs\attachment\attachment.html" />
+    <Content Include="js\ueditor\dialogs\attachment\attachment.js" />
+    <Content Include="js\ueditor\dialogs\attachment\fileTypeImages\icon_chm.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\fileTypeImages\icon_default.png" />
+    <Content Include="js\ueditor\dialogs\attachment\fileTypeImages\icon_doc.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\fileTypeImages\icon_exe.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\fileTypeImages\icon_jpg.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\fileTypeImages\icon_mp3.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\fileTypeImages\icon_mv.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\fileTypeImages\icon_pdf.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\fileTypeImages\icon_ppt.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\fileTypeImages\icon_psd.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\fileTypeImages\icon_rar.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\fileTypeImages\icon_txt.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\fileTypeImages\icon_xls.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\images\alignicon.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\images\alignicon.png" />
+    <Content Include="js\ueditor\dialogs\attachment\images\bg.png" />
+    <Content Include="js\ueditor\dialogs\attachment\images\file-icons.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\images\file-icons.png" />
+    <Content Include="js\ueditor\dialogs\attachment\images\icons.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\images\icons.png" />
+    <Content Include="js\ueditor\dialogs\attachment\images\image.png" />
+    <Content Include="js\ueditor\dialogs\attachment\images\progress.png" />
+    <Content Include="js\ueditor\dialogs\attachment\images\success.gif" />
+    <Content Include="js\ueditor\dialogs\attachment\images\success.png" />
+    <Content Include="js\ueditor\dialogs\background\background.css" />
+    <Content Include="js\ueditor\dialogs\background\background.html" />
+    <Content Include="js\ueditor\dialogs\background\background.js" />
+    <Content Include="js\ueditor\dialogs\background\images\bg.png" />
+    <Content Include="js\ueditor\dialogs\background\images\success.png" />
+    <Content Include="js\ueditor\dialogs\charts\chart.config.js" />
+    <Content Include="js\ueditor\dialogs\charts\charts.css" />
+    <Content Include="js\ueditor\dialogs\charts\charts.html" />
+    <Content Include="js\ueditor\dialogs\charts\charts.js" />
+    <Content Include="js\ueditor\dialogs\charts\images\charts0.png" />
+    <Content Include="js\ueditor\dialogs\charts\images\charts1.png" />
+    <Content Include="js\ueditor\dialogs\charts\images\charts2.png" />
+    <Content Include="js\ueditor\dialogs\charts\images\charts3.png" />
+    <Content Include="js\ueditor\dialogs\charts\images\charts4.png" />
+    <Content Include="js\ueditor\dialogs\charts\images\charts5.png" />
+    <Content Include="js\ueditor\dialogs\emotion\emotion.css" />
+    <Content Include="js\ueditor\dialogs\emotion\emotion.html" />
+    <Content Include="js\ueditor\dialogs\emotion\emotion.js" />
+    <Content Include="js\ueditor\dialogs\emotion\images\0.gif" />
+    <Content Include="js\ueditor\dialogs\emotion\images\bface.gif" />
+    <Content Include="js\ueditor\dialogs\emotion\images\cface.gif" />
+    <Content Include="js\ueditor\dialogs\emotion\images\fface.gif" />
+    <Content Include="js\ueditor\dialogs\emotion\images\jxface2.gif" />
+    <Content Include="js\ueditor\dialogs\emotion\images\neweditor-tab-bg.png" />
+    <Content Include="js\ueditor\dialogs\emotion\images\tface.gif" />
+    <Content Include="js\ueditor\dialogs\emotion\images\wface.gif" />
+    <Content Include="js\ueditor\dialogs\emotion\images\yface.gif" />
+    <Content Include="js\ueditor\dialogs\gmap\gmap.html" />
+    <Content Include="js\ueditor\dialogs\help\help.css" />
+    <Content Include="js\ueditor\dialogs\help\help.html" />
+    <Content Include="js\ueditor\dialogs\help\help.js" />
+    <Content Include="js\ueditor\dialogs\image\image.css" />
+    <Content Include="js\ueditor\dialogs\image\image.html" />
+    <Content Include="js\ueditor\dialogs\image\image.js" />
+    <Content Include="js\ueditor\dialogs\image\images\alignicon.jpg" />
+    <Content Include="js\ueditor\dialogs\image\images\bg.png" />
+    <Content Include="js\ueditor\dialogs\image\images\icons.gif" />
+    <Content Include="js\ueditor\dialogs\image\images\icons.png" />
+    <Content Include="js\ueditor\dialogs\image\images\image.png" />
+    <Content Include="js\ueditor\dialogs\image\images\progress.png" />
+    <Content Include="js\ueditor\dialogs\image\images\success.gif" />
+    <Content Include="js\ueditor\dialogs\image\images\success.png" />
+    <Content Include="js\ueditor\dialogs\insertframe\insertframe.html" />
+    <Content Include="js\ueditor\dialogs\internal.js" />
+    <Content Include="js\ueditor\dialogs\link\link.html" />
+    <Content Include="js\ueditor\dialogs\map\map.html" />
+    <Content Include="js\ueditor\dialogs\map\show.html" />
+    <Content Include="js\ueditor\dialogs\music\music.css" />
+    <Content Include="js\ueditor\dialogs\music\music.html" />
+    <Content Include="js\ueditor\dialogs\music\music.js" />
+    <Content Include="js\ueditor\dialogs\preview\preview.html" />
+    <Content Include="js\ueditor\dialogs\scrawl\images\addimg.png" />
+    <Content Include="js\ueditor\dialogs\scrawl\images\brush.png" />
+    <Content Include="js\ueditor\dialogs\scrawl\images\delimg.png" />
+    <Content Include="js\ueditor\dialogs\scrawl\images\delimgH.png" />
+    <Content Include="js\ueditor\dialogs\scrawl\images\empty.png" />
+    <Content Include="js\ueditor\dialogs\scrawl\images\emptyH.png" />
+    <Content Include="js\ueditor\dialogs\scrawl\images\eraser.png" />
+    <Content Include="js\ueditor\dialogs\scrawl\images\redo.png" />
+    <Content Include="js\ueditor\dialogs\scrawl\images\redoH.png" />
+    <Content Include="js\ueditor\dialogs\scrawl\images\scale.png" />
+    <Content Include="js\ueditor\dialogs\scrawl\images\scaleH.png" />
+    <Content Include="js\ueditor\dialogs\scrawl\images\size.png" />
+    <Content Include="js\ueditor\dialogs\scrawl\images\undo.png" />
+    <Content Include="js\ueditor\dialogs\scrawl\images\undoH.png" />
+    <Content Include="js\ueditor\dialogs\scrawl\scrawl.css" />
+    <Content Include="js\ueditor\dialogs\scrawl\scrawl.html" />
+    <Content Include="js\ueditor\dialogs\scrawl\scrawl.js" />
+    <Content Include="js\ueditor\dialogs\searchreplace\searchreplace.html" />
+    <Content Include="js\ueditor\dialogs\searchreplace\searchreplace.js" />
+    <Content Include="js\ueditor\dialogs\snapscreen\snapscreen.html" />
+    <Content Include="js\ueditor\dialogs\spechars\spechars.html" />
+    <Content Include="js\ueditor\dialogs\spechars\spechars.js" />
+    <Content Include="js\ueditor\dialogs\table\dragicon.png" />
+    <Content Include="js\ueditor\dialogs\table\edittable.css" />
+    <Content Include="js\ueditor\dialogs\table\edittable.html" />
+    <Content Include="js\ueditor\dialogs\table\edittable.js" />
+    <Content Include="js\ueditor\dialogs\table\edittd.html" />
+    <Content Include="js\ueditor\dialogs\table\edittip.html" />
+    <Content Include="js\ueditor\dialogs\template\config.js" />
+    <Content Include="js\ueditor\dialogs\template\images\bg.gif" />
+    <Content Include="js\ueditor\dialogs\template\images\pre0.png" />
+    <Content Include="js\ueditor\dialogs\template\images\pre1.png" />
+    <Content Include="js\ueditor\dialogs\template\images\pre2.png" />
+    <Content Include="js\ueditor\dialogs\template\images\pre3.png" />
+    <Content Include="js\ueditor\dialogs\template\images\pre4.png" />
+    <Content Include="js\ueditor\dialogs\template\template.css" />
+    <Content Include="js\ueditor\dialogs\template\template.html" />
+    <Content Include="js\ueditor\dialogs\template\template.js" />
+    <Content Include="js\ueditor\dialogs\video\images\bg.png" />
+    <Content Include="js\ueditor\dialogs\video\images\center_focus.jpg" />
+    <Content Include="js\ueditor\dialogs\video\images\file-icons.gif" />
+    <Content Include="js\ueditor\dialogs\video\images\file-icons.png" />
+    <Content Include="js\ueditor\dialogs\video\images\icons.gif" />
+    <Content Include="js\ueditor\dialogs\video\images\icons.png" />
+    <Content Include="js\ueditor\dialogs\video\images\image.png" />
+    <Content Include="js\ueditor\dialogs\video\images\left_focus.jpg" />
+    <Content Include="js\ueditor\dialogs\video\images\none_focus.jpg" />
+    <Content Include="js\ueditor\dialogs\video\images\progress.png" />
+    <Content Include="js\ueditor\dialogs\video\images\right_focus.jpg" />
+    <Content Include="js\ueditor\dialogs\video\images\success.gif" />
+    <Content Include="js\ueditor\dialogs\video\images\success.png" />
+    <Content Include="js\ueditor\dialogs\video\video.css" />
+    <Content Include="js\ueditor\dialogs\video\video.html" />
+    <Content Include="js\ueditor\dialogs\video\video.js" />
+    <Content Include="js\ueditor\dialogs\webapp\webapp.html" />
+    <Content Include="js\ueditor\dialogs\wordimage\fClipboard_ueditor.swf" />
+    <Content Include="js\ueditor\dialogs\wordimage\imageUploader.swf" />
+    <Content Include="js\ueditor\dialogs\wordimage\tangram.js" />
+    <Content Include="js\ueditor\dialogs\wordimage\wordimage.html" />
+    <Content Include="js\ueditor\dialogs\wordimage\wordimage.js" />
+    <Content Include="js\ueditor\index.aspx" />
+    <Content Include="js\ueditor\index.html" />
+    <Content Include="js\ueditor\lang\en\en.js" />
+    <Content Include="js\ueditor\lang\en\images\addimage.png" />
+    <Content Include="js\ueditor\lang\en\images\alldeletebtnhoverskin.png" />
+    <Content Include="js\ueditor\lang\en\images\alldeletebtnupskin.png" />
+    <Content Include="js\ueditor\lang\en\images\background.png" />
+    <Content Include="js\ueditor\lang\en\images\button.png" />
+    <Content Include="js\ueditor\lang\en\images\copy.png" />
+    <Content Include="js\ueditor\lang\en\images\deletedisable.png" />
+    <Content Include="js\ueditor\lang\en\images\deleteenable.png" />
+    <Content Include="js\ueditor\lang\en\images\listbackground.png" />
+    <Content Include="js\ueditor\lang\en\images\localimage.png" />
+    <Content Include="js\ueditor\lang\en\images\music.png" />
+    <Content Include="js\ueditor\lang\en\images\rotateleftdisable.png" />
+    <Content Include="js\ueditor\lang\en\images\rotateleftenable.png" />
+    <Content Include="js\ueditor\lang\en\images\rotaterightdisable.png" />
+    <Content Include="js\ueditor\lang\en\images\rotaterightenable.png" />
+    <Content Include="js\ueditor\lang\en\images\upload.png" />
+    <Content Include="js\ueditor\lang\zh-cn\images\copy.png" />
+    <Content Include="js\ueditor\lang\zh-cn\images\localimage.png" />
+    <Content Include="js\ueditor\lang\zh-cn\images\music.png" />
+    <Content Include="js\ueditor\lang\zh-cn\images\upload.png" />
+    <Content Include="js\ueditor\lang\zh-cn\zh-cn.js" />
+    <Content Include="js\ueditor\net\net.sln" />
+    <Content Include="js\ueditor\themes\default\css\ueditor.css" />
+    <Content Include="js\ueditor\themes\default\css\ueditor.min.css" />
+    <Content Include="js\ueditor\themes\default\dialogbase.css" />
+    <Content Include="js\ueditor\themes\default\images\anchor.gif" />
+    <Content Include="js\ueditor\themes\default\images\arrow.png" />
+    <Content Include="js\ueditor\themes\default\images\arrow_down.png" />
+    <Content Include="js\ueditor\themes\default\images\arrow_up.png" />
+    <Content Include="js\ueditor\themes\default\images\button-bg.gif" />
+    <Content Include="js\ueditor\themes\default\images\cancelbutton.gif" />
+    <Content Include="js\ueditor\themes\default\images\charts.png" />
+    <Content Include="js\ueditor\themes\default\images\cursor_h.gif" />
+    <Content Include="js\ueditor\themes\default\images\cursor_h.png" />
+    <Content Include="js\ueditor\themes\default\images\cursor_v.gif" />
+    <Content Include="js\ueditor\themes\default\images\cursor_v.png" />
+    <Content Include="js\ueditor\themes\default\images\dialog-title-bg.png" />
+    <Content Include="js\ueditor\themes\default\images\filescan.png" />
+    <Content Include="js\ueditor\themes\default\images\highlighted.gif" />
+    <Content Include="js\ueditor\themes\default\images\icons-all.gif" />
+    <Content Include="js\ueditor\themes\default\images\icons.gif" />
+    <Content Include="js\ueditor\themes\default\images\icons.png" />
+    <Content Include="js\ueditor\themes\default\images\loaderror.png" />
+    <Content Include="js\ueditor\themes\default\images\loading.gif" />
+    <Content Include="js\ueditor\themes\default\images\lock.gif" />
+    <Content Include="js\ueditor\themes\default\images\neweditor-tab-bg.png" />
+    <Content Include="js\ueditor\themes\default\images\pagebreak.gif" />
+    <Content Include="js\ueditor\themes\default\images\scale.png" />
+    <Content Include="js\ueditor\themes\default\images\sortable.png" />
+    <Content Include="js\ueditor\themes\default\images\spacer.gif" />
+    <Content Include="js\ueditor\themes\default\images\sparator_v.png" />
+    <Content Include="js\ueditor\themes\default\images\table-cell-align.png" />
+    <Content Include="js\ueditor\themes\default\images\tangram-colorpicker.png" />
+    <Content Include="js\ueditor\themes\default\images\toolbar_bg.png" />
+    <Content Include="js\ueditor\themes\default\images\unhighlighted.gif" />
+    <Content Include="js\ueditor\themes\default\images\upload.png" />
+    <Content Include="js\ueditor\themes\default\images\videologo.gif" />
+    <Content Include="js\ueditor\themes\default\images\word.gif" />
+    <Content Include="js\ueditor\themes\default\images\wordpaste.png" />
+    <Content Include="js\ueditor\themes\iframe.css" />
+    <Content Include="js\ueditor\third-party\codemirror\codemirror.css" />
+    <Content Include="js\ueditor\third-party\codemirror\codemirror.js" />
+    <Content Include="js\ueditor\third-party\highcharts\adapters\mootools-adapter.js" />
+    <Content Include="js\ueditor\third-party\highcharts\adapters\mootools-adapter.src.js" />
+    <Content Include="js\ueditor\third-party\highcharts\adapters\prototype-adapter.js" />
+    <Content Include="js\ueditor\third-party\highcharts\adapters\prototype-adapter.src.js" />
+    <Content Include="js\ueditor\third-party\highcharts\adapters\standalone-framework.js" />
+    <Content Include="js\ueditor\third-party\highcharts\adapters\standalone-framework.src.js" />
+    <Content Include="js\ueditor\third-party\highcharts\highcharts-more.js" />
+    <Content Include="js\ueditor\third-party\highcharts\highcharts-more.src.js" />
+    <Content Include="js\ueditor\third-party\highcharts\highcharts.js" />
+    <Content Include="js\ueditor\third-party\highcharts\highcharts.src.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\annotations.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\annotations.src.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\canvas-tools.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\canvas-tools.src.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\data.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\data.src.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\drilldown.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\drilldown.src.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\exporting.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\exporting.src.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\funnel.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\funnel.src.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\heatmap.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\heatmap.src.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\map.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\map.src.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\no-data-to-display.js" />
+    <Content Include="js\ueditor\third-party\highcharts\modules\no-data-to-display.src.js" />
+    <Content Include="js\ueditor\third-party\highcharts\themes\dark-blue.js" />
+    <Content Include="js\ueditor\third-party\highcharts\themes\dark-green.js" />
+    <Content Include="js\ueditor\third-party\highcharts\themes\gray.js" />
+    <Content Include="js\ueditor\third-party\highcharts\themes\grid.js" />
+    <Content Include="js\ueditor\third-party\highcharts\themes\skies.js" />
+    <Content Include="js\ueditor\third-party\jquery-1.10.2.js" />
+    <Content Include="js\ueditor\third-party\jquery-1.10.2.min.js" />
+    <Content Include="js\ueditor\third-party\snapscreen\UEditorSnapscreen.exe" />
+    <Content Include="js\ueditor\third-party\SyntaxHighlighter\shCore.js" />
+    <Content Include="js\ueditor\third-party\SyntaxHighlighter\shCoreDefault.css" />
+    <Content Include="js\ueditor\third-party\video-js\font\vjs.svg" />
+    <Content Include="js\ueditor\third-party\video-js\video-js.css" />
+    <Content Include="js\ueditor\third-party\video-js\video-js.min.css" />
+    <Content Include="js\ueditor\third-party\video-js\video-js.swf" />
+    <Content Include="js\ueditor\third-party\video-js\video.dev.js" />
+    <Content Include="js\ueditor\third-party\video-js\video.js" />
+    <Content Include="js\ueditor\third-party\webuploader\Uploader.swf" />
+    <Content Include="js\ueditor\third-party\webuploader\webuploader.css" />
+    <Content Include="js\ueditor\third-party\webuploader\webuploader.custom.js" />
+    <Content Include="js\ueditor\third-party\webuploader\webuploader.custom.min.js" />
+    <Content Include="js\ueditor\third-party\webuploader\webuploader.flashonly.js" />
+    <Content Include="js\ueditor\third-party\webuploader\webuploader.flashonly.min.js" />
+    <Content Include="js\ueditor\third-party\webuploader\webuploader.html5only.js" />
+    <Content Include="js\ueditor\third-party\webuploader\webuploader.html5only.min.js" />
+    <Content Include="js\ueditor\third-party\webuploader\webuploader.js" />
+    <Content Include="js\ueditor\third-party\webuploader\webuploader.min.js" />
+    <Content Include="js\ueditor\third-party\webuploader\webuploader.withoutimage.js" />
+    <Content Include="js\ueditor\third-party\webuploader\webuploader.withoutimage.min.js" />
+    <Content Include="js\ueditor\third-party\zeroclipboard\ZeroClipboard.js" />
+    <Content Include="js\ueditor\third-party\zeroclipboard\ZeroClipboard.min.js" />
+    <Content Include="js\ueditor\third-party\zeroclipboard\ZeroClipboard.swf" />
+    <Content Include="js\ueditor\ueditor.all.js" />
+    <Content Include="js\ueditor\ueditor.all.min.js" />
+    <Content Include="js\ueditor\ueditor.config.js" />
+    <Content Include="js\ueditor\ueditor.parse.js" />
+    <Content Include="js\ueditor\ueditor.parse.min.js" />
+    <Content Include="log.txt" />
+    <Content Include="Log\LogError\20141119.htm" />
+    <Content Include="Log\LogError\20141120.htm" />
+    <Content Include="Log\LogError\20141121.htm" />
+    <Content Include="Log\LogError\20141122.htm" />
+    <Content Include="Log\LogError\20141124.htm" />
+    <Content Include="Log\LogError\20141125.htm" />
+    <Content Include="Log\LogError\20141126.htm" />
+    <Content Include="Log\LogError\20141127.htm" />
+    <Content Include="Log\LogError\20141128.htm" />
+    <Content Include="Log\LogError\20141201.htm" />
+    <Content Include="Log\LogError\20141202.htm" />
+    <Content Include="Log\LogError\20141203.htm" />
+    <Content Include="Log\LogError\20141204.htm" />
+    <Content Include="Log\LogInfo\20141119.htm" />
+    <Content Include="Log\LogInfo\20141120.htm" />
+    <Content Include="Log\LogInfo\20141121.htm" />
+    <Content Include="Log\LogInfo\20141122.htm" />
+    <Content Include="Log\LogInfo\20141124.htm" />
+    <Content Include="Log\LogInfo\20141125.htm" />
+    <Content Include="Log\LogInfo\20141126.htm" />
+    <Content Include="Log\LogInfo\20141127.htm" />
+    <Content Include="Log\LogInfo\20141128.htm" />
+    <Content Include="Log\LogInfo\20141201.htm" />
+    <Content Include="Log\LogInfo\20141202.htm" />
+    <Content Include="Log\LogInfo\20141203.htm" />
+    <Content Include="Log\LogInfo\20141204.htm" />
+    <Content Include="mobile\index.aspx" />
+    <Content Include="OranPager.html" />
+    <Content Include="Oran\Oran.aspx" />
+    <Content Include="Oran\regions\ah.xml" />
+    <Content Include="Oran\regions\am.xml" />
+    <Content Include="Oran\regions\bj.xml" />
+    <Content Include="Oran\regions\cq.xml" />
+    <Content Include="Oran\regions\fj.xml" />
+    <Content Include="Oran\regions\gd.xml" />
+    <Content Include="Oran\regions\gs.xml" />
+    <Content Include="Oran\regions\gx.xml" />
+    <Content Include="Oran\regions\gz.xml" />
+    <Content Include="Oran\regions\hb.xml" />
+    <Content Include="Oran\regions\hen.xml" />
+    <Content Include="Oran\regions\hlj.xml" />
+    <Content Include="Oran\regions\hn.xml" />
+    <Content Include="Oran\regions\hub.xml" />
+    <Content Include="Oran\regions\hun.xml" />
+    <Content Include="Oran\regions\jl.xml" />
+    <Content Include="Oran\regions\js.xml" />
+    <Content Include="Oran\regions\jx.xml" />
+    <Content Include="Oran\regions\ln.xml" />
+    <Content Include="Oran\regions\nmg.xml" />
+    <Content Include="Oran\regions\nx.xml" />
+    <Content Include="Oran\regions\provinces.js" />
+    <Content Include="Oran\regions\qh.xml" />
+    <Content Include="Oran\regions\regions.xml" />
+    <Content Include="Oran\regions\sc.xml" />
+    <Content Include="Oran\regions\sd.xml" />
+    <Content Include="Oran\regions\sh.xml" />
+    <Content Include="Oran\regions\shanx.xml" />
+    <Content Include="Oran\regions\sx.xml" />
+    <Content Include="Oran\regions\tj.xml" />
+    <Content Include="Oran\regions\tw.xml" />
+    <Content Include="Oran\regions\xg.xml" />
+    <Content Include="Oran\regions\xj.xml" />
+    <Content Include="Oran\regions\xz.xml" />
+    <Content Include="Oran\regions\yn.xml" />
+    <Content Include="Oran\regions\zj.xml" />
+    <Content Include="Oran\regions\上海市.js" />
+    <Content Include="Oran\regions\云南省.js" />
+    <Content Include="Oran\regions\内蒙古自治区.js" />
+    <Content Include="Oran\regions\北京市.js" />
+    <Content Include="Oran\regions\台湾省.js" />
+    <Content Include="Oran\regions\吉林省.js" />
+    <Content Include="Oran\regions\四川省.js" />
+    <Content Include="Oran\regions\天津市.js" />
+    <Content Include="Oran\regions\宁夏回族自治区.js" />
+    <Content Include="Oran\regions\安徽省.js" />
+    <Content Include="Oran\regions\山东省.js" />
+    <Content Include="Oran\regions\山西省.js" />
+    <Content Include="Oran\regions\广东省.js" />
+    <Content Include="Oran\regions\广西壮族自治区.js" />
+    <Content Include="Oran\regions\新疆维吾尔自治区.js" />
+    <Content Include="Oran\regions\江苏省.js" />
+    <Content Include="Oran\regions\江西省.js" />
+    <Content Include="Oran\regions\河北省.js" />
+    <Content Include="Oran\regions\河南省.js" />
+    <Content Include="Oran\regions\浙江省.js" />
+    <Content Include="Oran\regions\海南省.js" />
+    <Content Include="Oran\regions\湖北省.js" />
+    <Content Include="Oran\regions\湖南省.js" />
+    <Content Include="Oran\regions\澳门特别行政区.js" />
+    <Content Include="Oran\regions\甘肃省.js" />
+    <Content Include="Oran\regions\福建省.js" />
+    <Content Include="Oran\regions\西藏自治区.js" />
+    <Content Include="Oran\regions\贵州省.js" />
+    <Content Include="Oran\regions\辽宁省.js" />
+    <Content Include="Oran\regions\重庆市.js" />
+    <Content Include="Oran\regions\陕西省.js" />
+    <Content Include="Oran\regions\青海省.js" />
+    <Content Include="Oran\regions\香港特别行政区.js" />
+    <Content Include="Oran\regions\黑龙江省.js" />
+    <Content Include="Pager.aspx" />
+    <Content Include="qqtips.html" />
+    <Content Include="UploadFiles\image\20141108\6355104050847946263022352.gif" />
+    <Content Include="UploadFiles\image\20141108\6355104062793129493585617.gif" />
+    <Content Include="Web.config" />
+    <Content Include="js\放大缩小\chengxiang-z4cy3u6li_56rb.jpg" />
+    <Content Include="js\放大缩小\ifm_show_prd.js" />
+    <Content Include="js\放大缩小\index.html" />
+    <Content Include="js\放大缩小\PicBox.htm" />
+    <Content Include="js\放大缩小\picture_zoom-.gif" />
+    <Content Include="js\放大缩小\picture_zoom.gif" />
+    <Content Include="js\放大缩小\picture_zoom1.gif" />
+    <Content Include="js\放大缩小\product_exp.css" />
+    <Content Include="js\Albums\images\bl201.jpg" />
+    <Content Include="js\Albums\images\ct27.jpg" />
+    <Content Include="js\Albums\images\ct37.jpg" />
+    <Content Include="js\Albums\images\ct41.jpg" />
+    <Content Include="js\Albums\images\sb.gif" />
+    <Content Include="js\Albums\images\sc.gif" />
+    <Content Include="js\Albums\images\sl.gif" />
+    <Content Include="js\Albums\images\sr.gif" />
+    <Content Include="js\Albums\index.html" />
+    <Content Include="js\Albums\js\js.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\CacheManager.cs" />
+    <Content Include="App_Code\Common.cs" />
+    <Content Include="App_Code\LogHelper.cs" />
+    <Content Include="App_Code\SqlChecker.cs" />
+    <Content Include="App_Code\ueditor\Config.cs" />
+    <Content Include="App_Code\ueditor\ConfigHandler.cs" />
+    <Content Include="App_Code\ueditor\CrawlerHandler.cs" />
+    <Content Include="App_Code\ueditor\Handler.cs" />
+    <Content Include="App_Code\ueditor\ListFileHandler.cs" />
+    <Content Include="App_Code\ueditor\NotSupportedHandler.cs" />
+    <Content Include="App_Code\ueditor\PathFormater.cs" />
+    <Content Include="App_Code\ueditor\UploadHandler.cs" />
+    <Content Include="App_Code\WebGDI.cs" />
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="js\ueditor\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mobile\index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Oran\Oran.aspx.cs">
+      <DependentUpon>Oran.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pager.aspx.cs">
+      <DependentUpon>Pager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="bin\Intelligencia.UrlRewriter.dll.refresh" />
+    <Content Include="bin\log4net.dll.refresh" />
+    <Content Include="bin\Newtonsoft.Json.dll.refresh" />
+    <Content Include="bin\Oran.WebControl.IndexNavigator.dll.refresh" />
+    <Content Include="bin\Oran.WebControl.OranPager.dll.refresh" />
+    <Content Include="bin\OranChinaRegion.dll.refresh" />
+    <Content Include="bin\URLRewriter.dll.refresh" />
+    <Content Include="bin\VMoom.Framework.dll.refresh" />
+    <Content Include="Config\URLReWrite.config" />
+    <Content Include="fs\index.html.bak" />
+    <Content Include="index.html.bak" />
+    <Content Include="js\artDialog\_doc\ajaxContent\content.json" />
+    <Content Include="js\artDialog\_doc\commercial_license.doc" />
+    <Content Include="js\artDialog\_doc\highlight\LICENSE" />
+    <Content Include="js\ueditor\net\config.json" />
+    <Content Include="js\ueditor\net\controller.ashx" />
+    <Content Include="js\ueditor\net\README.md" />
+    <Content Include="js\ueditor\net\Web.config.bak" />
+    <Content Include="js\ueditor\third-party\jquery-1.10.2.min.map" />
+    <Content Include="js\ueditor\third-party\video-js\font\vjs.eot" />
+    <Content Include="js\ueditor\third-party\video-js\font\vjs.ttf" />
+    <Content Include="js\ueditor\third-party\video-js\font\vjs.woff" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>false</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64208</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8001/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

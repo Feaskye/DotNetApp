@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--陕西-->
+<!--http://www.code-studio.net LikeCode-->
+<regions>
+  <region>西安</region>
+  <region>安康</region>
+  <region>宝鸡</region>
+  <region>汉中</region>
+  <region>商洛</region>
+  <region>铜川</region>
+  <region>渭南</region>
+  <region>咸阳</region>
+  <region>兴平</region>
+  <region>延安</region>
+  <region>榆林</region>
+</regions>

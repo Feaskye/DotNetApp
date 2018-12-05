@@ -1,0 +1,421 @@
+﻿<style type="text/css">
+    .oran_p_tab {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .oran_p_tab td {
+            border: solid 1px gray;
+            padding: 3px;
+            vertical-align: top;
+        }
+
+    .oran_cl {
+        list-style-type: disc;
+    }
+</style>
+<strong style="font-size: 14pt;">0 概论</strong><br style="font-size: 14pt;" />
+以前还不知道别人已经有分享过分页控件的时候，竹子自己写过一个简单的分页控件，起名叫 Oran.WebControl.IndexNavigator（索引导航），很简朴的一个分页控件，但功能也基本够用，后来，为了使用户体验更好，需要功能稍加丰富些的分页控件，跟着就找到了吴旗娃的aspnetpager，但在使用过程中，发现这个控件并不好用，主要问题有：<br />
+<ul class="oran_cl">
+    <li>生成HTML代码结构不良好，样式非常难控制</li>
+    <li>自定义性不强，表示形式受限</li>
+</ul>
+所以就促使竹子想自己开发一个分页控件，解决以上问题。竹子刚开始还想在aspnetpager的基础上修改，因为她是开源的，但发现代码过于复杂冗长，懒得看，怕等看完理解后所耗的时间够竹子全新开发一个，所以索性根据以往项目需求和可能的需求，全新设计开发。<br />
+主角出场：<strong>Oran.WebControl.OranPager</strong><br />
+控件名称很好理解，Oran是竹子自己起的英文名字，Pager，即分页器。<br />
+<br />
+<strong style="font-size: 14pt;">1 主要特点，优点</strong><br />
+<ol style="margin-left:30px;">
+    <li><span>以URL参数机制进行分页。</span></li>
+    <li>生成的HTML代码结构良好，样式易控制。</li>
+    <li>任何一部分元素均可单独设置CSS样式类名，自定义性强。</li>
+    <li>支持URL重写（UrlRewrite）规则。</li>
+    <li>逻辑简单，程序效率较高。</li>
+</ol>
+所有部分显示出来范例如下图：<br />
+<img alt="" src="http://images.cnblogs.com/cnblogs_com/ired/140018/o_oran_pager_1.GIF" height="42" width="719" /><br />
+<br />
+页码下拉列表和快速跳转工具影响整体美观，另外，一般情况也是很不必要的，所以，建议不要打开这两个部分，那么，范例效果将如下图：<br />
+<img alt="" src="http://images.cnblogs.com/cnblogs_com/ired/140018/o_oran_pager_2.gif" height="49" width="722" /><br />
+<br />
+<strong style="font-size: 14pt;">2 分页主要部件介绍</strong><br style="font-size: 14pt;" />
+<img alt="" src="http://images.cnblogs.com/cnblogs_com/ired/140018/o_oran_pager_3.gif" height="207" width="730" /><br />
+<br />
+<ul class="oran_cl">
+    <li>
+        自定义文本（CustomizeText）<br />
+        显示自定义HTML代码，一般用途有显示记录总数，页码总数等。<br />
+    </li>
+    <li>
+        首页/上一页/下一页/尾页<br />
+        此4个对象可设置单独的CSS样式类名。在实际应用中，此4个对象经常是以图片的形式显示，但在IE不同版本和不同的浏览器之间，对图片和文本的位置显示不一致，可以通过样式的background-image解决。<br />
+    </li>
+    <li>
+        数字页码<br />
+        页码索引，可设置最多显示N个页码，如果前/后面还有页码，根据设定可显示/隐藏『更多页码索引』。<br />
+    </li>
+    <li>
+        页码下拉列表<br />
+        自动选中当前页码下拉列表项，当必变项时，将改变location.href属性跳转到指定页。<br />
+    </li>
+    <li>
+        页码快速跳转工具<br />
+        在文本框里输入数字，按回车键或单击旁边的按钮，将改变location.href属性跳转到指定页。<br />
+    </li>
+</ul>
+<br />
+<strong style="font-size: 14pt;">3 URL重写规则</strong><br style="font-size: 14pt;" />
+启用了伪静态分页，请将 EnableUrlRewrite 设为 true，并设置URL重写规则属性UrlRewritePattern，该属性并不是设置你的URLRewrite规则，而只是一个URL格式化字符串，其中只有一个参数 {0} 表示页码参数，如 URLRewrite 规则是 <em>^~/demo-(\d+)\.html$</em>，则UrlRewritePattern属性设置为 <em>demo-{0}.html</em>。<br />
+PS：设置了UrlRewritePattern属性并不代表就启用了伪静态分页，必须将EnableUrlRewrite设为true才启用了伪静态分页。<br />
+<br />
+<strong style="font-size: 14pt;">4 重要参数说明</strong><br style="font-size: 14pt;" />
+<ul class="oran_cl">
+    <li>
+        PageUrlParameter<br />
+        页码URL参数名称，默认为 page。<br />
+    </li>
+    <li>
+        PageSize<br />
+        页大小，即每页显示的最大记录数。程序根据PageSize计算总页数（PageCount），所有页码索引相关。必须设置。<br />
+    </li>
+    <li>
+        RecordCount<br />
+        总记录数，现在查询的数据的总记录数。必须设置。<br />
+    </li>
+    <li>
+        PageIndex<br />
+        当前请求页索引，即现在访问的是第几页，一般不需要设置该参数，默认从URL里解析page参数值，如果解析失败，则返回1。<br />
+    </li>
+</ul>
+<br />
+<strong style="font-size: 14pt;">
+    6 参数<br />
+</strong>
+<table class="oran_p_tab">
+    <tr>
+        <td><b>参数名</b></td>
+        <td><b>类型</b></td>
+        <td><b>默认值</b></td>
+        <td><b>说明</b></td>
+    </tr>
+    <tr>
+        <td>AlwayShow</td>
+        <td>bool</td>
+        <td>true</td>
+        <td>
+            当记录总数为0时是否总是显示分页导航。<br />
+            不显示是指所有分页部件都不显示。
+        </td>
+    </tr>
+    <tr>
+        <td>AlwayShowPreviousNextFirstLast</td>
+        <td>bool</td>
+        <td>false</td>
+        <td>
+            当上一页/下一页/首页/尾页无效时是否总是显示他们。<br />
+            例如，当前页为1，那么，[首页]、[上一页]是无效的。
+        </td>
+    </tr>
+    <tr>
+        <td>GotoBoxTextBoxCssClass</td>
+        <td>string</td>
+        <td>oran_pg_txt</td>
+        <td>[跳转到第N页]快捷工具文本框的样式类名</td>
+    </tr>
+    <tr>
+        <td>GotoBoxButtonCssClass</td>
+        <td>string</td>
+        <td>oran_pg_btn</td>
+        <td>[跳转到第N页]快捷工具按钮的样式类名</td>
+    </tr>
+    <tr>
+        <td>PageListCssClass</td>
+        <td>string</td>
+        <td>&nbsp;</td>
+        <td>[页码下拉列表]的样式类名</td>
+    </tr>
+    <tr>
+        <td>TagName</td>
+        <td>string</td>
+        <td>div</td>
+        <td>
+            控件标签名称<br />
+            整个控件最外部容器的标签名，如果为空，则没有容器。
+        </td>
+    </tr>
+    <tr>
+        <td>PageUrlParameter</td>
+        <td>string</td>
+        <td>page</td>
+        <td>
+            获取或设置页码URL参数名称。<br />
+            默认为page
+        </td>
+    </tr>
+    <tr>
+        <td>PageSize</td>
+        <td>int</td>
+        <td>20</td>
+        <td>
+            页大小（每页显示的最大记录数）。<br />
+            值必须为正整数
+        </td>
+    </tr>
+    <tr>
+        <td>PageIndex</td>
+        <td>int</td>
+        <td>&nbsp;</td>
+        <td>
+            当前页码。<br />
+            值必须为正整数，默认从URL解析page参数值，如果该参数不存在或解析失败则返回1。<br />
+            开发人员一般不必对该属性进行操作。
+        </td>
+    </tr>
+    <tr>
+        <td>RecordCount</td>
+        <td>int</td>
+        <td>0</td>
+        <td>
+            记录总数。<br />
+            值必须为非负整数。<br />
+            <b>开发人员永远不要忘记设置该属性</b>
+        </td>
+    </tr>
+    <tr>
+        <td>PageCount</td>
+        <td>int</td>
+        <td>&nbsp;</td>
+        <td>
+            获取页码总数。<br />
+            控件根据PageSize和RecordCount自动计算该值。<br />
+            开发人员一般不必对该属性进行操作。
+        </td>
+    </tr>
+    <tr>
+        <td>PreviousPageText</td>
+        <td>string</td>
+        <td>上一页</td>
+        <td>[上一页]呈现的内容</td>
+    </tr>
+    <tr>
+        <td>ShowPreviousPage</td>
+        <td>bool</td>
+        <td>true</td>
+        <td>是否显示[上一页]按钮</td>
+    </tr>
+    <tr>
+        <td>NextPageText</td>
+        <td>string</td>
+        <td>下一页</td>
+        <td>[下一页]呈现的内容</td>
+    </tr>
+    <tr>
+        <td>ShowNextPage</td>
+        <td>bool</td>
+        <td>true</td>
+        <td>是否显示[下一页]按钮</td>
+    </tr>
+    <tr>
+        <td>FirstPageText</td>
+        <td>string</td>
+        <td>首页</td>
+        <td>[首页]呈现的内容</td>
+    </tr>
+    <tr>
+        <td>GotoButtonText</td>
+        <td>string</td>
+        <td>Go</td>
+        <td>[跳转到第N页]按钮显示的文本</td>
+    </tr>
+    <tr>
+        <td>ShowFirstPage</td>
+        <td>bool</td>
+        <td>true</td>
+        <td>是否显示[首页]按钮。<br />当值为true且[首页]按钮有效时，才能显示[首页]按钮</td>
+    </tr>
+    <tr>
+        <td>LastPageText</td>
+        <td>string</td>
+        <td>尾页</td>
+        <td>[尾页]呈现的内容</td>
+    </tr>
+    <tr>
+        <td>ShowLastPage</td>
+        <td>bool</td>
+        <td>true</td>
+        <td>是否显示[尾页]按钮。<br />当值为true且[尾页]按钮有效时，才能显示[尾页]按钮</td>
+    </tr>
+    <tr>
+        <td>FirstPageCssClass</td>
+        <td>string</td>
+        <td>oran_pg_fp</td>
+        <td>[首页]样式类名</td>
+    </tr>
+    <tr>
+        <td>PreviousPageCssClass</td>
+        <td>string</td>
+        <td>oran_pg_pp</td>
+        <td>[上一页]样式类名</td>
+    </tr>
+    <tr>
+        <td>NextPageCssClass</td>
+        <td>string</td>
+        <td>oran_pg_np</td>
+        <td>[下一页]样式类名</td>
+    </tr>
+    <tr>
+        <td>LastPageCssClass</td>
+        <td>string</td>
+        <td>oran_pg_lp</td>
+        <td>[尾页]样式类名</td>
+    </tr>
+    <tr>
+        <td>NumericButtonCount</td>
+        <td>int</td>
+        <td>10</td>
+        <td>显示数字页码按钮的个数。</td>
+    </tr>
+    <tr>
+        <td>NumericButtonTextFormatString</td>
+        <td>string</td>
+        <td>&nbsp;</td>
+        <td>
+            数字页码呈现的内容的格式数字页码呈现的内容的格式。<br />
+            包含格式：<br />
+            {0}表示超链接地址}表示页码数字。<br />默认值：&lt;a href=\"{0}\"&gt;{1}&lt;/a&gt;
+        </td>
+    </tr>
+    <tr>
+        <td>CurrentNumericButtonCssClass</td>
+        <td>string</td>
+        <td>oran_pg_cur</td>
+        <td>当前页数字按钮的样式类名</td>
+    </tr>
+    <tr>
+        <td>ShowNumericButton</td>
+        <td>bool</td>
+        <td>true</td>
+        <td>是否显示页码按钮</td>
+    </tr>
+    <tr>
+        <td>MorePreviousNumericButtonText</td>
+        <td>string</td>
+        <td>&lt;...</td>
+        <td>[前面还有更多页码]呈现的文本</td>
+    </tr>
+    <tr>
+        <td>MoreNextNumericButtonText</td>
+        <td>string</td>
+        <td>...&gt;</td>
+        <td>[后面还有更多页码]呈现的文本</td>
+    </tr>
+    <tr>
+        <td>ShowMoreNumericButton</td>
+        <td>true</td>
+        <td>true</td>
+        <td>是否显示[更多页码按钮]</td>
+    </tr>
+    <tr>
+        <td>ShowGotoBox</td>
+        <td>bool</td>
+        <td>false</td>
+        <td>是否显示[跳转到]的快捷工具</td>
+    </tr>
+    <tr>
+        <td>ShowPageIndexList</td>
+        <td>bool</td>
+        <td>false</td>
+        <td>是否显示页码列表</td>
+    </tr>
+    <tr>
+        <td>PagerTagName</td>
+        <td>string</td>
+        <td>&nbsp;</td>
+        <td>
+            分页控件主要部分容器标签分页控件主要部分容器标签名称，如果为空，则没有容器。<br />
+            主要部分指：[首页]、[上一页]、[数字页码]、[下一页]、[尾页]、[页码列表]、[快速跳转工具]、[前/后还有更多数字页码]。
+        </td>
+    </tr>
+    <tr>
+        <td>PagerCssClass</td>
+        <td>ooran_pg_main</td>
+        <td>分页控件主要部分样式类名</td>
+    </tr>
+    <tr>
+        <td>CustomizeText</td>
+        <td>string</td>
+        <td>string.Empty</td>
+        <td>自定义文本</td>
+    </tr>
+    <tr>
+        <td>ShowCustomizeText</td>
+        <td>bool</td>
+        <td>false</td>
+        <td>是否显示自定义文本/tr>
+    <tr>
+        <td>CustomizeTextCustomizeTextAlign</td>
+        <td>enum</td>
+        <td>&nbsp;</td>
+        <td>
+            自定义文本呈现的位置。<br />
+            默认值：CustomizeTextAlignEnum.Left
+        </td>
+    </tr>
+    <tr>
+        <td>UrlRewritePattern</td>
+        <td>string</td>
+        <td>string.Empty</td>
+        <td>
+            URL重写格式。<br />
+            包含格式：<br />
+            {0}表示页码。
+        </td>
+    </tr>
+
+    <tr>
+        <td>EnableUrlRewrite</td>
+        <td>bool</td>
+        <td>false</td>
+        <td>是否启用URL重写</td>
+    </tr>
+    <tr>
+        <td>UrlPathFilename</td>
+        <td>string</td>
+        <td>&nbsp;</td>
+        <td>URL请求的文件名。必对该属性进行操作。</td>
+    </tr>
+    <tr>
+        <td>QueryFormatString</td>
+        <td>string</td>
+        <td>&nbsp;</td>
+        <td>获取URL参数格式字符串。        开发人员一般不必对该属性进行操作。</td>
+    </tr>
+    <tr>
+        <td>CustomizeLayoutFormatString</td>
+        <td>string</td>
+        <td>&nbsp;</td>
+        <td>
+            自定义布局格式化字符串。
+
+            包含格式：<br />
+            {$text$} 自定义文本<br />
+            {$first$} 首页<br />
+            {$pre$} 上一页<br />
+            {$num$} 数字页码<br />
+            {$next$} 下一页<br />
+            {$last$} 尾页<br />
+            {$pre_more$} 前面还有更多页码<br />
+            {$next_more$} 后面还有更多页码<br />
+            {$list$} 页码下拉列表<br />
+            {$goto$} 直接跳转{$goto$} 直接跳转到第N页快捷工具<br />
+            注意：<br />
+            控件以正则page=d*替换URL参数，page指属性UrlPathFilename。<br />
+            值不包含的格式字符串将不会被输出。
+        </td>
+    </tr>
+    <tr>
+        <td>EnableCustomizeLayout</td>
+        <td>bool</td>
+        <td>false</td>
+        <td>是否启用自定义布局/tr>
+</table>

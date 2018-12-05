@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--甘肃-->
+<!--http://www.code-studio.net LikeCode-->
+<regions>
+  <region>兰州</region>
+  <region>白银</region>
+  <region>定西</region>
+  <region>甘南</region>
+  <region>嘉峪关</region>
+  <region>酒泉</region>
+  <region>临夏</region>
+  <region>陇南</region>
+  <region>平凉</region>
+  <region>庆阳</region>
+  <region>天水</region>
+  <region>武威</region>
+  <region>张掖</region>
+</regions>

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>index</title>
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    
+
+<style>
+#con {
+	WIDTH: 615px;
+	margin-top: 35px;
+	margin-right: auto;
+	margin-bottom: 40px;
+	margin-left: 10px;
+	float: left;
+}
+#tags {
+	WIDTH: 610px;
+	HEIGHT: 31px;
+	padding: 0px;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 29px;
+	margin-left: 5px;
+}
+#tags li {
+	MARGIN-RIGHT: 1px;
+	LIST-STYLE-TYPE: none;
+	HEIGHT: 38px;
+	font-family: "微软雅黑";
+	font-size: 16px;
+	color: #000000;
+	border: 1px solid #666666;
+	background-color: #CCCCCC;
+	cursor: pointer;
+	width: 80px;
+	text-align: center;
+	margin-left: 1px;
+	padding-top: 15px;
+}
+
+#con #tags li:hover {
+	border: 1px solid #999999;
+	background-color: #FFFFFF;
+}
+    #con #tags li.hover {
+        border: 1px solid #999999;
+        background-color: #FFFFFF;
+    }
+</style>
+<script type="text/javascript">
+	$(function(){
+		$("#tags li").click(function(){
+			var xz = $(this).index();
+			$("#tags li").css("background-color","#ccc");
+			$("#tags li").css("color","#000000");
+			$(this).css({
+				'backgroundColor' : 'white',
+				'color' : '#000'
+			});
+			$("#tagContent div").hide();
+			$("#tagContent"+xz+"").show();
+		});		
+	});
+</script>
+</head>
+<body>
+<div id=con>
+      <ul id="tags">
+          <li class="hover"><a href="index.html">综合信息</a> </li>
+        <li >技术信息 </li>
+        <li ><a href="text.html">文档软件</a> </li>        <li >服务</li>
+   		<li >附近备件 </li>
+      </ul>
+      
+    </div>
+    <script src="js/if.js"></script>
+</body>
+</html>
