@@ -1,0 +1,109 @@
+﻿<div class="span12">
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"><i class="icon-list-alt"></i></span>
+            <h5>维修记录查询</h5>
+        </div>
+        <div class="widget-content">
+            <form name='queryRepairForm' class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-3 tag-horizontal">
+                        <div class="col-lg-4">
+                            <label class="text-right inline pull-label s-label-len" for="bicyCleNumber">车辆编号</label>
+                        </div>
+
+                        <div class="col-lg-8">
+                            <input name='bicyCleNumber' type="text" id="bicyCleNumber" class="m-wrap form-control" placeholder="请输入车辆编号" ng-model='queryRepairData.bicyCleNumber' />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 tag-horizontal">
+                        <div class="col-sm-4">
+                            <label class="inline pull-label s-label-len text-right" for="userNickName">维修人员</label>
+                        </div>
+
+                        <div class="col-sm-8">
+                            <input name='userNickName' type="text" id="userNickName" class="m-wrap form-control" placeholder="请输入维修人员昵称" ng-model='queryRepairData.userNickName' />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 tag-horizontal">
+
+                        <div class="col-sm-2">
+                            <label class="inline pull-label s-label-len text-right" for="repairSTime">维修时间</label>
+                        </div>
+
+                        <div class="col-sm-10 form-inline">
+                            <div class="repairSTime input-append date form_datetime">
+                                <input type="text" class="row-control" id="repairSTime" data-format="yyyy/MM/dd" ng-model="queryRepairData.repairSTime" name="repairSTime" />
+                                <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+                            </div>
+                            <span class="row-mid">~</span>
+                            <div class="repairETime input-append date form_datetime">
+                                <input type="text" class="row-control" id="repairETime" data-format="yyyy/MM/dd" ng-model="queryRepairData.repairETime" name="repairETime" />
+                                <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4">
+                        <a ng-click='onQuery()' class="btn grey btn-margin-left"><i class="icon-search"></i>查询</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"><i class="icon-reorder"></i></span>
+            <h5>维修记录列表</h5>
+        </div>
+
+        <div id="successAlert" class="alert alert-success" style="display:none;"></div>
+        <div id="warningAlert" class="alert alert-warning" style="display:none;"></div>
+
+        <div class="widget-content table-responsive">
+            <table ng-table="tableParams" class="table table-striped table-bordered table-hover">
+                <thead class="panel panel-default">
+                    <tr class="panel-heading">
+                        <th class="hidden-480">序号</th>
+                        <th class="hidden-480">车辆编号</th>
+                        <th class="hidden-480">故障类型</th>
+                        <th class="hidden-480">持工证图片</th>
+                        <th class="hidden-480">维修状态</th>
+                        <th class="hidden-480">维修人员</th>
+                        <th class="hidden-480">维修时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd gradeX" ng-repeat='item in $data'>
+                        <td class="hidden-480">
+                            <span>{{$index+1+preCnt}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.BikeNumber}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.BreakDownType}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <a ng-click="onzoomPic($event)"><img ng-src="{{item.ICBCPhoto}}" style="width:50px;height:50px;border:0;display:inline-block;" class="img-rounded" alt="" /></a>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.ServiceStatus}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.RepirtName}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.RepirtTime|dateFormatFilter}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

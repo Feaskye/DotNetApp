@@ -1,0 +1,77 @@
+﻿<!-- Modal -->
+<div class="modal_cus fade" id="myModalDetail" tabindex="-1" role="dialog" aria-labelledby="BicycleModalLabel" aria-hidden="true" style='top: 15%;' data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal_tag">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="BicycleModalLabel">
+                    车辆详细信息
+                </h4>
+            </div>
+            <div class="modal-body" style="max-height:520px;">
+                <div id="successAlert1" class="alert alert-success" style="display:none;"></div>
+                <div id="warningAlert1" class="alert alert-warning" style="display:none;"></div>
+
+                <div class="span12">
+                    <form name="memberBasicInfoForm" action="#" class="modal-body form-horizontal" style="max-height: inherit; ">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="BicyCleNumber"><span style="color:red;"></span>车辆编号</label>
+                            <div class="col-sm-10"><input name='BicyCleNumber' class="m-wrap form-control" type="text" ng-model='BicycleItem.BicyCleNumber' id="BicyCleNumber" ng-minlength='1' ng-maxlength='20' maxlength="20"   disabled="disabled"  /></div>
+                        </div>
+ 
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="LockNumber"><span style="color:red;"></span>锁编号</label>
+                            <div class="col-sm-10">
+                                <input name='LockNumber' class="m-wrap form-control" type="text" ng-model='BicycleItem.LockNumber' id="LockNumber" ng-minlength='1' ng-maxlength='20' maxlength="20"  disabled="disabled"   />
+                            </div>
+                        </div>
+ 
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="BicycleTypeName"><span style="color:red;"></span>车辆类型</label>
+                            <div class="col-sm-10">
+                                <input name='BicycleTypeName' class="m-wrap form-control" type="text" ng-model='BicycleItem.BicycleTypeName' id="BicycleTypeName"  disabled="disabled"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="Voltage"><span style="color:red;"></span>当前电压</label>
+                            <div class="col-sm-10">
+
+                                <input name='Voltage' class="m-wrap form-control" type="text" ng-model='BicycleItem.Voltage' id="Voltage" disabled="disabled" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="LockStatus"><span style="color:red;"></span>状态</label>
+                            <div class="col-sm-10">
+                                <input name='LockStatus' class="m-wrap form-control" type="text" ng-model='BicycleItem.LockStatus' id="LockStatus"  disabled="disabled"  />
+                            </div>
+                        </div>
+                      
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="DistricName"><span style="color:red;"></span>区域</label>
+                            <div class="col-sm-10">
+
+                                <input name='DistricName' class="m-wrap form-control" type="text" ng-model='BicycleItem.DistricName' id="DistricName"  disabled="disabled"  />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="Remark">备注</label>
+                            <div class="col-sm-10">
+                                <textarea id="Remark" rows="6" ng-model="BicycleItem.Remark" name="Remark" style="width:100%"  disabled="disabled"  ></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <i class="icon-remove-sign"></i>关闭
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

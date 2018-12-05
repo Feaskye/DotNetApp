@@ -1,0 +1,81 @@
+﻿<div class="modal_cus fade" id="electronicfenceModal" tabindex="-1" role="dialog" aria-labelledby="electronicfenceModalLabel" aria-hidden="true" style='top: 15%;' data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-tq">
+        <div class="modal-content">
+            <div class="modal-header modal_tag">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="electronicfenceModalLabel">
+                    {{isEdit?'编辑':'新增'}}电子围栏信息
+                </h4>
+            </div>
+            <div class="modal-body" style="max-height:450px;">
+                <div id="successAlert1" class="alert alert-success" style="display:none;"></div>
+                <div id="warningAlert1" class="alert alert-warning" style="display:none;"></div>
+
+                <div class="span12">
+                    <form name="electronicfenceEditForm" action="#" class="modal-body form-horizontal" style="max-height: inherit; ">
+
+                        <input type="hidden" name="EnclosureGuid" id="EnclosureGuid" ng-model="electronicfenceData.EnclosureGuid" />
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="seq"><span style="color:red;"></span>电子围栏编号</label>
+                            <div class="col-sm-10">
+                                <input name='seq' class="m-wrap form-control" type="text" ng-model='electronicfenceData.EnclosureSeq' id="seq" disabled="disabled" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="longitude">经度</label>
+                            <div class="col-sm-4">
+                                <input name='longitude' class="m-wrap form-control" type="number"  step="0.000001" ng-model='electronicfenceData.EnclosureLongitude' id="longitude" />
+                            </div>
+                            <label class="col-sm-2 control-label" for="latitude">纬度</label>
+                            <div class="col-sm-4">
+                                <input name='latitude' class="m-wrap form-control" type="number"  step="0.000001" ng-model='electronicfenceData.EnclosureLatitude' id="latitude" />
+                            </div>
+                        </div>
+                        <!--<div class="form-group">
+                            <label class="col-sm-2 control-label" for="province">电子围栏区域</label>
+                            <div class="col-sm-10" style="padding-left:0px;">
+                                <div class="col-sm-9 col-nowrap">
+                                    <select class="form-inline row-control col-sm-4" ng-model="electronicfenceData.EnclosureProvinceId" id="province" ng-options="s.ProvinceId as s.ProvinceName for s in selRegion.ProvinceData" ng-change="onChgProvinceEdit()">
+                                        <option value="">(请选择)</option>
+                                    </select>
+                                    <select class="form-inline row-control col-sm-4" ng-model="electronicfenceData.EnclosureCityId" id="city" ng-options="s.CityId as s.CityName for s in cityData" ng-disabled="electronicfenceData.EnclosureProvinceId=='' || electronicfenceData.EnclosureProvinceId==null" ng-change="onChgCityEdit()">
+                                        <option value="">(请选择)</option>
+                                    </select>
+                                    <select class="form-inline row-control col-sm-4" ng-model="electronicfenceData.EnclosureDistrictId" id="area" ng-options="s.DistrictId as s.DistrictName for s in districtData" ng-disabled="electronicfenceData.EnclosureCityId=='' || electronicfenceData.EnclosureCityId==null">
+                                        <option value="">(请选择)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>-->
+                        <!--<div class="form-group">
+                            <label class="col-sm-2 control-label" for="address">详细地址</label>
+                            <div class="col-sm-10">
+                                <input name='address' class="m-wrap form-control" type="text" ng-model='electronicfenceData.DetailAddress' id="address" />
+                            </div>
+                        </div>-->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="state">状态</label>
+                            <div class="col-sm-10">
+                                <select class="form-inline row-control select-inline" ng-model="electronicfenceData.EnclosureState" ng-options="o.id as o.name for o in  StatusNames" id="state" name="state"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="note ">备注</label>
+                            <div class="col-sm-10">
+                             
+                                <textarea id="Remark" rows="6" ng-model="electronicfenceData.EnclosureRemark" name="Remark" style="width:100%"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click='onUpdate()' ng-disabled=""><i class="icon-save"></i>保存</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="icon-remove-sign"></i>关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

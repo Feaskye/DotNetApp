@@ -1,0 +1,637 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MintCyclingWebApi</name>
+    </assembly>
+    <members>
+        <member name="T:MintCyclingWebApi.AppControllers.accountController">
+            <summary>
+            用户账户控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.accountController.#ctor">
+            <summary>
+            初始化用户账户控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.accountController.GetUsableAmountByUserInfoGuid(System.Guid)">
+            <summary>
+            查询用户钱包余额和押金是否充足 complete TOM
+            DATE:2017-06-19
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.AlipayController.#ctor">
+            <summary>
+            初始化支付宝支付控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.AlipayController.GetAlipayTradeAppPay(MintCyclingService.alipay.AlipayTradeModel)">
+            <summary>
+            生成APP支付订单信息及签名  complete TOM
+            DATE:2017-03-23
+            </summary>
+            <returns>类别：TypeName =1表示押金充值；TypeName=2表示余额充值</returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.AlipayController.DepositAlipayTradeRefund(MintCyclingService.alipay.UserDepositRefundModel)">
+            <summary>
+            用户退押金集成了支付宝和微信接口 complete TOM
+            DATE:2017-03-25
+            </summary>
+            <param name="para"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.BaiduController.#ctor">
+            <summary>
+            初始化车辆模块控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.BaiduController.GetAddressBaiduApi(System.String,System.String)">
+            <summary>
+            测试通过经纬度查询详细地址   complete TOM
+            DATE:2017-03-30
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MintCyclingWebApi.AppControllers.bikeController">
+            <summary>
+            车辆模块控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.bikeController.#ctor">
+            <summary>
+            初始化车辆模块控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.bikeController.isinfence(MintCyclingService.Cycling.BicycleIsinRange_PM)">
+            <summary>
+            查询是否停放在电子围栏区域
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.bikeController.qunlockstatus(System.String)">
+            <summary>
+            服务器查询开锁状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.bikeController.SendRemoteOPenLock(MintCyclingService.Cycling.UnLockBicycle_PM)">
+            <summary>
+            远程开锁 complete Tom
+            DATE:2017-06-22
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.bikeController.HardWareAddBicycleInfo(MintCyclingService.Cycling.AddBicycleHardWare_PM)">
+            <summary>
+            出厂时硬件上传锁信息 complete TOM
+            DATE:2017-04-27
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.bikeController.HardWareAutoUpadate(MintCyclingService.Remote.HardWareAuto_PM)">
+            <summary>
+            12小时锁自动上传锁信息  complete TOM
+            DATE:2017-05-16
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.bikeController.OpenOrClosekBicycleLock(MintCyclingService.Cycling.OpenOrCloseLockBicycle_PM)">
+            <summary>
+            上传开关锁交易记录-手机蓝牙或者硬件锁上传 complete TOM
+            DATE:2017-03-03
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.bikeController.CheckInputDeviceNoOrScanCode(MintCyclingService.Cycling.InputOrScan_PM)">
+            <summary>
+            输入车辆编号或者扫码开锁获取该车锁的状态 complete Tom
+            DATE:2017-04-13
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.bikeController.GetEncryptionKey(System.Int32,System.String,System.String,System.Guid)">
+            <summary>
+            获取锁的秘钥串加密信息   complete TOM
+            更新时间DATE:2017-05-29
+            </summary>
+            <param name="version"></param>
+            <param name="keySerial"></param>
+            <param name="deviceNo"></param>
+            <param name="UserInfoGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.bikeController.GetBicycleTypeNameByBicycleNumber(System.String)">
+            <summary>
+            根据车辆编号查询车辆类型  complete TOM
+            DATE:2017-05-25
+            </summary>
+            <param name="BicycleNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.bikeController.GetCountDownTimeByUserGuid(System.Nullable{System.Guid})">
+            <summary>
+            获取用户的预约倒计时信息  complete TOM
+            DATE:2017-04-17
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.bikeController.GetIsRidingByUserGuid(System.Nullable{System.Guid})">
+            <summary>
+            是否骑行中  complete TOM
+            DATE:2017-04-21
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.bikeController.CancelReservationBicycle(MintCyclingService.Cycling.UpdateReservation_PM)">
+            <summary>
+            取消预约用车  complete TOM
+            DATE:2017-03-21
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MintCyclingWebApi.AppControllers.BreakdownController">
+            <summary>
+            故障控制器类
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.BreakdownController.#ctor">
+            <summary>
+            初始化车辆模块控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.BreakdownController.AddBreakDownLog(MintCyclingService.Breakdown.AddBreakdownLog_PM)">
+            <summary>
+            单车app故障上报   complete TOM
+            DATE:2017-05-18
+            </summary>s
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.BreakdownController.UploadBreankDownPhotoFile">
+            <summary>
+            通过故障的Guid添加图片  complete TOM
+            DATE:2017-05-18
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.BreakdownController.UploadICBCCreditPhotoFile">
+            <summary>
+            通过添加持工证照片图片
+            DATE:2017-05-18
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.BreakdownController.UploadBreakDownFile(System.Net.Http.HttpRequestMessage,System.String,System.String,System.Guid)">
+            <summary>
+            上传文件--故障添加图片
+            </summary>
+            <param name="Request">Http请求</param>
+            <param name="uploadDir">上传目录</param>
+            <param name="imgName">图片名</param>
+             /// <param name="BreakPhotoGuid">故障图片Guid</param>
+            <returns>上传文件结果</returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.BreakdownController.UploadICBCCreditPhotoFile(System.Net.Http.HttpRequestMessage,System.String,System.String)">
+            <summary>
+            上传文件--ICBC添加图片
+            </summary>
+            <param name="Request">Http请求</param>
+            <param name="uploadDir">上传目录</param>
+            <param name="imgName">图片名</param>
+            <returns>上传文件结果</returns>
+        </member>
+        <member name="T:MintCyclingWebApi.AppControllers.BreakdownController.CustomMultipartFormDataStreamProvider">
+            <summary>
+            CustomMultipartFormDataStreamProvider
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.BreakdownController.CustomMultipartFormDataStreamProvider.#ctor(System.String)">
+            <summary>
+            CustomMultipartFormDataStreamProvider
+            </summary>
+            <param name="path">路径</param>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.BreakdownController.CustomMultipartFormDataStreamProvider.GetLocalFileName(System.Net.Http.Headers.HttpContentHeaders)">
+            <summary>
+            获取本地文件名
+            </summary>
+            <param name="headers">头部信息</param>
+            <returns>字符串</returns>
+        </member>
+        <member name="T:MintCyclingWebApi.AppControllers.loginController">
+            <summary>
+            用户登录相关的控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.loginController.#ctor">
+            <summary>
+            初始化用户登录相关的控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.loginController.ValidateLogin(MintCyclingService.Login.ValidateLogin_PM)">
+            <summary>
+            用户登录   omplete TOM
+            DATE:2017-02-27
+            </summary>
+            <param name="data">参数集合</param>
+            <returns>用户登录</returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.loginController.SendSMSForValidateCode(MintCyclingService.Login.SendSMSForValidateCode_PM)">
+            <summary>
+            获取手机验证码 complete TOM
+            DATE:2017-02-27
+            </summary>
+            <param name="data">参数集合</param>
+            <returns>获取手机验证码</returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.loginController.GetProtocolUrl(MintCyclingService.Login.ProUrl_PM)">
+            <summary>
+            获取页面协议URL   complete TOM
+            DATE:2017-03-31
+            </summary>
+            <param name="data">类别：typeName=RechargePro表示充值协议;typeName=DepositPro押金协议;typeName=RentPro租赁协议;</param>
+            <returns></returns>
+        </member>
+        <member name="T:MintCyclingWebApi.AppControllers.pcenterController">
+            <summary>
+            用户个人中心控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.pcenterController.#ctor">
+            <summary>
+            初始化用户个人中心控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.pcenterController.qtraveldata(MintCyclingService.User.UserTravel_PM)">
+            <summary>
+            查询个人行程
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.pcenterController.qtravelend(MintCyclingService.User.CyclingEnd_PM)">
+            <summary>
+            用户骑行完成结算费用
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.pcenterController.AddUserAuthentication(MintCyclingService.User.AddUserAuth_PM)">
+            <summary>
+            实名认证用户的身份证号  complete TOM
+            DATE:2017-02-18
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.pcenterController.GetUserInfoCenterByUserGuid(System.Guid)">
+             <summary>
+            查询个人中心用户信息  complete TOM
+             DATE:2017-02-17
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.pcenterController.GetUserInfoDetailByUserGuid(System.Guid)">
+             <summary>
+            查询个人详细信息 complete TOM
+             DATE:2017-02-18
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.pcenterController.UploadUserPhotoFile">
+            <summary>
+            通过用户UserGuid更新用户头像  complete TOM
+            DATE:2017-02-19
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.pcenterController.UploadAvatarPhotoFile">
+            <summary>
+            上传头像照片  complete TOM暂时没用
+            DATE:2017-02-22
+            </summary>
+            <returns>上传照片结果</returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.pcenterController.UpdateUserNickOrPhone(MintCyclingService.User.EditUserPhoneOrNickName_PM)">
+             <summary>
+            修改用户的昵称或手机号 complete TOM
+             DATE:2017-02-18
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.pcenterController.BindPowerBank(MintCyclingService.User.BindPowerBank)">
+             <summary>
+            绑定充电宝
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.pcenterController.EditUploadFile(System.Net.Http.HttpRequestMessage,System.Guid,System.String,System.String)">
+            <summary>
+            上传文件--用户修改或者添加图片
+            </summary>
+            <param name="Request">Http请求</param>
+            <param name="uploadDir">上传目录</param>
+            <param name="imgName">图片名</param>
+            <returns>上传文件结果</returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.pcenterController.UploadFile(System.Net.Http.HttpRequestMessage,System.String,System.String,MintCyclingService.Photo.PhotoTypeEnum)">
+            <summary>
+            上传文件--添加图片
+            </summary>
+            <param name="Request">Http请求</param>
+            <param name="uploadDir">上传目录</param>
+            <param name="imgName">图片名</param>
+            <returns>上传文件结果</returns>
+        </member>
+        <member name="T:MintCyclingWebApi.AppControllers.pcenterController.CustomMultipartFormDataStreamProvider">
+            <summary>
+            CustomMultipartFormDataStreamProvider
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.pcenterController.CustomMultipartFormDataStreamProvider.#ctor(System.String)">
+            <summary>
+            CustomMultipartFormDataStreamProvider
+            </summary>
+            <param name="path">路径</param>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.pcenterController.CustomMultipartFormDataStreamProvider.GetLocalFileName(System.Net.Http.Headers.HttpContentHeaders)">
+            <summary>
+            获取本地文件名
+            </summary>
+            <param name="headers">头部信息</param>
+            <returns>字符串</returns>
+        </member>
+        <member name="T:MintCyclingWebApi.AppControllers.UploadController">
+            <summary>
+            APP首页引导页广告位控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.UploadController.#ctor">
+            <summary>
+            APP首页引导页广告位控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.UploadController.GetAdvertPhotoUrlInfo">
+            <summary>
+            查询APP首页引导页广告位 complete TOM
+            DATE:2017-06-19
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.UploadController.GetAdvertPhotoUrlWindow">
+            <summary>
+            查询APP首页弹出广告弹窗 complete TOM
+            DATE:2017-06-20
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.UploadController.RemoteUpgradeHttpGet">
+            <summary>
+            测试主动发送Http的get请求 complete TOM
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AppControllers.WeiXinPayController.#ctor">
+            <summary>
+            初始化微信支付控制器
+            </summary>
+        </member>
+        <member name="T:MintCyclingWebApi.AutoFacConfig">
+            <summary>
+            AutoFac配置类
+            </summary>
+        </member>
+        <member name="P:MintCyclingWebApi.AutoFacConfig.Container">
+            <summary>
+            声明Ioc容器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AutoFacConfig.AutoFacRegister">
+            <summary>
+            AutoFac注册
+            </summary>
+        </member>
+        <member name="T:MintCyclingWebApi.Filter.CheckAdminAccessCodeFilter">
+            <summary>
+            检验管理员AccessCode是否有效
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.Filter.CheckAdminAccessCodeFilter.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Action执行前运行
+            </summary>
+            <param name="actionContext">Action上下文</param>
+        </member>
+        <member name="T:MintCyclingWebApi.Filter.CheckUserAccessCodeFilter">
+            <summary>
+            检验用户AccessCode是否有效
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.Filter.CheckUserAccessCodeFilter.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Action执行前运行
+            </summary>
+            <param name="actionContext">Action上下文</param>
+        </member>
+        <member name="T:MintCyclingWebApi.Filter.HttpHeaderFilter">
+            <summary>
+            Http Header 过滤器, Swagger专用
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.Filter.HttpHeaderFilter.Apply(Swashbuckle.Swagger.Operation,Swashbuckle.Swagger.SchemaRegistry,System.Web.Http.Description.ApiDescription)">
+            <summary>
+            应用
+            </summary>
+            <param name="operation">操作参数</param>
+            <param name="schemaRegistry">结构注册</param>
+            <param name="apiDescription">Api描述</param>
+        </member>
+        <member name="F:MintCyclingWebApi.Filter.SwitchHttpsAttribute.RequireSecure">
+            <summary>
+            字段表示是否需要安全的https链接,默认不需要
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.Filter.SwitchHttpsAttribute.OnAuthorization(System.Web.Mvc.AuthorizationContext)">
+            <summary>
+            重写验证方法,判断是否需要https,如果需要https,就交给父类的方法处理,如果不需要,就自己处理
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:MintCyclingWebApi.Filter.SwitchHttpsAttribute.HandleNonHttpRequest(System.Web.Mvc.AuthorizationContext)">
+            <summary>
+            重写处理链接方法,处理https请求,使其重定向http
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="T:MintCyclingWebApi.Filter.WebApiExceptionFilterAttribute">
+            <summary>
+            WebApi异常捕获过滤器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.Filter.WebApiExceptionFilterAttribute.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            重写基类的异常处理方法
+            </summary>
+            <param name="actionExecutedContext">异常参数</param>
+        </member>
+        <member name="F:MintCyclingWebApi.WebApiApplication.AccessCodeName">
+            <summary>
+            AccessCode属性名
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.WebApiApplication.Application_BeginRequest(System.Object,System.EventArgs)">
+            <summary>
+            被请求时
+            在Angular.js中的H5页面调用Web api时跨域问题处理
+            </summary>
+            <param name="sender">请求者</param>
+            <param name="e">参数</param>
+        </member>
+        <member name="M:MintCyclingWebApi.WebApiApplication.GetAdminUserData">
+            <summary>
+            查询后台用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.WebApiApplication.CreateTimer">
+            <summary>
+            创建一个定时器
+            </summary>
+        </member>
+        <member name="T:MintCyclingWebApi.RepairContorllers.BicycleHandleController">
+            <summary>
+            维护APP车锁入库匹配控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.BicycleHandleController.#ctor">
+            <summary>
+            初始化控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.BicycleHandleController.GetEncryptionKey(System.Int32,System.String,System.String,System.Guid)">
+            <summary>
+            获取锁的秘钥串加密信息   complete TOM
+            更新时间DATE:2017-05-29
+            </summary>
+            <param name="version"></param>
+            <param name="keySerial"></param>
+            <param name="deviceNo"></param>
+            <param name="UserInfoGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.BicycleHandleController.GetLockNumber(System.String)">
+            <summary>
+            根据车牌号获取锁编号
+            </summary>
+            <param name="BikeNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.BicycleHandleController.AddBicycleBaseInfoRK(MintCyclingService.BicycleHandle.AddBicycleBase_PM)">
+            <summary>
+            输入车辆编号或者扫码单车入库[暂时废弃] complete Tom
+            DATE:2017-05-25
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.BicycleHandleController.ComponentsBinding(MintCyclingService.BicycleHandle.ComponentsBinding)">
+            <summary>
+            车锁入库或检测绑定
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.BicycleHandleController.BicycleDetecting(MintCyclingService.BicycleHandle.Detecting)">
+            <summary>
+            车辆检测报告
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.BicycleHandleController.GetBicycleDetecting(MintCyclingService.BicycleHandle.Detec_PM)">
+            <summary>
+            检测报告列表
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.RepairLoginController.Login(MintCyclingService.ServicePerson.LoginModel_PM)">
+            <summary>
+            维护人员登录
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MintCyclingWebApi.RepairContorllers.WXBreakDownController">
+            <summary>
+            维护app故障控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.WXBreakDownController.#ctor">
+            <summary>
+            初始化控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.WXBreakDownController.GetBreakdownBikeByUser(MintCyclingService.Breakdown.GetCarModel_PM)">
+            <summary>
+            查看自己管辖范围内故障车辆
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.WXBreakDownController.GetBreakDownList(MintCyclingService.Breakdown.BreakDownList_PM)">
+            <summary>
+            获取故障列表
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.WXBreakDownController.UpdateBreakDown(MintCyclingService.Breakdown.UpdateBreakDown_PM)">
+            <summary>
+            维修单车编辑
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.WXBreakDownController.RepairRecord(MintCyclingService.Breakdown.RepairRecord_PM)">
+            <summary>
+            维修记录
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.WXBreakDownController.BreakDownReport(MintCyclingService.Breakdown.UpdateBreakDown_PM)">
+            <summary>
+            故障上报
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.WXBreakDownController.RepairForm(MintCyclingService.Breakdown.RepirtForm_PM)">
+            <summary>
+            维修表单
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.WXBreakDownController.WxOpenOrClosekBicycleLock(MintCyclingService.Cycling.OpenOrCloseLockBicycle_PM)">
+            <summary>
+            维修人员开关锁
+            DATE:2017-05-20
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.WXBreakDownController.PositionReport(MintCyclingService.Breakdown.PositionReport_PM)">
+            <summary>
+            位置上报
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.RepairContorllers.WXBreakDownController.GetAddressByLJ(MintCyclingService.Cycling.BaiduModel.LatLng)">
+            <summary>
+            根据经纬度获取地址
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HuRongClub.Admin.Filters.ApiLogAttribute">
+            <summary>
+            日志
+            </summary>
+        </member>
+    </members>
+</doc>

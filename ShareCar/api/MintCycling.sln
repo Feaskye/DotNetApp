@@ -1,0 +1,123 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utility", "Utility", "{9667E788-F2FC-4A16-82F8-60151FD453AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{6AFFD8CF-8D9B-4994-AE34-509633C170C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{47241398-65AE-4240-BC12-0AA5C72027BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MintCyclingWebApi", "MintCyclingWebApi\MintCyclingWebApi.csproj", "{4E750B82-1CB1-4B4D-B602-B5CE21D861C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utility", "Utility\Utility.csproj", "{BE6D7127-0714-4112-A0D1-3209F3021285}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{007FBC71-C6F0-495F-8D58-7DFA1C82380C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MintCyclingService", "MintCyclingService\MintCyclingService.csproj", "{E4DA3358-EB6B-4932-91BA-2A2B980644F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{77728630-CECF-46FA-87DA-DC80E13C8242}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "sys", "..\sys\", "{04CFFA7F-D1BA-45CF-8D58-2E5CE21941EC}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "Svn"
+		SccAuxPath = "Svn"
+		SccLocalPath = "Svn"
+		SccProvider = "SubversionScc"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_6561"
+		Debug.AspNetCompiler.PhysicalPath = "..\sys\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_6561\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_6561"
+		Release.AspNetCompiler.PhysicalPath = "..\sys\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_6561\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "6561"
+		SlnRelativePath = "..\sys\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MintCyclingData", "MintCyclingData\MintCyclingData.csproj", "{13E411C8-1C6C-4DC0-A4EA-BCF31F0CA053}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "empage", "..\empage\", "{985889E9-74C5-4E46-8EA8-A5D9900C4821}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "Svn"
+		SccAuxPath = "Svn"
+		SccLocalPath = "Svn"
+		SccProvider = "SubversionScc"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_11735"
+		Debug.AspNetCompiler.PhysicalPath = "..\empage\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_11735\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_11735"
+		Release.AspNetCompiler.PhysicalPath = "..\empage\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_11735\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "11735"
+		SlnRelativePath = "..\empage\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MtBikeAdminWebApi", "MtBikeAdminWebApi\MtBikeAdminWebApi.csproj", "{2A6E181F-BFDF-43DF-94EB-40A714C92E98}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4E750B82-1CB1-4B4D-B602-B5CE21D861C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E750B82-1CB1-4B4D-B602-B5CE21D861C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E750B82-1CB1-4B4D-B602-B5CE21D861C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E750B82-1CB1-4B4D-B602-B5CE21D861C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE6D7127-0714-4112-A0D1-3209F3021285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE6D7127-0714-4112-A0D1-3209F3021285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE6D7127-0714-4112-A0D1-3209F3021285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE6D7127-0714-4112-A0D1-3209F3021285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4DA3358-EB6B-4932-91BA-2A2B980644F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4DA3358-EB6B-4932-91BA-2A2B980644F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4DA3358-EB6B-4932-91BA-2A2B980644F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4DA3358-EB6B-4932-91BA-2A2B980644F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04CFFA7F-D1BA-45CF-8D58-2E5CE21941EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04CFFA7F-D1BA-45CF-8D58-2E5CE21941EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04CFFA7F-D1BA-45CF-8D58-2E5CE21941EC}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{04CFFA7F-D1BA-45CF-8D58-2E5CE21941EC}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{13E411C8-1C6C-4DC0-A4EA-BCF31F0CA053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E411C8-1C6C-4DC0-A4EA-BCF31F0CA053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E411C8-1C6C-4DC0-A4EA-BCF31F0CA053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13E411C8-1C6C-4DC0-A4EA-BCF31F0CA053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{985889E9-74C5-4E46-8EA8-A5D9900C4821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{985889E9-74C5-4E46-8EA8-A5D9900C4821}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{985889E9-74C5-4E46-8EA8-A5D9900C4821}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{985889E9-74C5-4E46-8EA8-A5D9900C4821}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{2A6E181F-BFDF-43DF-94EB-40A714C92E98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A6E181F-BFDF-43DF-94EB-40A714C92E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A6E181F-BFDF-43DF-94EB-40A714C92E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A6E181F-BFDF-43DF-94EB-40A714C92E98}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4E750B82-1CB1-4B4D-B602-B5CE21D861C5} = {47241398-65AE-4240-BC12-0AA5C72027BB}
+		{BE6D7127-0714-4112-A0D1-3209F3021285} = {9667E788-F2FC-4A16-82F8-60151FD453AB}
+		{E4DA3358-EB6B-4932-91BA-2A2B980644F5} = {007FBC71-C6F0-495F-8D58-7DFA1C82380C}
+		{04CFFA7F-D1BA-45CF-8D58-2E5CE21941EC} = {77728630-CECF-46FA-87DA-DC80E13C8242}
+		{13E411C8-1C6C-4DC0-A4EA-BCF31F0CA053} = {6AFFD8CF-8D9B-4994-AE34-509633C170C6}
+		{985889E9-74C5-4E46-8EA8-A5D9900C4821} = {77728630-CECF-46FA-87DA-DC80E13C8242}
+		{2A6E181F-BFDF-43DF-94EB-40A714C92E98} = {47241398-65AE-4240-BC12-0AA5C72027BB}
+	EndGlobalSection
+EndGlobal

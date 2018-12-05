@@ -1,0 +1,474 @@
+﻿@charset "utf-8";
+
+html {
+    font-size:100px
+}
+@media(min-width:320px) {
+    html {
+        font-size:42.66px
+    }
+}
+@media(min-width:360px) {
+    html {
+        font-size:48px
+    }
+}
+@media(min-width:400px) {
+    html {
+        font-size:53.33px
+    }
+}
+@media(min-width:640px) {
+    html {
+        font-size:85.33px
+    }
+}
+
+@media(min-width:720px) {
+    html {
+        font-size:96px
+    }
+}
+
+@media(min-width:800px) {
+    html {
+        font-size:106.66px
+    }
+}
+html,body,form,img,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,b,u,i,p,em,td,th,input,textarea,label,select,iframe,button {
+    font-family:"SimHei";
+    padding:0;
+    margin:0;
+    font-weight: normal;
+}
+
+
+*:focus { outline: none; }
+html{ height: 100%;}
+
+body {
+    min-width: 320px;
+    max-width: 800px;
+    height: 1334px;
+    margin: 0 auto;
+    background: #f9f9f9;
+    height: 100%;
+}
+
+
+input {
+    outline:0;
+    outline:medium;
+    resize:none;
+    background-color: transparent;
+    border: 0;
+}
+
+select{
+    appearance:none;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari 和 Chrome */
+    background-color: transparent;
+    border: 0;
+}
+
+select option{color: #000;}
+
+ul,li {
+    padding:0;
+    margin:0;
+}
+em,i {
+    font-style:normal;
+}
+li {
+    list-style:none;
+}
+
+
+a:link,a:visited,a:hover,a:active{
+    color:#525252;
+    text-decoration: none;
+}
+
+.clear{ clear: both !important;}
+
+input{
+    -webkit-appearance: none;
+    -moz-appearance:none;
+}
+
+input[type="radio"]{
+    -webkit-appearance: radio;
+    -moz-appearance:radio;
+}
+.left{float: left;}
+.right{float: right;}
+.bold{ font-weight: bold;}
+.grayborder{ width: 100%; height: .2rem; background: #f3f3f3; margin: .1rem 0;}
+
+/*-----------css reset end--------------*/
+
+
+/*------------------personal-info css start-------------------*/
+
+.personal-info {
+    width:100%;
+
+    height:13.34rem;
+
+    FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#b8c4cb,endColorStr=red); /*IE 6 7 8*/
+
+    background: -ms-linear-gradient(top, #2e2e2e,  #0e0e0e);        /* IE 10 */
+
+    background:-moz-linear-gradient(top,#2e2e2e,#0e0e0e);/*火狐*/
+
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#2e2e2e), to(#0e0e0e));/*谷歌*/
+
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2e2e2e), to(#0e0e0e));      /* Safari 4-5, Chrome 1-9*/
+
+    background: -webkit-linear-gradient(top, #2e2e2e, #0e0e0e);   /*Safari5.1 Chrome 10+*/
+
+    background: -o-linear-gradient(top,#2e2e2e, #0e0e0e);  /*Opera 11.10+*/
+}
+
+.personal-info .infoform{
+    width: 94%;
+    margin: 0 auto;
+    font-size: .28rem;
+    color: #fff;
+    padding-top: 1.62rem;
+}
+
+.avatar {
+    clip-path: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    overflow: hidden;
+    width: .76rem;
+    height: .76rem;
+}
+
+
+.personal-info .infoform .toux{
+    width: 100%;
+    height: .9rem;
+    border: 2px solid #278520;
+    border-radius: 1rem;
+    display: table;
+    position: relative;
+    margin-bottom: .26rem;
+}
+
+
+.personal-info .infoform .toux span{
+    display: inline-block;
+    height: .9rem;
+    line-height: .9rem;
+    padding-left: .54rem;
+}
+
+.personal-info .infoform .toux .arrow{
+    width: .44rem;
+    height: auto;
+    position: absolute;
+    right: .27rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.personal-info .infoform .toux .toux-img{
+    position: absolute;
+    right: .98rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.personal-info .infoform .toux input{
+    width: 58%;
+    height: .6rem;
+    border: 2px solid #278520;
+    border-radius: 1rem;
+    position:absolute;
+    right: 2%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #eae9e9;
+    font-size: .24rem;
+    text-indent: 2em;
+}
+
+.personal-info .infoform .toux .txtright{
+    font-size: .24rem;
+    color: #eae9e9;
+    position: absolute;
+    right: .95rem;
+}
+
+.info-btn{
+    width:5.7rem;
+    margin: 0 auto;
+}
+
+.info-btn button{
+    width: 5.7rem;
+    height: .88rem;
+    line-height: .88rem;
+    background: #219118;
+    border-radius: 1rem;
+    border: 1px solid  #219118;
+    color: #fff;
+    font-size: .32rem;
+}
+
+.info-btn button img{
+    width: .55rem;
+    height: auto;
+    vertical-align: middle;
+}
+/*------------------personal-info css end-------------------*/
+
+/*------------------personal-center css start-------------------*/
+
+.center{
+    background: url("../images/center-bg.jpg") no-repeat 0 0;
+    background-size: cover;
+    height: 13.34rem;
+}
+
+.center-btn{
+    background: url("../images/btnbg.png") no-repeat 0 0;
+    background-size: cover;
+    width: 100%;
+    height: .6rem;
+    position: relative;
+    margin-top: .8rem;
+}
+
+.center-btn button{
+    width: 1.9rem;
+    height: .6rem;
+    border: 2px solid  #219118;
+    border-radius: 1rem;
+    font-size: .24rem;
+    color: #fff;
+    background: transparent;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.personal-info .toplink{
+    width: 7.5rem;
+    font-size: .32rem;
+    color: #fff;
+    text-align: center;
+    background: #3f3f3f;
+    position: fixed;
+    top: 0;
+    height: .48rem;
+    line-height: .48rem;
+    z-index: 999;
+}
+
+.personal-info .toplink img{
+    width:.24rem;
+    height: auto;
+    position: absolute;
+    left: 3%;
+}
+
+.personal-info .toplink .linkbox{
+    width: 94%;
+    margin: 0 auto;
+}
+
+.personal-info .toplink .linkbox span.light{
+    font-size: .24rem;
+    position: absolute;
+    right: 3%;
+}
+
+.info-middle{
+    width: 94%;
+    margin: 0 auto;
+    height: 5.15rem;
+    position: relative;
+}
+
+.info-middle .edit{
+    width: .43rem;
+    height: auto;
+    position: absolute;
+    top:70%;
+    left: 58%;
+}
+
+.info-middle .detabox{
+    font-size: .28rem;
+    color: #fff;
+    position: absolute;
+    top: 93%;
+    text-align: center;
+    width: 100%;
+
+}
+
+.info-middle .detabox .deta1{
+    width: 33%;
+    border-right: 1px solid #999;
+}
+
+.info-middle .detabox .deta2{
+    border-right:none;
+}
+
+.info-middle .avatar{
+    clip-path: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    overflow: hidden;
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.info-middle img{
+    position: absolute;
+    top:2.45rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/*------------------personal-center css end-------------------*/
+
+/*------------------account money css start-------------------*/
+
+.account .account-box{
+    width: 94%;
+    margin: 0 auto;
+}
+
+.account .account-box h3{
+    font-size: .28rem;
+    margin-top: .32rem;
+}
+.account button.account-btn{
+    width:47%;
+    height: .8rem;
+    background: #bcdeb9;
+    color: #333;
+    border-radius: 1rem;
+    border: 1px solid #bcdeb9;
+    font-size: .28rem;
+    margin: .4rem  0 0 0;
+}
+
+.account input{
+    width: 100%;
+    height: .8rem;
+    background: #f3f3f3;
+    border-radius: 1rem;
+    border: 1px solid #219118;
+    color: #333;
+    text-align: center;
+    font-size: .24rem;
+}
+
+.account .submit{
+    border-top: 1px solid #999;
+    margin-top: .6rem;
+    height: .5rem;
+    line-height: .5rem;
+}
+
+.account .submit .payselect{
+    height: ;
+    width: 87%;
+    margin:.6rem auto;
+    font-size: .28rem;
+    color: #999;
+}
+
+.account .submit .payselect .weipay{
+    margin-bottom: .5rem;
+}
+
+.account .submit .payselect .weipay img.payimg{
+    width: .49rem;
+    height: auto;
+    padding-right: .22rem;
+}
+
+.account .submit .payselect .weipay img.select{
+    width: .38rem;
+    height: auto;
+}
+
+.account p{
+    font-size: .24rem;
+    color: #999;
+    text-align: center;
+    line-height: 2em;
+    display: block;
+    height: 2.8rem;
+}
+/*------------------account money css end-------------------*/
+
+/*------------------account money css start-------------------*/
+
+.share{
+    background: #fff;
+}
+
+.share .toplink,.account .toplink{
+    width: 100%;
+    background: #252525;
+    height: .9rem;
+}
+
+.share h3{
+    font-size: .32rem;
+    color: #333;
+    text-align: center;
+    line-height: 4.1rem;
+    height: 4.1rem;
+}
+.share .shareimg{
+    background: url("../images/img1_02.jpg") no-repeat 0 0;
+    background-size: 100%;
+    height: 5.54rem;
+}
+
+.share .sharebox{
+    width: 95%;
+    margin: 0 auto;
+    position: absolute;
+    bottom: .5rem;
+}
+
+.share .sharebox ul{
+    text-align: center;
+}
+
+.share .sharebox .lineimg{
+    background: url("../images/sharebg.png") no-repeat 0 0;
+    background-size: 100%;
+    height:.3rem;
+    font-size: .28rem;
+    text-align: center;
+    color: #666;
+    padding-bottom: .5rem;
+}
+
+.share .sharebox ul li{
+    display: inline-block;
+    font-size: .28rem;
+}
+
+.share .sharebox ul li span{
+   display: block;
+}
+
+.share .sharebox ul li img{
+    width: .8rem;
+    height: auto;
+}
+/*------------------account money css end-------------------*/

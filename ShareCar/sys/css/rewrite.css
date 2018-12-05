@@ -1,0 +1,309 @@
+
+html,body {
+	margin: 0;
+	padding: 0px  !important;
+	width: 100%;
+	font: 12px/1.4em Helvetica,Arial,sans-serif;
+}
+
+.form-horizontal .controls {
+margin-left:100px;
+}
+
+.modal-dialog {
+    width:700px;
+}
+
+
+.login {
+    width:490px;
+    height:190px;
+   border-radius:10px;
+   background-color:rgba(255,255,255,0.3);
+   border:1px solid rgba(255,255,255,0.5);
+
+}
+
+.login-logo {
+    width:405px;
+    margin:0 auto;
+    margin-top:10%;
+}
+
+.login-title {
+margin-top:150px;
+}
+
+.login_form form {
+    font-size:16px;
+}
+
+.loginForm input {
+height:40px;
+width:300px;
+text-indent:10px;
+border-style:none;
+background-color:transparent;
+color:#fff;
+}
+
+
+::-webkit-input-placeholder { color:#fff; }
+::-moz-placeholder { color:#fff; } /* firefox 19+ */
+:-ms-input-placeholder { color:#fff; } /* ie */
+input:-moz-placeholder { color:#fff; }
+
+.loginForm label {
+color:#fff;
+font-size:16px;
+font-weight:normal;
+
+}
+
+.loginForm i {
+padding-right:10px;
+}
+
+.uinArea,.pwdArea{
+   border-bottom:1px solid rgba(255,255,255,0.5);
+}
+
+.uinArea,.pwdArea,.codeArea{
+    height:60px;
+    text-indent:10px;
+    line-height:60px;
+
+
+}
+
+.ts-div {
+    text-align:center;
+}
+
+.div-btns {
+      width:450px;
+      margin:0 auto;
+      margin-top:40px;
+      padding:0;
+      font-size:14px;
+}
+
+.div-btns button {
+    width:450px;
+    height:40px;
+}
+
+.div-btns p {
+    padding-top:10px;
+    color:#fff;
+    }
+
+    .div-btns p:hover {
+    text-decoration:underline;
+    }
+
+#sidebar-nav #dashboard-menu > li > a >i{
+    font-size:18px;
+}
+
+#sidebar-nav #dashboard-menu > li.active > a, #sidebar-nav #dashboard-menu > li > a:visited {
+    /*background:#2255a4;*/
+}
+
+#sidebar-nav #dashboard-menu > li > a {
+    width:180px;
+}
+
+#sidebar-nav #dashboard-menu ul.submenu a {
+    text-align:left;
+}
+
+.navbar {
+    border: 1px solid #158D06;background-color: #1D9E0C;
+    margin-bottom:0px;
+    height:60px;
+}
+
+.navbar-inverse {
+    border-bottom:none;
+}
+
+.navbar-inverse input.search {
+  background: url("../images/lens.png")  no-repeat 95%;
+   height: 27px;
+   width: 220px;
+  padding: 3px 6px;
+  border:1px solid #cbcbcb !important;
+  position: absolute;
+  left:230px;
+  border-radius: 4px;
+  top: 15px;
+  color: #000;
+  font-size: 13px;
+  margin-right: 40px;
+  -webkit-transition: all .3s linear;
+  -moz-transition: all .3s linear;
+  transition: all .3s linear;
+    }
+
+
+.navbar-inverse .nav > li > a {
+    border-left:none;
+    width:158px;
+    height:58px;
+    color:#696969;
+    }
+
+.navbar-inverse .nav > li > a:hover{
+   color:#000;
+    }
+
+
+.dropdown .icon-angle-down {
+    padding-left:15px;
+}
+
+.dropdown .icon-star ,.icon-signout:before{
+    padding-right:10px;
+}
+
+.navbar-inverse .nav > .shopName > a,.navbar-inverse .nav > .settings > a  {
+line-height:38px;
+text-align:center;
+}
+
+.navbar-nav .leftborder {
+    border-left:1px solid #ddd;
+}
+
+
+
+.navbar-inverse .settings i {
+    font-size:16px;
+    color:#696969;
+}
+
+.logoimg {
+    width:175px;
+
+}
+
+.navbar-toggle {
+    background:#302f3d;
+}
+
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-submenu:hover > a, .dropdown-submenu:focus > a {
+    background:#292929 !important;
+}
+
+.yzinput {
+    width:200px  !important;
+}
+
+.yzspan {
+    width:130px;
+    height:auto;
+    display:inline-block;
+    vertical-align:middle;
+}
+
+.alert-dismissable {
+    padding-right:25px;
+}
+
+.alert {
+    width:100%;
+    height:40px;
+    font-size:12px;
+    line-height:22px;
+    color:#D9534F;
+}
+
+.alertinput1 {
+    position:absolute;
+    left:0px;;
+}
+
+
+
+
+@media only screen and (max-width: 770px) {
+    .container-fluid {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    .modal-dialog {
+    width:100%;
+}
+
+    .logoimg {
+    width:0px;
+    }
+
+    .yzspan {
+    width:100px;
+    height:30px;
+    display:inline-block;
+    vertical-align:middle;
+}
+
+
+  }
+
+@media only screen and (max-width: 500px) {
+    .login-logo {
+    width:300px;
+    margin:0 auto;
+    margin-top:10%;
+}
+
+      .login-logo img {
+        width:295px;
+        height:auto;
+        }
+
+    .div-btns {
+    width:200px;
+    }
+
+    .div-btns button {
+    width:200px;
+    margin:0 auto;
+    }
+
+     .login {
+        width:95%
+    }
+
+    .loginForm input {
+    width:0px;
+    }
+
+    .yzinput {
+    width:120px  !important;
+}
+
+.yzspan {
+    width:90px;
+    height:auto;
+    display:inline-block;
+    vertical-align:middle;
+}
+
+    .uinArea #username, .pwdArea #password {
+    width:120px;
+    }
+
+  }
+
+@media only screen and (max-width: 350px) {
+    .yzspan {
+    width:50px;
+    height:auto;
+    display:inline-block;
+    vertical-align:middle;
+}
+}

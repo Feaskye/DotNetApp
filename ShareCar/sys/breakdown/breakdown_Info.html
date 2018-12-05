@@ -1,0 +1,169 @@
+﻿<!--导出文件保存JS插件-->
+<script src="https://rawgithub.com/eligrey/FileSaver.js/master/FileSaver.js" type="text/javascript" charset="utf-8"></script>
+<div class="span12">
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"><i class="icon-list-alt"></i></span>
+            <h5>故障维护</h5>
+        </div>
+        <div class="widget-content">
+            <form name='queryElectronicFenceForm' class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-3 tag-horizontal">
+                        <div class="col-lg-4">
+                            <label class="text-right inline pull-label s-label-len" for="seq">车辆编号</label>
+                        </div>
+                        <div class="col-lg-8">
+                            <input name='BicycleNumber' type="text" id="BicycleNumber" class="m-wrap form-control" placeholder="请输入车辆编号" ng-model='BicycleNumber' />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 tag-horizontal">
+                        <div class="col-sm-2 form-inline">
+                            <label class="inline pull-label s-label-len text-right" for="province">车辆所在地</label>
+                        </div>
+                        <div class="col-sm-9 col-nowrap">
+                            <select class="form-inline row-control select-inline" ng-model="province" id="province" ng-options="s.ProvinceId as s.ProvinceName for s in selRegion.ProvinceData" ng-change="onChgProvince()">
+                                <option value="">(请选择)</option>
+                            </select>
+                            <select class="form-inline row-control select-inline" ng-model="city" id="city" ng-options="s.CityId as s.CityName for s in cityData" ng-disabled="province=='' || province==null" ng-change="onChgCity()">
+                                <option value="">(请选择)</option>
+                            </select>
+                            <select class="form-inline row-control select-inline" ng-model="District" id="District" ng-options="s.DistrictId as s.DistrictName for s in districtData" ng-disabled="city=='' || city==null">
+                                <option value="">(请选择)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 tag-horizontal cols-btn">
+                        <div class="col-sm-12">
+                            <a ng-click='onQuery()' class="btn grey"><i class="icon-search"></i>查询</a>
+                            <a ng-click="exportData()" class="btn btn-primary btnleftmargin"><i class="icon-plus-sign"></i>导出</a>
+
+                            <!--<input type="file" id="fileUpload" name="file">
+                            <button id="testAjax" type="button">浏览</button>-->
+                            <!--<input type="file" onchange="upload()" name="file" id="FileExcel" datatype="*1-1000" nullmsg="请选择文件" />
+                            <input type="hidden" name="exportFile" id="exportFile" />
+                            <button value="import" type="submit" class="btn btn-primary">导入</button>-->
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"><i class="icon-reorder"></i></span>
+            <h5>故障维护列表</h5>
+        </div>
+
+        <div id="successAlert" class="alert alert-success" style="display:none;"></div>
+        <div id="warningAlert" class="alert alert-warning" style="display:none;"></div>
+
+        <div class="widget-content table-responsive" id="exportable">
+
+            <table ng-table="tableParams" class="table table-striped table-bordered table-hover" id="Table1">
+
+                <thead class="panel panel-default">
+                    <tr class="panel-heading">
+                        <th class="hidden-480">序号</th>
+                        <th class="hidden-480">车辆编号</th>
+                        <th class="hidden-480">所属区域</th>
+                        <th class="hidden-480">维修等级</th>
+                        <th class="hidden-480">故障类型</th>
+                        <th class="hidden-480">详细地址</th>
+                        <th class="hidden-480">故障上报时间</th>
+                        <th class="hidden-480">备注</th>
+                        <th class="hidden-480">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd gradeX" ng-repeat='item in $data'>
+                        <td class="hidden-480">
+                            <span>{{$index<10?('0'+$index):$index}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.BicyCleNumber}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.DistricName}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.GradeName|breakdownGradeNameFilter}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.BreakTypeName|breakdownTypeFilter}}</span>
+                        </td>
+                        <td class="hidden-480 msg-col-wrap">
+                            <span>{{item.Address}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.BreakDownTime|dateFormatFilter}}</span>
+                        </td>
+                        <td class="hidden-480 msg-col-wrap">
+                            <span>{{item.Remark}}</span>
+                        </td>
+                        <td class="hidden-480">
+
+                            <a class="btn btn-default btn-xs btn-info" ng-click="onClickEdit(item)"><i class="icon-edit"></i>编辑</a>
+
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+<div ng-include="'breakdown/breakdown_Edit.html'"></div>
+<script type="text/javascript">
+    $(function () {
+
+        function upload() {
+            //var formData = new FormData($("#FileExcel")[0]);
+            var formData = new FormData();
+            formData.append('FileExcel', $("#FileExcel")[0].files[0]);
+            //formData.append('UserGuid', "00000000-0000-0000-0000-000000000001");
+
+            $.ajax({
+                url: 'http://localhost:5325/api/Breakdown/ImportExcelData',
+                type: 'POST',
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (returndata) {
+                    $("#exportFile").val(returndata);
+                }
+            });
+        }
+
+
+
+        //按钮单击时执行
+        $("#testAjax").click(function () {
+            var urlFile = $("#fileUpload").val();
+
+            alert(urlFile);
+            //Ajax调用处理
+            $.ajax({
+                //url: "http://localhost:5325/api/pcenter/UploadAvatarPhotoFile",
+                url: "http://localhost:5325/api/Breakdown/ImportExcelData",
+                type: "POST",
+                //data:formData,
+                data: { exportFile: urlFile },
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+
+                success: function (data) {
+                    alert("成功！");
+                }
+            });
+
+        });
+    });
+</script>

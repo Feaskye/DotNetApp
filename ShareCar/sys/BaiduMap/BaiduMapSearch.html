@@ -1,0 +1,965 @@
+﻿<style type="text/css">
+    .keywordsTxet {
+        border: 1px solid #ccc;
+        padding: 2px;
+        font-size: 12px;
+        color: #444;
+        width: 235px;
+        height: 30px;
+    }
+</style>
+
+
+
+<div class="row-fluid">
+    <div class="col-lg-12">
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    电子围栏数：<span class="badge">{{TotalData.ETotal}}</span>
+                </td>
+                <td>
+                    车辆数：<span class="badge">{{TotalData.TotalCount}}</span>
+                </td>
+                <td>
+                    使用数：<span class="badge">{{TotalData.UserTotalCount}}</span>
+                </td>
+                <td>
+                    空闲数：<span class="badge">{{TotalData.FreeTotalCount}}</span>
+                </td>
+                <td>
+                    故障数：<span class="badge">{{TotalData.breakdownTotalCount}}</span>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+
+    <div id="allmap" class="col-lg-9" style="height:750px; width:65%;">
+    </div>
+    <div class="col-lg-3" style="height:750px">
+
+        <div class="panel">
+            <div class="panel-body">
+
+                <!--<input type="text" id="keywords" name="keywords" placeholder="输入地址、围栏编号等进行搜索" />
+                <input id="submitBtn" type="button" value="查询" style="width:56px;" />
+                <div id="r-result"></div>
+                <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>-->
+                <div style="height:23px; margin-left:0px; margin-top:10px; width:380px;  ">
+                    <span style="font-size:14px; font-weight:bold; line-height:20px; ">搜索：</span>
+                    <input type="text" id="keywords" class="keywordsTxet" placeholder="输入地址、围栏编号等进行搜索" />
+                    <input id="submitBtn" type="button" value="查询" class="btn btn-primary" />
+
+                </div>
+                <!--<button class="btn btn-primary submitBtn" value="查询">查询</button>-->
+                <div id="r-result"></div>
+                <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+            </div>
+        </div>
+
+        <!--<div class="panel">
+            <div class="panel-body">
+                <span style="font-size:14px; font-weight:bold; line-height:20px; ">搜索：</span>
+                <select>
+                    <option value="上海市">上海市</option>
+                </select>
+                <select>
+                    <option value="上海市">上海市</option>
+                </select>
+                <select>
+                    <option value="浦东新区">浦东新区</option>
+                </select>
+            </div>
+        </div>-->
+        <div style="width:435px; margin-bottom:13px;  line-height:17px;">
+            &nbsp;     &nbsp;
+            <span style="font-size:14px; font-weight:bold; line-height:17px; ">位置：</span>
+            <select ng-model="province" style="width:103px;" id="province" ng-options="s.ProvinceId as s.ProvinceName for s in selRegion.ProvinceData" ng-change="onChgProvince()">
+                <option value="">请选择</option>
+            </select>
+            <select ng-model="city" style="width:100px;" id="city" ng-options="s.CityId as s.CityName for s in cityData" ng-disabled="province=='' || province==null" ng-change="onChgCity()">
+                <option value="">请选择</option>
+            </select>
+            <select ng-model="District" style="width:105px;" id="District" ng-options="s.DistrictId as s.DistrictName for s in districtData" ng-disabled="city=='' || city==null" ng-change="SelectElelist()">
+                <option value="">请选择</option>
+            </select>
+            <input id="SelectSearch" type="button" value="查询" class="btn btn-primary" style="line-height:17px;" />
+
+            <input type="hidden" id="province1" value="" />
+            <input type="hidden" id="CityID1" value="" />
+            <input type="hidden" id="DistrictID1" value="" />
+        </div>
+
+        <table ng-table="tableParams" class="table table-bordered table-hover" style="margin-left:20px;">
+            <thead>
+                <tr>
+                    <th>区域</th>
+                    <th>电子围栏</th>
+                    <th>车辆</th>
+                    <th>查看</th>
+                </tr>
+            </thead>
+            <!--<tr>
+
+                <td>{{item.Name}}</td>
+                <td>{{item.EleCount}}</td>
+                <td>{{item.bicycleCount}}</td>
+                <td>查看</td>
+            </tr>-->
+
+            <tbody id="tb_directions"></tbody>
+
+        </table>
+
+    </div>
+
+    <span id="MessAgeTitle" style="font-size:16px; color:blue; display:none;">
+    </span>
+</div>
+
+
+
+
+<script type="text/javascript">
+    var ServiceAPIUrl = ULR;
+
+  //  var ServiceAPIUrl = "http://112.64.131.222/mtadminservice/api/";
+    //正式
+    //var ServiceAPIUrl = " http://www.mintcar.com/mintbikeservice/api/";
+    var lng_lat;
+    var lngLatOrEnclosureNumber;
+    var Type;
+    var JsonData = [];
+    var JsonDataBicyle = [];
+    var JsonDataHelpBicyle=[];
+    var tmplng = 121.541897, tmplat = 31.218982;
+
+    var map = null;
+
+    //初始化地图信息
+    $(document).ready(function () {
+        //alert("3333333");
+        //给隐藏域赋值
+        $("#province").change(function () {
+            var pr = $("#province").val().replace('number:', '');
+            $("#province1").val(pr);
+
+        });
+        $("#city").change(function () {
+            var ct = $("#city").val().replace('number:', '');
+            $("#CityID1").val(ct);
+
+        });
+        $("#District").change(function () {
+            var dt = $("#District").val().replace('number:', '');
+            $("#DistrictID1").val(dt);
+        });
+
+        //通过选择省市区查询信息
+        $("#SelectSearch").click(function (e) {
+            var ProvinceID=  $("#province1").val();
+            var CityID = $("#CityID1").val();
+            var DistrictID = $("#DistrictID1").val();
+            $.ajax({
+                //type: "GET",
+                url: "" + ServiceAPIUrl + "Electronicfence/GetElectronicTjListByCondition",
+                //url: "http://www.mintcar.com/mintbikeservice/api/Electronicfence/GetElectronicTjListByCondition",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ 'ProvinceID': ProvinceID, 'CityID': CityID, 'DistrictID': DistrictID }),
+                dataType: "json",
+                success: function (data) {
+                    //debugger
+                    var html = "";
+                   // alert(data.ResObject.Totalcount);
+                    if (data.IsSuccess == false && data.Message == "请选择省和市")
+                    {
+                        alert("请选择省和市");
+                        return false;
+                    } else if (data.IsSuccess == false && data.Message == "暂无数据") {
+                        $("#tb_directions").html("");
+                        alert("暂无数据");
+                        return false;
+                    }
+          
+                    if (data.ResObject.Totalcount != 0) {
+                        for (var i = 0; i < data.ResObject.Totalcount; i++) {
+                            var resultData = data.ResObject.EnclosureList[i];
+                            html += "<tr><td>" + resultData.Name + "</td><td>" + resultData.EleCount + "</td><td>" + resultData.bicycleCount + "</td><td><a style=\"cursor:pointer\" onclick=\"SearchList('" + resultData.Name + "')\">查看</a></td></tr>";
+                        }
+                        $("#tb_directions").html(html);
+                    }
+                    else
+                    {
+                        $("#tb_directions").html("");
+                    }
+                }
+            });
+
+        });
+
+
+
+        //点击查询按钮时触发2017-05-06新增
+        $("#submitBtn").click(function (e) {
+            //通过地址查询经纬度
+            var localSearch = new BMap.LocalSearch(map);
+            localSearch.enableAutoViewport(); //允许自动调节窗体大小
+            var keyword = document.getElementById("keywords").value;
+            if (!keyword) {
+                alert("请输入关键字查询！");
+                return;
+            }
+
+            localSearch.setSearchCompleteCallback(function (searchResult) {
+                //判断输入的是地址还是点在围栏编号
+                var Radius = 0;
+
+                if (keyword.indexOf('E') >= 0) //输入的是电子围栏编号
+                {
+                    // document.getElementById("result_").value = keyword; //获取电子围栏编号，将结果显示在文本框中
+                    Type = "ElecNumber"; //编号
+                    lngLatOrEnclosureNumber = keyword;
+                    //alert(lngLatOrEnclosureNumber);
+                } else {
+                    var poi = searchResult.getPoi(0);
+                    //  document.getElementById("result_").value = poi.point.lng + "," + poi.point.lat; //获取经度和纬度，将结果显示在文本框中
+                    map.centerAndZoom(poi.point, 13);
+                    lng_lat = $("#result_").val();
+                    Type = "address"; //地址
+                    lngLatOrEnclosureNumber = poi.point.lng + "," + poi.point.lat;
+                }
+
+
+                //lng_lat = $("#result_").val();
+                ////var keywords = $("input[name='keywords']").val();
+                //if (lng_lat != null || lng_lat != "") {
+                //    Type = "address"; //地址
+                //    lngLatOrEnclosureNumber = lng_lat;
+                //} else {
+                //    Type = "ElecNumber"; //编号
+                //    lngLatOrEnclosureNumber = lng_lat;
+                //}
+
+                $.ajax({
+                    url: "" + ServiceAPIUrl + "Electronicfence/SearchaMapElectronicListByConditionNew",
+                    //url: "http://www.api.com/mintbikeservice/api/Electronicfence/SearchaMapElectronicListByConditionNew",
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    data: JSON.stringify({ 'lngLatOrEnclosureNumber': lngLatOrEnclosureNumber, 'Type': Type, 'Radius': Radius }),
+                    //data: { phone: phone },
+                    dataType: "json",
+                    success: function (data) {
+
+                        if (data.IsSuccess && data.ResObject != null) {
+                            //循环添加电子围栏的信息
+                            //alert(data.ResObject.Totalcount);
+                            for (var i = 0; i < data.ResObject.Totalcount; i++) {
+                                var resultData = data.ResObject.EnclosureList[i];
+                                //alert(resultData.EnclosureLongitude + "," + resultData.EnclosureLatitude);
+                                JsonData.push({ "CarCount": resultData.BicycleNum, point: { lat: resultData.EnclosureLatitude, lng: resultData.EnclosureLongitude }, ElectronicFenCingNumber: resultData.ElectronicFenCingNumber });
+
+                                //暂时不用显示
+                                //JsonData.push({ "ElecNumber": resultData.EnclosureNumber, "address": resultData.Address, point: { lat: resultData.EnclosureLatitude, lng: resultData.EnclosureLongitude } });
+                            }
+                            //alert(data.ResObject.B_Totalcount);
+                            //车辆信息
+                            for (var b = 0; b < data.ResObject.NoHelpTotalcount; b++) {
+                                var resultDataB = data.ResObject.NoHelpBicycleList[b];
+
+                                JsonDataBicyle.push({ point: { lat: resultDataB.BicycleLatitude, lng: resultDataB.BicycleLongitude }, BicyCleTypeName: resultDataB.BicyCleTypeName });
+
+                                //暂时不用显示
+                                //JsonData.push({ "ElecNumber": resultData.EnclosureNumber, "address": resultData.Address, point: { lat: resultData.EnclosureLatitude, lng: resultData.EnclosureLongitude } });
+                            }
+
+                            //for (var c = 0; c < data.ResObject.HelpTotalcount; c++) {
+
+                            //    var resultDatac = data.ResObject.HelpBicycleList[c];
+
+                            //    JsonDataHelpBicyle.push({ point: { lat: resultDatac.BicycleLatitude, lng: resultDatac.BicycleLongitude } });
+                            //}
+
+                            //initMap(); //创建和初始化地图
+                            //循环添加标注信息
+                            JsonDataLoad();
+                        }
+
+                    },
+                    error: function (msg) {
+                        alert("调用百度地图API出现异常！");
+                    }
+                })
+
+
+            });
+            localSearch.search(keyword);
+
+
+        })
+        //点击查询按钮时触发
+
+        map = new BMap.Map("allmap");
+        initMap(); //创建和初始化地图
+        // alert("9999");
+    });
+
+
+    function initMap() {
+       // alert("7777");
+        createMap();      //创建地图
+        setMapEvent();    //设置地图事件
+        addMapControl();  //向地图添加控件
+        //get_data(new BMap.Point(121.540794, 31.218787)); //首次点击地图加赞陆家嘴金融世纪广场
+        //SetPoint(new BMap.Point(121.540794, 31.218787));
+    }
+
+
+    //在百度地图容器中创建一个地图
+    //创建地图函数：
+    function createMap() {
+        map.centerAndZoom(new BMap.Point(tmplng, tmplat), 18); //设定地图的中心点和坐标并将地图显示在地图容器中
+        //map.addControl(new BMap.NavigationControl());  //添加鱼骨控件
+        //map.addControl(new BMap.MapTypeControl());    //添加地图类型控件
+        map.enableScrollWheelZoom();
+        map.enableAutoResize();
+        map_events_register();
+    }
+
+    //百度地图怎样清除指定的覆盖物-循环删除标注【暂时没用】
+    function ClearOverMaker()
+    {
+        var allOverlay = map.getOverlays();
+        //alert(allOverlay);
+        for (var i = 0; i < allOverlay.length ; i++) {
+            //if(allOverlay[i].getLabel().content == “1号标签”)
+            //{
+            map.removeOverlay(allOverlay[i]);
+            //map.removeOverlay(marker);
+            return false;
+            //}
+        }
+
+    }
+
+
+    //列表查看按钮事件
+    function SearchList(DistrictName) {
+
+
+        clearOverlayAll()
+
+
+        //map.clearOverlays(); //先移除地图初始化的数据
+        //通过地址查询经纬度
+        var localSearch = new BMap.LocalSearch(map);
+        localSearch.enableAutoViewport(); //允许自动调节窗体大小
+        var keyword = DistrictName;
+        if (!keyword) {
+            alert("区域名称为空！");
+            return;
+        }
+
+        localSearch.setSearchCompleteCallback(function (searchResult) {
+            //判断输入的是地址还是点在围栏编号
+            var Radius = 0;
+            var poi = searchResult.getPoi(0);
+            map.centerAndZoom(poi.point, 13);
+            Type = "address"; //地址
+            lngLatOrEnclosureNumber = poi.point.lng + "," + poi.point.lat;
+            // alert(lngLatOrEnclosureNumber);
+
+            $.ajax({
+                url: "" + ServiceAPIUrl + "Electronicfence/SearchaMapElectronicListByConditionNew",
+                //url: "http://www.mintcar.com/mintbikeservice/api/Electronicfence/SearchaMapElectronicListByConditionNew",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ 'lngLatOrEnclosureNumber': lngLatOrEnclosureNumber, 'Type': Type, 'Radius': Radius }),
+                //data: { phone: phone },
+                dataType: "json",
+                success: function (data) {
+
+                    if (data.IsSuccess && data.ResObject != null) {
+                        //循环添加电子围栏的信息
+                        for (var i = 0; i < data.ResObject.Totalcount; i++) {
+                            var resultData = data.ResObject.EnclosureList[i];
+                            //alert(resultData.EnclosureLongitude + "," + resultData.EnclosureLatitude);
+                            JsonData.push({ "CarCount": resultData.BicycleNum, point: { lat: resultData.EnclosureLatitude, lng: resultData.EnclosureLongitude }, ElectronicFenCingNumber: resultData.ElectronicFenCingNumber });
+
+                            //暂时不用显示
+                            //JsonData.push({ "ElecNumber": resultData.EnclosureNumber, "address": resultData.Address, point: { lat: resultData.EnclosureLatitude, lng: resultData.EnclosureLongitude } });
+                        }
+                        //车辆信息
+                        for (var b = 0; b < data.ResObject.NoHelpTotalcount; b++) {
+                            var resultDataB = data.ResObject.NoHelpBicycleList[b];
+                            //alert(resultDataB);
+                            JsonDataBicyle.push({ point: { lat: resultDataB.BicycleLatitude, lng: resultDataB.BicycleLongitude }, BicyCleTypeName: resultDataB.BicyCleTypeName });
+                            //暂时不用显示
+                            //JsonData.push({ "ElecNumber": resultData.EnclosureNumber, "address": resultData.Address, point: { lat: resultData.EnclosureLatitude, lng: resultData.EnclosureLongitude } });
+                        }
+
+
+
+                        //for (var c = 0; c < data.ResObject.HelpTotalcount; c++) {
+
+                        //    var resultDatac = data.ResObject.HelpBicycleList[c];
+
+                        //    JsonDataHelpBicyle.push({ point: { lat: resultDatac.BicycleLatitude, lng: resultDatac.BicycleLongitude } });
+                        //}
+
+
+
+
+                        //initMap(); //创建和初始化地图
+
+                        JsonDataLoad();
+                    }
+
+                },
+                error: function (msg) {
+                    alert("调用百度地图API出现异常！");
+                }
+            })
+
+
+        });
+        localSearch.search(keyword);
+
+    }
+
+
+
+
+
+
+
+    function clearOverlayAll()
+    {
+        if (typeof marker !== "undefined") { map.removeOverlay(marker); }
+       // map.clearOverlays();
+    }
+
+    //注册地图事件
+    function map_events_register() {
+        map.addEventListener("dragstart", map_dragstart);
+        map.addEventListener("dragging", map_dragging);
+        map.addEventListener("dragend", map_dragend);
+    }
+
+    //地图拖拽开始
+    function map_dragstart(e) {
+        map.clearOverlays();
+    }
+
+
+    //地图拖动中
+    function map_dragging(e) {
+        var offsetPoint = new BMap.Pixel(e.offsetX, e.offsetY);   //记录鼠标当前点坐标
+    }
+
+    //地图拖拽结束
+    function map_dragend(e) {
+        var cp = map.getCenter();
+        get_data(cp);
+        SetPoint(cp);
+
+    }
+
+    //单击地图
+    function map_click(e) {
+        if (e) {
+            var pos = e.point;//new BMap.Point(pos.point.lng, pos.point.lat);//实例化这两个点
+            map.clearOverlays();
+            get_data(pos);
+        }
+    }
+
+    function get_data(pos) {
+        var lngLatOrEnclosureNumber = pos.lng + "," + pos.lat;
+        var type = "address";
+        var radius = 0;
+        JsonData = [];
+        JsonDataBicyle = [];
+        $.ajax({
+            url: "" + ServiceAPIUrl + "Electronicfence/SearchaMapElectronicListByConditionNew",//SearchaMapElectronicListByGEOHash //SearchaMapElectronicListByConditionNew
+            //url: "http://www.mintcar.com/mintbikeservice/api/Electronicfence/SearchaMapElectronicListByConditionNew",
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({ 'lngLatOrEnclosureNumber': lngLatOrEnclosureNumber, 'Type': type, 'Radius': radius }),
+            //data: { phone: phone },
+            dataType: "json",
+            success: function (data) {
+                if (data.IsSuccess && data.ResObject != null) {
+                    //循环添加电子围栏的信息
+                    for (var i = 0; i < data.ResObject.Totalcount; i++) {
+                        var resultData = data.ResObject.EnclosureList[i];
+                        JsonData.push({ "CarCount": resultData.BicycleNum, point: { lat: resultData.EnclosureLatitude, lng: resultData.EnclosureLongitude }, ElectronicFenCingNumber: resultData.ElectronicFenCingNumber });
+                    }
+
+                    //非助力车辆信息
+                    for (var b = 0; b < data.ResObject.NoHelpTotalcount; b++) {
+
+                        var resultDataB = data.ResObject.NoHelpBicycleList[b];
+                        JsonDataBicyle.push({ point: { lat: resultDataB.BicycleLatitude, lng: resultDataB.BicycleLongitude }, BicyCleTypeName: resultDataB.BicyCleTypeName });
+                    }
+
+                    //for (var c = 0; c < data.ResObject.HelpTotalcount; c++) {
+
+                    //    var resultDatac = data.ResObject.HelpBicycleList[c];
+
+                    //    JsonDataHelpBicyle.push({ point: { lat: resultDatac.BicycleLatitude, lng: resultDatac.BicycleLongitude } });
+                    //}
+
+                    //循环添加标注信息
+                    JsonDataLoad();
+                }
+            },
+            error: function (msg) {
+                alert("调用百度地图API出现异常！" + msg);
+            }
+        });
+    }
+
+    function JsonDataLoad() {
+        message = new BMap.InfoWindow();         //弹出提示框
+        //循环添加标注信息
+        for (var i = 0; i < JsonData.length; i++) {
+ 
+            addMarker("蓝牙信标位置", JsonData[i].CarCount, JsonData[i].point,JsonData[i].ElectronicFenCingNumber);
+        }
+ 
+        for (var b = 0; b < JsonDataBicyle.length; b++) {
+            if (JsonDataBicyle[b].BicyCleTypeName == 0)
+            {
+                addMarkerB("非助力车辆信息", JsonDataBicyle[b].point);
+            } else {
+          
+                addMarkerHelpBike("助力车辆信息", JsonDataBicyle[b].point);
+            }
+ 
+            //  addMarkerB("非助力车辆信息", JsonDataBicyle[b].point,JsonDataBicyle[b].BicyCleTypeName );
+        }
+
+        //for (var c = 0; c < JsonDataHelpBicyle.length; c++) {
+        //    addMarkerHelpBike("助力车辆信息", JsonDataHelpBicyle[c].point);
+
+        //}
+
+
+    }
+
+    //ip定位
+    function myFun(result) {
+        var cityName = result.name;
+        map.setCenter(cityName);
+    }
+
+
+    //地图事件设置函数：
+    function setMapEvent() {
+        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+        map.enableKeyboard();//启用键盘上下左右键移动地图
+        map.enableScrollWheelZoom(true);
+        map.addControl(new BMap.OverviewMapControl({ isOpen: true, anchor: BMAP_ANCHOR_BOTTOM_RIGHT }));// 添加缩略地图控件
+    }
+
+    //地图控件添加函数：
+    function addMapControl() {
+        //向地图中添加缩放控件
+        var ctrl_nav = new BMap.NavigationControl({ anchor: BMAP_ANCHOR_TOP_LEFT, type: BMAP_NAVIGATION_CONTROL_LARGE });
+        map.addControl(ctrl_nav);
+        //向地图中添加缩略图控件
+        var ctrl_ove = new BMap.OverviewMapControl({ anchor: BMAP_ANCHOR_BOTTOM_RIGHT, isOpen: 1 });
+        map.addControl(ctrl_ove);
+        //向地图中添加比例尺控件
+        var ctrl_sca = new BMap.ScaleControl({ anchor: BMAP_ANCHOR_BOTTOM_LEFT });
+        map.addControl(ctrl_sca);
+    }
+
+    //显示当前位置
+    function SetPoint(point) {
+        //用给定的图像地址和大小创建图标对象实例   图像地址是相对于WebRoot,不需要加/,加了的话不能正确显示
+        var icon = new BMap.Icon('Map/Geo-fence.ico', new BMap.Size(60, 60), {
+            anchor: new BMap.Size(10, 30),              //图标的定位点相对于图标左上角的偏移值
+            infoWindowAnchor: new BMap.Size(10, 0)      //信息窗口开启位置相对于图标左上角的偏移值
+        });
+        var marker = new BMap.Marker(new BMap.Point(point.lng, point.lat), {
+            icon: icon,
+            offset: new BMap.Size(0, 20)
+        });    //新增标注
+        map.addOverlay(marker);
+        marker.addEventListener("click", function () {
+            showmessagepoint("当前位置", point);
+        });
+        return marker;
+
+    }
+
+    //创建图标--将标注添加到地图中
+    function addMarker(title, CarCount, point, ElectronicFenCingNumber) {
+        //用给定的图像地址和大小创建图标对象实例   图像地址是相对于WebRoot,不需要加/,加了的话不能正确显示
+        var icon = new BMap.Icon('Map/weilanIcon.png', new BMap.Size(80, 80), {
+            anchor: new BMap.Size(10, 30),              //图标的定位点相对于图标左上角的偏移值
+            infoWindowAnchor: new BMap.Size(10, 0)      //信息窗口开启位置相对于图标左上角的偏移值
+        });
+        var marker = new BMap.Marker(new BMap.Point(point.lng, point.lat), {
+            icon: icon,
+            offset: new BMap.Size(0, 20)
+        });    //新增标注
+        map.addOverlay(marker);
+        marker.addEventListener("click", function () {
+            showmessage(title, CarCount, new BMap.Point(point.lng, point.lat), ElectronicFenCingNumber);
+            //点击电子围栏跳转界面
+            //window.location.href = "#/rail";
+
+
+        });
+        return marker;
+
+    }
+
+    //创建图标--非助力车辆信息
+    function addMarkerB(title, point, BicyCleTypeName) {
+            //用给定的图像地址和大小创建图标对象实例   图像地址是相对于WebRoot,不需要加/,加了的话不能正确显示
+            var icon = new BMap.Icon('Map/bike.png', new BMap.Size(40, 58), {
+                anchor: new BMap.Size(10, 30),              //图标的定位点相对于图标左上角的偏移值
+                infoWindowAnchor: new BMap.Size(10, 0)      //信息窗口开启位置相对于图标左上角的偏移值
+            });
+       
+        var marker = new BMap.Marker(new BMap.Point(point.lng, point.lat), {
+            icon: icon,
+            offset: new BMap.Size(0, 20)
+        });
+        //新增标注
+        map.addOverlay(marker);
+        return marker;
+
+    }
+
+    //创建图标--助力车辆信息
+    function addMarkerHelpBike(title, point) {
+        //用给定的图像地址和大小创建图标对象实例   图像地址是相对于WebRoot,不需要加/,加了的话不能正确显示
+        var icon = new BMap.Icon('Map/helpbike.png', new BMap.Size(40, 58), {
+            anchor: new BMap.Size(10, 30),              //图标的定位点相对于图标左上角的偏移值
+            infoWindowAnchor: new BMap.Size(10, 0)      //信息窗口开启位置相对于图标左上角的偏移值
+        });
+        var marker = new BMap.Marker(new BMap.Point(point.lng, point.lat), {
+            icon: icon,
+            offset: new BMap.Size(0, 20)
+        });
+        //新增标注
+        map.addOverlay(marker);
+        return marker;
+
+    }
+
+
+    //移除所有的标注
+    function removeMarker() {
+        map.clearOverlays();
+    }
+
+    //显示提示框信息
+    function showmessage(title, CarCount, point, ElectronicFenCingNumber) {
+        $("#txtElectronicFenCingNumber").val(ElectronicFenCingNumber); //电子围栏编号赋值给隐藏域
+
+        message.setWidth(0);
+        message.setHeight(0);
+        message.redraw();   //重绘信息窗口，当信息窗口内容发生变化时进行调用
+        message.setTitle(title);
+        //message.setContent("车辆总数：" + CarCount + "<br>电子围栏编号：<a  href='#/rail' style='cursor:pointer;'>" + ElectronicFenCingNumber + "</a>");
+
+        message.setContent("车辆总数：" + CarCount + "<br>电子围栏编号：<button  onclick='WindowsDiv(txtElectronicFenCingNumber.value);' style='cursor:pointer;'>" + ElectronicFenCingNumber + "</a>");
+
+       // message.setContent("车辆总数：" + CarCount + "<br>电子围栏编号： <input id='selectWindowsDiv' type='button' value='查看' class='btn btn-primary' />" + ElectronicFenCingNumber + "");
+
+        message.disableMaximize();   //禁用窗口最大化功能
+        message.enableAutoPan();     //开启打开信息窗口时地图自动平移
+        map.openInfoWindow(message, point);
+    }
+
+
+
+    //显示提示框信息
+    function showmessageB(title, point) {
+        message.setWidth(50);
+        message.setHeight(50);
+        message.redraw();   //重绘信息窗口，当信息窗口内容发生变化时进行调用
+        message.setTitle(title);
+        message.setContent("车辆总数：12");
+
+        message.disableMaximize();   //禁用窗口最大化功能
+        message.enableAutoPan();     //开启打开信息窗口时地图自动平移
+        map.openInfoWindow(message, point);
+    }
+
+    function showmessagepoint(title, point) {
+        message.setWidth(50);
+        message.setHeight(50);
+        message.redraw();   //重绘信息窗口，当信息窗口内容发生变化时进行调用
+        message.setTitle(title);
+        message.setContent("经度:" + point.lng + "纬度:" + point.lat);
+
+        message.disableMaximize();   //禁用窗口最大化功能
+        message.enableAutoPan();     //开启打开信息窗口时地图自动平移
+        map.openInfoWindow(message, point);
+    }
+
+
+
+    //添加圆形区域检索暂时没用
+    function circle() {
+        // 百度地图API功能
+        var map = new BMap.Map("allmap");            // 创建Map实例
+        var mPoint = new BMap.Point(121.48789949, 31.24916171);
+        map.enableScrollWheelZoom();
+        map.centerAndZoom(mPoint, 12);
+        var circle = new BMap.Circle(mPoint, 9000, { fillColor: "blue", strokeWeight: 1, fillOpacity: 0.3, strokeOpacity: 0.3 });
+        map.addOverlay(circle);
+
+    }
+
+    // initMap();//创建和初始化地图
+
+
+   //输入关键字搜索功能
+    function G(id) {
+        return document.getElementById(id);
+    }
+
+    var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+        {
+            "input": "keywords",
+            "location": map
+        });
+
+    ac.addEventListener("onhighlight", function (e) {  //鼠标放在下拉列表上的事件
+        var str = "";
+        var _value = e.fromitem.value;
+        var value = "";
+        if (e.fromitem.index > -1) {
+            value = _value.province + _value.city + _value.district + _value.street + _value.business;
+        }
+        str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+
+        value = "";
+        if (e.toitem.index > -1) {
+            _value = e.toitem.value;
+            value = _value.province + _value.city + _value.district + _value.street + _value.business;
+        }
+        str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+        G("searchResultPanel").innerHTML = str;
+    });
+
+    var myValue;
+    ac.addEventListener("onconfirm", function (e) {    //鼠标点击下拉列表后的事件
+        var _value = e.item.value;
+        myValue = _value.province + _value.city + _value.district + _value.street + _value.business;
+        G("searchResultPanel").innerHTML = "onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+
+        //setPlace();
+    });
+
+    function setPlace() {
+        map.clearOverlays();    //清除地图上所有覆盖物
+        function myFun() {
+            var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+            map.centerAndZoom(pp, 18);
+            map.addOverlay(new BMap.Marker(pp));    //添加标注
+        }
+        var local = new BMap.LocalSearch(map, { //智能搜索
+            onSearchComplete: myFun
+        });
+        local.search(myValue);
+    }
+
+
+
+</script>
+
+<!--弹出层信息--电子围栏里的车辆详情-->
+<div id="bg">
+    <input type="hidden" id="txtElectronicFenCingNumber" />
+    <div style="background-color:black;">
+        <div class="modal-header modal_tag" style="background-color:black; font-size:14px; margin :2px; color:white; font-weight:bold;">
+            <button type="button" class="close" style="color:white;" onclick="WindowsCloseDiv();">
+                ×
+            </button>
+            <h4 class="modal-title" id="electronicfenceInfoModalLabel">
+                电子围栏里的车辆详情
+            </h4>
+        </div>
+        <!--<div style="background-color:black; float:right; margin-top:2px;">
+            <button type="button" onclick="WindowsCloseDiv();" class="btn btn-default" data-dismiss="modal"><i class="icon-remove-sign"></i>关闭</button>
+        </div>-->
+        <p class="form-horizontal" style="margin-left:4px;">
+            <span class="bg-info">
+                电子围栏编号：<label id="txt_ElecNumber"></label>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="bg-info">车辆数量：<label id="txtCountBicycles"></label>辆</span>
+        </p>
+        <form name="electronicfenceInfoForm" action="#" class="modal-body form-horizontal" style="max-height: inherit; ">
+            <table class="table table-striped table-hover">
+                <thead class="panel panel-default">
+                    <tr class="panel-heading">
+                        <th>车辆编号</th>
+                        <th>车辆类型</th>
+                        <th>状态</th>
+                        <th>当前电压</th>
+                    </tr>
+                </thead>
+                <tbody id="bicycleList">
+                    <!--<tr>
+                        <td>111111</td>
+                        <td>00000000</td>
+                        <td>7777</td>
+                        <td>5555555</td>
+                    </tr>-->
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+    <!--<div style="background-color:black; float:right; margin-top:2px;">
+        <button type="button" onclick="WindowsCloseDiv();" class="btn btn-default" data-dismiss="modal"><i class="icon-remove-sign"></i>关闭</button>
+    </div>-->
+    <!--<div   style="margin-top:130px;">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="icon-remove-sign"></i>关闭</button>
+    </div>-->
+
+</div>
+
+<style type="text/css">
+    #bg {
+        display: none;
+        position: absolute;
+        top: 23%;
+        left: 20%;
+        width: 50%;
+        height: 50%;
+        background-color: black;
+        z-index: 1001;
+        -moz-opacity: 0.7;
+        opacity: .70;
+        filter: alpha(opacity=70);
+        font-size: 14px;
+    }
+
+    #show {
+        display: none;
+        position: absolute;
+        top: 25%;
+        left: 22%;
+        width: 53%;
+        height: 49%;
+        padding: 8px;
+        border: 8px solid #E8E9F7;
+        background-color: white;
+        z-index: 1002;
+        overflow: auto;
+    }
+
+    h4 {
+        font-weight: bold;
+        color: white;
+    }
+</style>
+
+<script type="text/javascript">
+    var ServiceAPIUrl = ULR;
+
+    function WindowsDiv(ElectronicFenCingNumber) {
+        //document.getElementById("bg").style.display = "block";  //显示层
+        $("#bg").show();  //显示层
+
+        $.ajax({
+            url: "" + ServiceAPIUrl + "Electronicfence/GetElectronicfenceBicycleInfo",
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({ 'ElectronicFenCingNumber': ElectronicFenCingNumber }),
+            //data: { phone: phone },
+            dataType: "json",
+            success: function (data) {
+                var html = "";
+                if (data.IsSuccess && data.ResObject != null) {
+                    $("#txtCountBicycles").html(data.ResObject.BicyCleCount);
+                    $("#txt_ElecNumber").html(ElectronicFenCingNumber);
+                    //循环车辆信息的信息
+                    //alert(data.ResObject.Totalcount);
+                    for (var i = 0; i < data.ResObject.BicyCleCount; i++) {
+                        var resultData = data.ResObject.BicyCleList[i];
+                        html += "<tr><td>" + resultData.BicycleNumber + "</td><td>" + resultData.BicyCleType + "</td><td>" + resultData.BicyCleState + "</td><td>" + resultData.Voltage + "</td></tr>";
+                    }
+
+                    $("#bicycleList").html(html);
+                } else {
+
+                    $("#txtCountBicycles").html(0);
+                    $("#txt_ElecNumber").html(0);
+                }
+
+
+            },
+            error: function (msg) {
+                alert("加载数据异常，请稍后！");
+            }
+        })
+
+    }
+
+
+    function WindowsCloseDiv() {
+        document.getElementById("bg").style.display = "none";
+        //document.getElementById("show").style.display = "block";
+
+    }
+
+
+    //输入关键字搜索功能 [暂时废弃]
+    $(document).ready(function () {
+
+        //通过选择省市区查询信息
+        $("#selectWindowsDiv").click(function (e) {
+            //alert("333333333333333");
+            document.getElementById("bg").style.display = "block";
+            var txtElecNumber = $("#txtElectronicFenCingNumber").val();
+
+            alert(txtElecNumber);
+
+            $.ajax({
+                //type: "GET",
+                url: "" + ServiceAPIUrl + "Electronicfence/GetElectronicfenceBicycleInfo",
+                //url: "http://www.mintcar.com/mintbikeservice/api/Electronicfence/GetElectronicTjListByCondition",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({ 'ElectronicFenCingNumber': txtElecNumber }),
+                dataType: "json",
+                success: function (data) {
+                    //debugger
+                    var html = "";
+                    alert(data.ResObject.BicyCleCount);
+
+                    //if (data.ResObject.Totalcount != 0) {
+                    //    for (var i = 0; i < data.ResObject.Totalcount; i++) {
+                    //        var resultData = data.ResObject.EnclosureList[i];
+                    //        html += "<tr><td>" + resultData.Name + "</td><td>" + resultData.EleCount + "</td><td>" + resultData.bicycleCount + "</td><td><a style=\"cursor:pointer\" onclick=\"SearchList('" + resultData.Name + "')\">查看</a></td></tr>";
+                    //    }
+                    //    $("#tb_directions").html(html);
+
+                    //}
+
+
+                }
+            });
+
+        });
+
+
+
+    });
+
+</script>

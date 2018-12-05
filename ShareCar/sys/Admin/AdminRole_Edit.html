@@ -1,0 +1,36 @@
+﻿<div class="modal_cus fade" id="roleModal" tabindex="-1" role="dialog" aria-labelledby="roleModalLabel" aria-hidden="true" style='top: 15%;display:none;' data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal_tag">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="roleModalLabel">
+                    {{roleDetails && roleDetails.AdminRoleGuid ?'修改':'新增'}}角色
+                </h4>
+            </div>
+            <div class="modal-body" style="max-height:450px;">
+                <div id="successAlert1" class="alert alert-success" style="display:none;"></div>
+                <div id="warningAlert1" class="alert alert-warning" style="display:none;"></div>
+
+                <div class="span12">
+                    <form name="roleForm" action="#" class="modal-body form-horizontal" style="max-height: inherit; ">
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="qName">角色名称</label>
+                            <div class="col-sm-9">
+                                <input name='qName' placeholder="请输入15位以内的角色名称" class="m-wrap form-control" type="text" ng-model="roleDetails.RoleName" id="qName" required  ng-maxlength="15" maxlength="15"/>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" ng-click='onAddorEdit()' ng-disabled="roleForm.$invalid" id="roleBtn"><i class="icon-check"></i>确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="icon-remove-sign"></i>关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+

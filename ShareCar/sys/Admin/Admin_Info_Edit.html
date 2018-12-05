@@ -1,0 +1,73 @@
+﻿<!-- Modal -->
+<div class="modal_cus fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="adminInfoModalLabel" aria-hidden="true" style='top: 15%;' data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal_tag">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="adminInfoModalLabel">
+                    管理员信息
+                </h4>
+            </div>
+            <div class="modal-body" style="max-height:450px;">
+                <div id="successAlert1" class="alert alert-success" style="display:none;"></div>
+                <div id="warningAlert1" class="alert alert-warning" style="display:none;"></div>
+
+                <div class="span12">
+                    <form name="memberBasicInfoForm" action="#" class="modal-body form-horizontal" style="max-height: inherit; ">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="UserName"><span style="color:red;">*</span>登录用户名</label>
+                            <div class="col-sm-10">
+                                <input name='UserName' class="m-wrap form-control" type="text" ng-model='adminItem.UserName' id="UserName" ng-minlength='1' ng-maxlength='20' maxlength="20" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="Password"><span style="color:red;">*</span>登录密码</label>
+                            <div class="col-sm-10">
+                                <input name='Password' class="m-wrap form-control" type="password" ng-model='adminItem.Password' id="Password" ng-minlength='1' ng-maxlength='20' maxlength="20" />
+                                <div class="xjl-warningMessage xjl-mtop5" ng-if="adminItem.Password!=null && adminItem.Password!='' && !checkLength(adminItem.Password,6,20) && adminItem.Password!=cusPwd">登录密码6～20位</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="province"><span style="color:red;">*</span>地区</label>
+                            <div class="col-sm-9 col-nowrap">
+                                <select class="form-inline row-control select-inline" ng-model="adminItem.Province" id="province" ng-options="s.ProvinceId as s.ProvinceName for s in selRegion.ProvinceData" ng-change="onChgProvince()">
+                                    <option value="">(请选择)</option>
+                                </select>
+                                <select class="form-inline row-control select-inline" ng-model="adminItem.City" id="city" ng-options="s.CityId as s.CityName for s in cityData" ng-disabled="adminItem.Province=='' || adminItem.Province==null" ng-change="onChgCity()">
+                                    <option value="">(请选择)</option>
+                                </select>
+                                <select class="form-inline row-control select-inline" ng-model="adminItem.Area" id="area" ng-options="s.DistrictId as s.DistrictName for s in districtData" ng-disabled="adminItem.City=='' || adminItem.City==null">
+                                    <option value="">(请选择)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="SelectRole"><span style="color:red;">*</span>所属角色</label>
+                            <div class="col-sm-10">
+                                <select class="m-wrap form-control" required ng-model="adminItem.RoleName" id="SelectRole" name="SelectRole">
+                                    <option value="">(请选择)</option>
+                                    <option ng-repeat="s in adminRoles" ng-selected="s==adminItem.RoleName">{{s}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="AdminSt">是否启用</label>
+                            <div class="col-sm-10 div-chk">
+                                <input type='checkbox' ng-model="adminItem.AdminSt" id="AdminSt" name="AdminSt" /><span class="chk-span">是</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click='onUpdate()' ng-disabled="adminItem.UserName == null || adminItem.UserName == '' || adminItem.RoleName == null || adminItem.RoleName == '' || adminItem.Password == null || adminItem.Password == '' || (!checkLength(adminItem.Password,6,20) && adminItem.Password!=cusPwd)"><i class="icon-save"></i>保存</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="icon-remove-sign"></i>关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1294 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MtBikeAdminWebApi</name>
+    </assembly>
+    <members>
+        <member name="T:MtBikeAdminWebApi.AdminControllers.AdminAdminController">
+            <summary>
+            管理员控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminAdminController.#ctor">
+            <summary>
+            管理员构造函数
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminAdminController.AddOrUpdateAdmin(MintCyclingService.Admin.AddAdmin_PM)">
+            <summary>
+            新增管理员  complete TOM
+            DATE:2017-02-18
+            </summary>
+            <param name="data">参数集合</param>
+            <returns>一般结果</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminAdminController.ChangePassword(MintCyclingService.Admin.ChangePassword_PM)">
+            <summary>
+            管理员修改口令 complete TOM
+            DATE:2017-02-16
+            </summary>
+            <param name="data">参数集合</param>
+            <returns>一般结果</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminAdminController.SetAdminStatus(MintCyclingService.Admin.SetAdminStatus_PM)">
+            <summary>
+            设置管理员状态 complete TOM
+            DATE:2017-03-01
+            </summary>
+            <param name="data">参数集合</param>
+            <returns>一般结果</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminAdminController.DeleteAdmin(MintCyclingService.Admin.DeleteAdmin_PM)">
+            <summary>
+            删除管理员 complete TOM
+            DATE:2017-03-01
+            </summary>
+            <param name="data">参数集合</param>
+            <returns>一般结果</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminAdminController.GetAdminPageList(MintCyclingService.Admin.GetAdminPageList_PM)">
+            <summary>
+            获取管理员分页列表 complete TOM
+            DATE:2017-03-01
+            </summary>
+            <param name="data">参数集合</param>
+            <returns>管理员分页列表</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminAdminController.GetAdminRole">
+            <summary>
+            查询后台用户角色 complete TOM
+            DATE:2017-06-01
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminAdminController.GetAdminRoleList">
+            <summary>
+            查询后台角色列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminAdminController.GetAdminRolePageList(MintCyclingService.Role.GetAdminRolePageList_PM)">
+            <summary>
+            获取角色管理分页列表 complete TOM
+            DATE:2017-06-01
+            </summary>
+            <param name="data">参数集合</param>
+            <returns>角色管理分页列表</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminAdminController.DeleteAdminRole(MintCyclingService.Role.DeleteAdminRole_PM)">
+            <summary>
+            删除角色信息 complete TOM
+            DATE:2017-06-01
+            </summary>
+            <param name="data">参数集合</param>
+            <returns>一般结果</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminAdminController.AddOrUpdateAdminRole(MintCyclingService.Role.AddAdminRole_PM)">
+            <summary>
+            新增或者删除角色信息  complete TOM
+            DATE:2017-06-01
+            </summary>
+            <param name="data">参数集合</param>
+            <returns>一般结果</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminAdminController.QueryAdminRolePerm(MintCyclingService.Admin.RolePerm_PM)">
+            <summary>
+            查询角色关联的权限
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminAdminController.ModifyAdminRolePerm(MintCyclingService.Admin.UpdateRolePerm_PM)">
+            <summary>
+            更新角色关联的权限
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MtBikeAdminWebApi.AdminControllers.AdminBreakdownController">
+            <summary>
+            后台故障管理控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminBreakdownController.#ctor">
+            <summary>
+            初始化单车控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminBreakdownController.GetBreakdownListByCondition(MintCyclingService.Breakdown.GetBreakdownList_PM)">
+             <summary>
+             根据查询条件搜索故障维护列表  complete TOM
+            DATE：2017-02-23
+             </summary>
+             <param name="model"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminBreakdownController.GetBreakDownByDetail(System.Guid)">
+             <summary>
+             查询故障维护详情  complete TOM
+            DATE：2017-02-27
+             </summary>
+             <param name="BreakdownGuid"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminBreakdownController.AddOrUpdateBreakDown(MintCyclingService.Breakdown.AddOrUpdateBreakdown_PM)">
+             <summary>
+             新增或修改故障维护信息 complete TOM
+            DATE：2017-02-27
+             </summary>
+             <param name="model"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminBreakdownController.ImportExcelData(MintCyclingService.Breakdown.ImportExcelData_PM)">
+             <summary>
+             导入Excel功能 complete TOM
+            DATE：2017-04-07
+             </summary>
+             <param name="model"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminBreakdownController.RepairRecord(MintCyclingService.Breakdown.AdminRepairRecord_PM)">
+            <summary>
+            维修记录
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminBreakdownController.Getnotification">
+            <summary>
+            请求一分钟之内的通知
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MtBikeAdminWebApi.AdminControllers.AdminWebLoginController">
+            <summary>
+            管理员后台登录控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminWebLoginController.#ctor">
+            <summary>
+            管理员后台登录控制器初始化
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminWebLoginController.CheckAdminLogin(MintCyclingService.Admin.CheckAdminLogin_PM)">
+            <summary>
+            检验管理员登录 omplete TOM
+            DATE:2017-02-20
+            </summary>
+            <param name="data">参数集合</param>
+            <returns>检验管理员登录结果</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.AdminWebLoginController.VerifyImage">
+            <summary>
+            验证码 omplete TOM
+            DATE:2017-02-24
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MtBikeAdminWebApi.AdminControllers.BikingController">
+            <summary>
+            车辆管理控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.BikingController.#ctor">
+            <summary>
+            初始化单车控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.BikingController.AddOrUpdateBicycleBase(MintCyclingService.BicLock.AddBicycleOrUpdate_PM)">
+            <summary>
+            添加或者修改车辆基本信息 complete TOM
+            DATE：2017-02-16
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.BikingController.DeleteBicycleBaseByBicycleGuid(MintCyclingService.BicLock.BicycleDelete_PM)">
+            <summary>
+            删除车辆基本信息 complete TOM
+            DATE：2017-02-15
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.BikingController.GetBicycleBaseListByCondition(MintCyclingService.BicLock.GetBicycleBaseList_PM)">
+            <summary>
+            根据查询条件搜索后台车辆列表  complete TOM
+            DATE：2017-02-15
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.BikingController.AddOrUpdateCustomerBicycleLock(MintCyclingService.BicLock.AddCustomerBicycleLockJson_PM)">
+            <summary>
+            批量分配客户车锁 complete TOM
+            DATE：2017-06-20
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.BikingController.CustomerBicycleLockList(MintCyclingService.BicLock.CustomerBicycleLocklist_PM)">
+            <summary>
+            根据查询条件搜索分配客户车锁列表  complete TOM
+            DATE：2017-06-21
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.BikingController.GetBicycleProduceBicNumber(MintCyclingService.BicLock.GetRandomNumModel_PM)">
+            <summary>
+            批量生成车牌号  complete TOM
+            DATE：2017-06-02
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.BikingController.GetBicycleNumberListByCondition(MintCyclingService.BicLock.GetBicycleNumberList_PM)">
+            <summary>
+            根据查询条件搜索批量生成车牌号列表  complete TOM
+            DATE：2017-06-02
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.BikingController.SendUpgradeBicLockProgram(MintCyclingService.Remote.RemoteUpgradeBicLockProgram_PM)">
+            <summary>
+            发送远程升级锁程序包  complete TOM
+            DATE:2017-07-07
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.BikingController.ReceiveUpgradeFinish(MintCyclingService.Remote.ReceiveUpgradeFinish_PM)">
+            <summary>
+            接受远程升级锁程序包完成后锁的应答  complete TOM
+            DATE:2017-07-18
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MtBikeAdminWebApi.AdminControllers.ChargingRuleController">
+            <summary>
+            计费规则控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ChargingRuleController.#ctor">
+            <summary>
+            计费规则构造函数
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ChargingRuleController.GetChargingRuleList">
+            <summary>
+            计费规则列表 complete TOM
+            DATE：2017-02-26
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ChargingRuleController.AddChargingRule(MintCyclingService.ChargingRules.ChargingRule_PM)">
+            <summary>
+            添加或者编辑计费规则  complete TOM
+            DATE：2017-02-26
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:MtBikeAdminWebApi.AdminControllers.ChargingRuleController.DeleteChargingRuleByServiceGuid(MintCyclingService.ChargingRules.DeleteChargingRule_PM)" -->
+        <member name="T:MtBikeAdminWebApi.AdminControllers.CustomerController">
+            <summary>
+            客户管理控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.CustomerController.#ctor">
+            <summary>
+            初始化单车控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.CustomerController.AddOrUpdateCustomer(MintCyclingService.Customer.AddCustomerOrUpdate_PM)">
+             <summary>
+            添加或者修改客户信息 complete TOM
+            DATE：2017-05-31
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.CustomerController.DeleteCustomerByCustomerID(MintCyclingService.Customer.CustomerDelete_PM)">
+             <summary>
+            删除客户信息 complete TOM
+            DATE：2017-05-31
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.CustomerController.GetCustomerInfoList(MintCyclingService.Customer.GetCustomerList_PM)">
+             <summary>
+             根据查询条件搜索客户列表  complete TOM
+            DATE：2017-05-31
+             </summary>
+             <param name="model"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.CustomerController.GetCustomerList(MintCyclingService.Customer.GetCustomerList_PM)">
+             <summary>
+             查询客户列表信息  complete TOM
+            DATE：2017-06-20
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.CustomerController.GetCustomerInfo">
+            <summary>
+            客户列表 complete TOM
+            DATE：2017-06-21
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MtBikeAdminWebApi.AdminControllers.ElectronicfenceController">
+            <summary>
+            电子围栏控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ElectronicfenceController.#ctor">
+            <summary>
+            初始化电子围栏模块控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ElectronicfenceController.QueryProvinceCityData">
+            <summary>
+            查询后台省市区列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ElectronicfenceController.QueryElectronicfenceListByCondition(MintCyclingService.Electronicfence.AdminEnclosureList_PM)">
+            <summary>
+            根据查询条件搜索后台电子围栏列表 complete TOM
+            DATE:2017-02-24
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ElectronicfenceController.QueryElectronicfenceDetail(System.Guid)">
+             <summary>
+             查询电子围栏详情 complete TOM
+             DATE:2017-02-24
+            
+             </summary>
+             <param name="electronicfenceGuid"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ElectronicfenceController.AddOrEditElectronicfence(MintCyclingService.Electronicfence.AdminEnclosureAddAndUpdate_PM)">
+            <summary>
+            新增或修改指定的电子围栏数据 complete TOM
+            DATE:2017-02-23
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ElectronicfenceController.CancelElectronicfence(MintCyclingService.Electronicfence.AdminEnclosureDelete_PM)">
+            <summary>
+            删除指定的电子围栏 complete TOM
+            DATE:2017-02-27
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ElectronicfenceController.GetElectronicfenceBicycle(System.Guid)">
+            <summary>
+            根据电子围栏的Guid查询电子围栏下的单车列表 complete TOM
+            DATE:2017-02-22
+            </summary>
+            <param name="electronicfenceGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ElectronicfenceController.GetElectronicfenceBicycleInfo(MintCyclingService.Electronicfence.EnclosureList_PM)">
+            <summary>
+            根据电子围栏编号查询电子围栏下的单车列表 complete TOM
+            DATE:2017-05-15
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ElectronicfenceController.SearchaMapElectronicListByCondition(MintCyclingService.Electronicfence.SearchElectronic_PM)">
+            <summary>
+            根据选择省市区三级条件搜索电子围栏数和车辆总数信息
+            DATE:2017-03-20
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ElectronicfenceController.SearchaMapElectronicListByConditionNew(MintCyclingService.Electronicfence.MapBicycleEnclosure_PM)">
+            <summary>
+            根据查询条件搜索后台地图上显示是我电子围栏中的车辆总数信息和电子围栏外的车辆  complete TOM
+            DATE:2017-03-17
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ElectronicfenceController.SearchaMapElectronicListByGEOHash(MintCyclingService.Electronicfence.MapBicycleEnclosure_PM)">
+            <summary>
+            根据查询条件搜索后台地图上显示是我电子围栏中的车辆总数信息和电子围栏外的车辆[暂时废弃]  complete TOM
+            DATE:2017-03-17
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ElectronicfenceController.CreateElectronicFenCingNumber">
+            <summary>
+            生成电子围栏编号 complete TOM
+            DATE:2017-03-20
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ElectronicfenceController.GetStatisticalListData">
+            <summary>
+            统计车辆新和电子围栏信息   complete TOM
+            DATE:2017-03-20
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ElectronicfenceController.GetElectronicTjListByCondition(MintCyclingService.Electronicfence.SearchTj_PM)">
+            <summary>
+            统计区域的电子围栏总数和电子围栏下的车辆总数   complete TOM
+            DATE:2017-5-6
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MtBikeAdminWebApi.AdminControllers.ServicePersonController">
+            <summary>
+            维修人员控制器后台
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ServicePersonController.#ctor">
+            <summary>
+            维护人员构造函数
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ServicePersonController.AddServicePersonInfo(MintCyclingService.ServicePerson.ServicePerson_PM)">
+            <summary>
+            添加或者编辑维护人员信息 complete TOM
+            DATE：2017-02-26
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.ServicePersonController.GetServicePersonInfList(MintCyclingService.ServicePerson.SearchServicePerson_PM)">
+            <summary>
+            维修人员列表 complete TOM
+            DATE：2017-02-26
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:MtBikeAdminWebApi.AdminControllers.ServicePersonController.DeleteServicePersonByServiceGuid(MintCyclingService.ServicePerson.DeleteServicePerson_PM)" -->
+        <member name="T:MtBikeAdminWebApi.AdminControllers.StatisticsController">
+            <summary>
+            运营统计控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.StatisticsController.#ctor">
+            <summary>
+            维护人员构造函数
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.StatisticsController.GetStatisticsData">
+            <summary>
+            平台运营统计数据  complete TOM
+            DATE：2017-02-27
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.StatisticsController.GetStatisticsDataByCondition(MintCyclingService.Statistics.GetCondition_PM)">
+            <summary>
+            根据条件搜索平台收益情况统计数据  complete TOM
+            DATE：2017-02-27
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:MtBikeAdminWebApi.AdminControllers.SupplierController">
+            <summary>
+            供应商管理控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.SupplierController.#ctor">
+            <summary>
+            初始化单车控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.SupplierController.AddOrUpdateSupplier(MintCyclingService.Supplier.AddSupplierOrUpdate_PM)">
+             <summary>
+            添加或者修改供应商信息 complete TOM
+            DATE：2017-05-31
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.SupplierController.DeleteSupplierBySupplierID(MintCyclingService.Supplier.SupplierDelete_PM)">
+             <summary>
+            删除供应商信息 complete TOM
+            DATE：2017-05-31
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.SupplierController.GetSupplierInfoListByCondition(MintCyclingService.Supplier.GetSupplierList_PM)">
+             <summary>
+             根据查询条件搜索供应商管理列表  complete TOM
+            DATE：2017-05-31
+             </summary>
+             <param name="model"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.SupplierController.GetLockSupplierList(MintCyclingService.BicLock.BicLock_PM)">
+             <summary>
+             根据查询条件搜索生产锁管理列表列表  complete TOM
+            DATE：2017-05-31
+             </summary>
+             <param name="model"></param>
+             <returns></returns>
+        </member>
+        <member name="T:MtBikeAdminWebApi.AdminControllers.UploadController">
+            <summary>
+            APP首页引导页广告位控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.UploadController.#ctor">
+            <summary>
+            APP首页引导页广告位控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.UploadController.NewGuidePagePhoto">
+            <summary>
+            增加引导页的图片
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.UploadController.QueryGuidePagePhoto">
+            <summary>
+            查询引导页图片数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.UploadController.RemoveGuidePagePhoto(MintCyclingService.Photo.GuidePagePhotoDeletion)">
+            <summary>
+            删除引导页图片
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.UploadController.UpdateGuidePage(MintCyclingService.Photo.GuidePagePhotoModification)">
+            <summary>
+            编辑引导页
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.UploadController.NewCommercialPhoto">
+            <summary>
+            增加广告弹窗
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.UploadController.QueryCommercialPhoto">
+            <summary>
+            查询广告弹窗数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.UploadController.RemoveCommercialPhoto(MintCyclingService.Photo.GuidePagePhotoDeletion)">
+            <summary>
+            删除广告弹窗
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.UploadController.UpdateCommercial(MintCyclingService.Photo.GuidePagePhotoModification)">
+            <summary>
+            编辑广告弹窗
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MtBikeAdminWebApi.AdminControllers.WalletController">
+            <summary>
+            用户钱包控制器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AdminControllers.WalletController.#ctor">
+            <summary>
+            初始化用户钱包控制器
+            </summary>
+        </member>
+        <member name="T:MtBikeAdminWebApi.AutoFacConfig">
+            <summary>
+            AutoFac配置类
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.AutoFacConfig.Container">
+            <summary>
+            声明Ioc容器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.AutoFacConfig.AutoFacRegister">
+            <summary>
+            AutoFac注册
+            </summary>
+        </member>
+        <member name="T:MtBikeAdminWebApi.WebApiConfig">
+            <summary>
+            web api  配置
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.WebApiConfig.Register(System.Web.Http.HttpConfiguration)">
+            <summary>
+            注册
+            </summary>
+            <param name="config"></param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:MtBikeAdminWebApi.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:MtBikeAdminWebApi.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Describes a type model.
+            </summary>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            Generates model descriptions for given types.
+            </summary>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:MtBikeAdminWebApi.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MtBikeAdminWebApi.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:MtBikeAdminWebApi.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:MtBikeAdminWebApi.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:MtBikeAdminWebApi.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:MtBikeAdminWebApi.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:MtBikeAdminWebApi.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,MtBikeAdminWebApi.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,MtBikeAdminWebApi.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:MtBikeAdminWebApi.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},MtBikeAdminWebApi.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey.#ctor(MtBikeAdminWebApi.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,MtBikeAdminWebApi.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:MtBikeAdminWebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MtBikeAdminWebApi.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MtBikeAdminWebApi.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Filter.CheckAdminAccessCodeFilter">
+            <summary>
+            检验管理员AccessCode是否有效
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Filter.CheckAdminAccessCodeFilter.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Action执行前运行
+            </summary>
+            <param name="actionContext">Action上下文</param>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Filter.CheckUserAccessCodeFilter">
+            <summary>
+            检验用户AccessCode是否有效
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Filter.CheckUserAccessCodeFilter.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Action执行前运行
+            </summary>
+            <param name="actionContext">Action上下文</param>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Filter.HttpHeaderFilter">
+            <summary>
+            Http Header 过滤器, Swagger专用
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Filter.HttpHeaderFilter.Apply(Swashbuckle.Swagger.Operation,Swashbuckle.Swagger.SchemaRegistry,System.Web.Http.Description.ApiDescription)">
+            <summary>
+            应用
+            </summary>
+            <param name="operation">操作参数</param>
+            <param name="schemaRegistry">结构注册</param>
+            <param name="apiDescription">Api描述</param>
+        </member>
+        <member name="T:MtBikeAdminWebApi.Filter.WebApiExceptionFilterAttribute">
+            <summary>
+            WebApi异常捕获过滤器
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.Filter.WebApiExceptionFilterAttribute.OnException(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            重写基类的异常处理方法
+            </summary>
+            <param name="actionExecutedContext">异常参数</param>
+        </member>
+        <member name="F:MtBikeAdminWebApi.WebApiApplication.AccessCodeName">
+            <summary>
+            AccessCode属性名
+            </summary>
+        </member>
+        <member name="M:MtBikeAdminWebApi.WebApiApplication.Application_BeginRequest(System.Object,System.EventArgs)">
+            <summary>
+            被请求时
+            在Angular.js中的H5页面调用Web api时跨域问题处理
+            </summary>
+            <param name="sender">请求者</param>
+            <param name="e">参数</param>
+        </member>
+        <member name="M:MtBikeAdminWebApi.WebApiApplication.GetAdminUserData">
+            <summary>
+            查询后台用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MtBikeAdminWebApi.WebApiApplication.CreateTimer">
+            <summary>
+            创建一个定时器
+            </summary>
+        </member>
+        <member name="T:MintCyclingWebApi.AdminControllers.UserInfoController">
+            <summary>
+            用户管理控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AdminControllers.UserInfoController.#ctor">
+            <summary>
+            初始化单车控制器
+            </summary>
+        </member>
+        <member name="M:MintCyclingWebApi.AdminControllers.UserInfoController.GetUserInfoByCondition(MintCyclingService.User.AdminUserInfo_PM)">
+            <summary>
+            根据查询条件搜索用户列表  complete TOM
+            DATE：2017-05-22
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AdminControllers.UserInfoController.GetUserByUserGuid(System.Guid)">
+            <summary>
+            通过用户的Guid查询个人信息
+            作者：TOM
+            时间：2017-05-23
+            </summary>
+            <param name="UserGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AdminControllers.UserInfoController.EditUserInfoByUserGuid(MintCyclingService.User.EditUserInfo_PM)">
+            <summary>
+            编辑用户信息    complete TOM
+            DATE：2017-05-22
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AdminControllers.UserInfoController.DeleteUserByUserGuid(MintCyclingService.User.DeleteUserInfo_PM)">
+            <summary>
+            删除用户信息    complete TOM
+            DATE：2017-05-22
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AdminControllers.UserInfoController.LockUserStatusByUserGuid(MintCyclingService.User.LockUserInfo_PM)">
+            <summary>
+            锁定用户状态 complete TOM
+            DATE：2017-05-23
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AdminControllers.UserInfoController.GetTransactionList(MintCyclingService.User.UserTransaction_PM)">
+            <summary>
+            当前交易记录API列表 complete TOM
+             DATE：2017-05-24
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AdminControllers.UserInfoController.GetUserByUserGuid(MintCyclingService.User.RetrunBicycle_PM)">
+            <summary>
+            手动还车详细  complete TOM
+            DATE：2017-05-24
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AdminControllers.UserInfoController.ReturnCarByPhone(MintCyclingService.User.ReturnCar_PM)">
+            <summary>
+            手动还车处理 complete TOM
+            DATE：2017-05-23
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AdminControllers.UserInfoController.GetHistoryUserTransactionList(MintCyclingService.User.HistoryUserTransaction_PM)">
+            <summary>
+            历史交易记录API列表  complete TOM
+            DATE：2017-05-24
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AdminControllers.UserInfoController.GetUserDepositRechargeRecordList(MintCyclingService.User.UserDepositRecharge_PM)">
+            <summary>
+            用户充值押金交易记录API列表  complete TOM
+            DATE：2017-05-25
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AdminControllers.UserInfoController.GetUserAccountRechargeRecordList(MintCyclingService.User.UserDepositRecharge_PM)">
+            <summary>
+            用户充值余额交易记录API列表  complete TOM
+            DATE：2017-05-25
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MintCyclingWebApi.AdminControllers.UserInfoController.GetUserRefundDepositRecordList(MintCyclingService.User.UserDepositRecharge_PM)">
+            <summary>
+            用户退款交易记录API列表  complete TOM
+            DATE：2017-05-25
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HuRongClub.Admin.Filters.ApiLogAttribute">
+            <summary>
+            日志
+            </summary>
+        </member>
+    </members>
+</doc>

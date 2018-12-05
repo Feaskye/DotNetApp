@@ -1,0 +1,187 @@
+﻿<div class="span12">
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"><i class="icon-list-alt"></i></span>
+            <h5>车辆查询</h5>
+        </div>
+        <div class="widget-content">
+            <form id="uploadForm" name='queryElectronicFenceForm' class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-3 tag-horizontal">
+                        <div class="col-lg-4">
+                            <label class="text-right inline pull-label s-label-len" for="seq">车辆编号</label>
+                        </div>
+                        <div class="col-lg-8">
+                            <input name='BicycleNumber' type="text" id="seq" class="m-wrap form-control" placeholder="请输入车辆编号" ng-model='BicycleNumber' />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 tag-horizontal">
+                        <div class="col-sm-1">
+                            <label class="inline pull-label s-label-len text-right" for="province">地址</label>
+                        </div>
+                        <div class="col-sm-9 col-nowrap">
+                            <select class="form-inline row-control select-inline" ng-model="province" id="province" ng-options="s.ProvinceId as s.ProvinceName for s in selRegion.ProvinceData" ng-change="onChgProvince()">
+                                <option value="">(请选择)</option>
+                            </select>
+                            <select class="form-inline row-control select-inline" ng-model="city" id="city" ng-options="s.CityId as s.CityName for s in cityData" ng-disabled="province=='' || province==null" ng-change="onChgCity()">
+                                <option value="">(请选择)</option>
+                            </select>
+                            <select class="form-inline row-control select-inline" ng-model="District" id="District" ng-options="s.DistrictId as s.DistrictName for s in districtData" ng-disabled="city=='' || city==null">
+                                <option value="">(请选择)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 tag-horizontal cols-btn">
+                        <div class="col-sm-12">
+                            <a ng-click='onQuery()' class="btn grey"><i class="icon-search"></i>查询</a>
+                            <!--<a ng-click='onAdd()' class="btn btn-primary btnleftmargin"><i class="icon-plus-sign"></i>新增</a>-->
+                            <a ng-click='onSelect()' class="btn btn-primary btnleftmargin"><i class="icon-plus-sign"></i>车锁分配客户</a>
+                            <!--<input type="file" id="fileUpload" name="file">
+                            <input type="text" id="UserGuid" value="5abababa-6efd-4450-a0e6-e52a92b2608f" />
+                            <button id="testAjax" type="button">上传</button>-->
+
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"><i class="icon-reorder"></i></span>
+            <h5>车辆列表</h5>
+        </div>
+
+        <div id="successAlert" class="alert alert-success" style="display:none;"></div>
+        <div id="warningAlert" class="alert alert-warning" style="display:none;"></div>
+
+        <div class="widget-content table-responsive">
+            <table ng-table="tableParams" class="table table-striped table-bordered table-hover">
+                <thead class="panel panel-default">
+                    <tr class="panel-heading">
+                        <th class="hidden-480">序号</th>
+                        <th class="hidden-480" style="display:block;cursor: pointer;" ng-click="onChkCol()" ><input type="checkbox" class="icon-white" ng-checked="isSelected" ><span style="vertical-align: -4px;margin-left: 10px;cursor: pointer;">{{isSelected?'取消全选':'全选'}}</span></th>
+                        <th class="hidden-480">车辆编号</th>
+                        <th class="hidden-480">锁编号</th>
+                        <th class="hidden-480">车辆类型</th>
+                        <th class="hidden-480">状态</th>
+                        <th class="hidden-480">当前电压</th>
+                        <th class="hidden-480">区域</th>
+                        <th class="hidden-480">创建时间</th>
+                        <th class="hidden-480">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd gradeX" ng-repeat='item in $data'>
+                        <td class="hidden-480">
+                            <span>{{$index<10?($index+1):$index+1}}</span>
+                        </td>
+                        <td class="hidden-480" style="width:10%;">
+                            <input type="checkbox" ng-model="item.Checked" ng-click="onSelCol(item)" />
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.BicyCleNumber}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.LockNumber}}</span>
+                        </td>
+
+                        <td class="hidden-480">
+                            <span>{{item.BicycleTypeName}}</span>
+                        </td>
+
+                        <td class="hidden-480">
+                            <span>{{item.LockStatus}}</span>
+                        </td>
+                        <td class="hidden-480">
+
+                            <span>{{item.Voltage}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.DistricName}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.CreateTime |dateFormatFilter}}</span>
+                        </td>
+
+                        <td class="hidden-480">
+                            <a class="btn btn-default btn-xs btn-warning" ng-click="onDetail(item)"><i class="icon-new-window"></i>查看</a>
+                            <a class="btn btn-default btn-xs btn-info" ng-click="onClickEdit(item)"><i class="icon-edit"></i>编辑</a>
+                            <!--<a class="btn btn-default btn-xs btn-danger" ng-click="onDel(item)"><i class="icon-remove-circle"></i>删除</a>-->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div ng-include="'bicycle/bicycle_Edit.html'"></div>
+<div ng-include="'bicycle/bicycle_Details.html'"></div>
+<div ng-include="'bicycle/AssignConsumer.html'"></div>
+<!--<script type="text/javascript">
+    $(function(){
+        //按钮单击时执行
+        $("#testAjax").click(function(){
+           // var formData = new FormData($("#uploadForm")[0]); //只上传图片的时候可以
+
+            var formData = new FormData();
+            formData.append('picLoc', $("#fileUpload")[0].files[0]);
+            formData.append('UserGuid', "5abababa-6efd-4450-a0e6-e52a92b2608f");
+
+
+              //Ajax调用处理
+            $.ajax({
+                //url: "http://localhost:5325/api/pcenter/UploadAvatarPhotoFile",
+                url: "http://localhost:5325/api/pcenter/UploadUserPhotoFile",
+                type: "POST",
+                //data:formData,
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+
+               success: function(data){
+                   alert("成功！");
+                  }
+            });
+
+         });
+    });
+</script>-->
+
+
+
+<script type="text/javascript">
+
+    //$(document).ready(function () {
+  
+    //    $.get("HelloWorld.svc/RestfulTest/555/666", function (data) {
+    //        alert("RestfulTest GET方式调用成功，返回值为：" + data);
+    //    })
+
+
+    //    $.post("http://114.55.100.103:80/HandleControllerRiding/639A54626/2", function (data) {
+
+    //        alert("RestfulTest POST方式调用成功，返回值为：" + data);
+    //    })
+
+
+    //    $.get("HelloWorld.svc/GETTest", { person: "aaa", welcome: "bbb" }, function (data) {
+    //        alert("GETTest 调用成功，返回值为：" + data);
+    //    });
+
+
+    //    $.ajax({
+    //        url: "HelloWorld.svc/PostTest",
+    //        type: "POST",
+    //        contentType: "application/json",
+    //        data: '{"person":"ccc","welcome":"ddd"}',
+    //        dataType: "html",
+    //        success: function (data) { alert("PostTest调用成功，返回值为：" + data); }
+    //    });
+    //})
+</script>

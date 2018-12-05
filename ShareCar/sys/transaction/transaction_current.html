@@ -1,0 +1,97 @@
+﻿<div class="span12">
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"><i class="icon-list-alt"></i></span>
+            <h5>当前交易记录查询</h5>
+        </div>
+        <div class="widget-content">
+            <form name='queryTransactionForm' class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-lg-3 tag-horizontal">
+                        <div class="col-lg-3">
+                            <label class="text-right inline pull-label s-label-len" for="phone">手机号</label>
+                        </div>
+
+                        <div class="col-lg-9">
+                            <input name='phone' type="text" id="phone" class="m-wrap form-control" placeholder="请输入用户手机号" ng-model='queryTransactionData.phone' />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 tag-horizontal">
+                        <div class="col-lg-3">
+                            <label class="text-right inline pull-label s-label-len" for="bikeNo">车锁号</label>
+                        </div>
+
+                        <div class="col-lg-9">
+                            <input name='bikeNo' type="text" id="bikeNo" class="m-wrap form-control" placeholder="请输入车锁号" ng-model='queryTransactionData.bikeNo' />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-lg-1 col-md-2 col-sm-3 col-xs-4">
+                        <a ng-click='onQuery()' class="btn grey btn-margin-left"><i class="icon-search"></i>查询</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"><i class="icon-reorder"></i></span>
+            <h5>当前交易记录列表</h5>
+        </div>
+
+        <div id="successAlert" class="alert alert-success" style="display:none;"></div>
+        <div id="warningAlert" class="alert alert-warning" style="display:none;"></div>
+
+        <div class="widget-content table-responsive">
+            <table ng-table="tableParams" class="table table-striped table-bordered table-hover">
+                <thead class="panel panel-default">
+                    <tr class="panel-heading">
+                        <th class="hidden-480">序号</th>
+                        <th class="hidden-480">用户手机号</th>
+                        <th class="hidden-480">车锁号</th>
+                        <th class="hidden-480">租车时间</th>
+                        <th class="hidden-480">还车时间</th>
+                        <th class="hidden-480">交易金额</th>
+                        <th class="hidden-480">交易前余额</th>
+                        <th class="hidden-480">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd gradeX" ng-repeat='item in $data'>
+                        <td class="hidden-480">
+                            <span>{{$index+1+preCnt}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.Phone}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.BicycleNumber}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.StartTime|dateFormatFilter}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.EndTime|dateFormatFilter}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.TotalAmout}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <span>{{item.UsableAmount}}</span>
+                        </td>
+                        <td class="hidden-480">
+                            <a ng-class="{true:'btn btn-default btn-xs',false:'btn btn-info btn-xs'}[item.EndTime!=null]" ng-click="onreturnBike(item)" ng-disabled="item.EndTime"><i class="icon-retweet"></i>手动还车</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div ng-include="'transaction/transaction_close.html'"></div>

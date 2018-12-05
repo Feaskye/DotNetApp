@@ -1,0 +1,57 @@
+﻿<div class="modal_cus fade" id="rentalModal" tabindex="-1" role="dialog" aria-labelledby="rentalModalLabel" aria-hidden="true" style='top: 15%;display:none;' data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal_tag">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="rentalModalLabel">
+                    {{rentalDetails && rentalDetails.RuleID ?'修改':'新增'}}车辆租借费用
+                </h4>
+            </div>
+            <div class="modal-body" style="max-height:450px;">
+                <div id="successAlert1" class="alert alert-success" style="display:none;"></div>
+                <div id="warningAlert1" class="alert alert-warning" style="display:none;"></div>
+
+                <div class="span12">
+                    <form name="rentalForm" action="#" class="modal-body form-horizontal" style="max-height: inherit; ">
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="qTs">免费时长（分钟）</label>
+                            <div class="col-sm-3"><input id="qTs" name='qTs' class="m-wrap form-control" type="number" ng-model="rentalDetails.FreeTime"  required/></div>
+
+                            <label class="col-sm-3 control-label" for="qMin">计费单位时间（分钟）</label>
+                            <div class="col-sm-3">
+                                <input name='qMin' class="m-wrap form-control" type="number" ng-model="rentalDetails.ChargingTime" id="qMin" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="qPrice">计费价格单位(元)</label>
+                            <div class="col-sm-3">
+                                <input name='qPrice' class="m-wrap form-control" type="number" ng-model="rentalDetails.Price" id="qPrice" required />
+                            </div>
+
+                            <label class="col-sm-3 control-label" for="qPriceMax">单日收费上限（元）</label>
+                            <div class="col-sm-3">
+                                <input name='qPriceMax' class="m-wrap form-control" type="number" ng-model="rentalDetails.PriceMax" id="qPriceMax" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="remark">描述</label>
+                            <div class="col-sm-9">
+                                <textarea name='remark' class="m-wrap form-control" ng-model="rentalDetails.Remark" id="remark" rows="6" maxlength="150" ng-maxlength="150" cols="30"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" ng-click='onAddorEdit()' ng-disabled="rentalForm.$invalid" id="rentalBtn"><i class="icon-check"></i>确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="icon-remove-sign"></i>关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+

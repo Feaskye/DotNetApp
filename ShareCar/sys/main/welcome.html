@@ -1,0 +1,148 @@
+﻿<div class="row-fluid" ng-cloak>
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h4></h4>欢迎登录<strong>Mint 薄荷单车管理平台</strong> ！
+    </div>
+    <div ng-if="isLoad" class="nowrap-div-panel">
+        <div id="dashboard_01">
+            <table width="100%" height="200px" cellspacing="0" class="top-head-txt">
+                <tbody>
+                    <tr height="20%">
+                        <td width="12%">&nbsp;</td>
+                        <td width="12%">&nbsp;</td>
+                        <td width="2%"></td>
+                        <td width="12%">&nbsp;</td>
+                        <td width="12%">&nbsp;</td>
+                        <td width="2%"></td>
+                        <td width="12%">&nbsp;&nbsp;</td>
+                        <td width="12%">&nbsp;&nbsp;</td>
+                        <td width="2%"></td>
+                        <td width="12%">&nbsp;&nbsp;</td>
+                        <td width="12%">&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr height="60%">
+                        <td width="12%" style="border-right:1px solid #ec785d" align="center">
+                            <span class="top-head-col1-span">注册用户</span><br>
+                            <span style="font-size:30px;">{{portletDetails.TotalUserCount}}</span>
+                            <span></span><br> <br> <span>（位）</span>
+                        </td>
+                        <td width="12%" align="center">
+                            <span class="top-head-col1-span">本月注册</span><br> <span style="font-size: 30px">{{portletDetails.TotalMonthUserCount}}</span>
+                            <span style="">位</span><br> <br> <span>{{'本年：'+portletDetails.TotalYearUserCount+' 位'}}</span>
+                        </td>
+                        <td width="2%"></td>
+                        <td width="12%" style="border-right:1px solid #45b9df" align="center">
+                            <span class="top-head-col1-span">总故障数</span><br>
+                            <span style="font-size: 30px">{{portletDetails.TotalBreakCount}}</span>
+                            <span></span><br> <br> <span>（个）</span>
+                        </td>
+                        <td width="12%" align="center">
+                            <span class="top-head-col1-span">本月故障</span><br> <span style="font-size: 30px">{{portletDetails.TotalMonthBreakCount}}</span>
+                            <span>个</span><br><br> <span>{{'本年：'+portletDetails.TotalYearBreakCount+' 个'}}</span>
+                        </td>
+                        <td width="2%"></td>
+                        <td width="12%" style="border-right:1px solid #A0BE96" align="center">
+                            <span class="top-head-col1-span">押金总额</span><br>
+                            <span style="font-size: 30px">{{portletDetails.TotalDepositAmount}}</span>
+                            <span></span><br> <br> <span>（元）</span>
+                        </td>
+                        <td width="12%" align="center">
+                            <span class="top-head-col1-span">本月充值押金</span><br> <span style="font-size: 30px">{{portletDetails.TotalMonthDepositAmount}}</span>
+                            <span>元</span><br> <br> <span>{{'本年：'+portletDetails.TotalYearDepositAmount+' 元'}}</span>
+                        </td>
+                        <td width="2%"></td>
+                        <td width="12%" style="border-right:1px solid #965CE1" align="center">
+                            <span class="top-head-col1-span">余额充值总额</span><br>
+                            <span style="font-size: 30px">{{portletDetails.TotalAccountAmount}}</span>
+                            <span></span><br> <br> <span>（元）</span>
+                        </td>
+                        <td width="12%" align="center">
+                            <span class="top-head-col1-span">本月余额</span><br> <span style="font-size: 30px">{{portletDetails.TotalMonthAccountAmount}}</span>
+                            <span>元</span><br> <br> <span>{{'本年：'+portletDetails.TotalYearAccountAmount+' 元'}}</span>
+                        </td>
+                    </tr>
+                    <tr height="20%">
+                        <td width="12%">&nbsp;</td>
+                        <td width="12%">&nbsp;</td>
+                        <td width="2%"></td>
+                        <td width="12%">&nbsp;</td>
+                        <td width="12%">&nbsp;</td>
+                        <td width="2%"></td>
+                        <td width="12%">&nbsp;&nbsp;</td>
+                        <td width="12%">&nbsp;&nbsp;</td>
+                        <td width="2%"></td>
+                        <td width="12%">&nbsp;&nbsp;</td>
+                        <td width="12%">&nbsp;&nbsp;</td>
+                        <td width="2%"></td>
+                        <td width="12%">&nbsp;&nbsp;</td>
+                        <td width="12%">&nbsp;&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="span12 dashboard_02 td-no-wrap" id="dashboard_02">
+            <div class="placeholder"></div>
+            <div class="dashboard_02-panel">
+                <div class="dashboard_02-div">
+                    <div class="dashboard_02-float"><img src="images/1.png" /></div><div class="dashboard_02-float">
+                        <span class="dashboard_02-span-tag">总车辆数</span>
+                        <span class="dashboard_02-span-num">{{portletDetails.TotalBicycleCount}}</span>
+                        <span class="dashboard_02-span-unit" style="">辆</span>
+                    </div>
+                </div>
+                <div class="dashboard_02-div">
+                    <div class="dashboard_02-float">
+                        <img src="images/2.png" />
+                    </div><div style="display: inline-block;float:left;">
+                        <span class="dashboard_02-span-tag">车辆开锁总数</span>
+                        <span class="dashboard_02-span-num" style="color: #6d9eeb;">{{portletDetails.TotalOpenCount}}</span>
+                        <span class="dashboard_02-span-unit">辆</span>
+                    </div>
+                </div>
+                <div class="dashboard_02-div">
+                    <div class="dashboard_02-float">
+                        <img src="images/3.png" />
+                    </div><div style="display: inline-block;float:left;">
+                        <span class="dashboard_02-span-tag">电子围栏总数</span>
+                        <span class="dashboard_02-span-num" style="color: #e69138;">{{portletDetails.TotalElectronicCount}}</span>
+                        <span class="dashboard_02-span-unit">辆</span>
+                    </div>
+                </div>
+                <div class="dashboard_02-div">
+                    <div class="dashboard_02-float">
+                        <img src="images/4.png" />
+                    </div><div style="display: inline-block;float:left;">
+                        <span class="dashboard_02-span-tag">车辆故障总数</span>
+                        <span class="dashboard_02-span-num" style="color: #cc0000;">{{portletDetails.TotalRepairCount}}</span>
+                        <span class="dashboard_02-span-unit">辆</span>
+                    </div>
+                </div>
+                <div class="dashboard_02-div">
+                    <div class="dashboard_02-float">
+                        <img src="images/2.png" />
+                    </div><div style="display: inline-block;float:left;">
+                        <span class="dashboard_02-span-tag">单车开锁率</span>
+                        <span class="dashboard_02-span-num" style="color: #2E3161;">{{portletDetails.OpenRate}}</span>
+                        <span class="dashboard_02-span-unit"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="placeholder"></div>
+        </div>
+    </div>
+    <div class="dashboard_03 dashboard_03-panel nowrap-div-panel" id="dashboard_03">
+        <div class="dashboard_03-tag">
+            <span>收益情况</span>
+            <ul>
+                <li><a href="javascript:;" class="dashboard_03-tb-activate"><span>当日</span></a></li>
+                <li><a href="javascript:;" class=""><span class="">昨日</span></a></li>
+                <li><a href="javascript:;" class=""><span class="">本月</span></a></li>
+                <li><a href="javascript:;" class=""><span class="">上月</span></a></li>
+                <li><a href="javascript:;" class=""><span class="">本年</span></a></li>
+                <li><a href="javascript:;" class=""><span class="">去年</span></a></li>
+            </ul>
+        </div>
+        <div id="dashboard03_deposit" style="width: 100%; height: 30rem;"></div>
+    </div>
+</div>

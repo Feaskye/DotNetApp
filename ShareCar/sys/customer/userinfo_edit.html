@@ -1,0 +1,77 @@
+﻿<div class="modal_cus fade" id="userInfoModal" tabindex="-1" role="dialog" aria-labelledby="userInfoModalLabel" aria-hidden="true" style='top: 15%;' data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal_tag">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="userInfoModalLabel">
+                    修改用户信息
+                </h4>
+            </div>
+            <div class="modal-body" style="max-height:450px;">
+                <div id="successAlert1" class="alert alert-success" style="display:none;"></div>
+                <div id="warningAlert1" class="alert alert-warning" style="display:none;"></div>
+
+                <div class="span12">
+                    <form name="userBasicInfoForm" action="#" class="modal-body form-horizontal" style="max-height: inherit; ">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="uPhone">用户手机号</label>
+                            <div class="col-sm-4"><input id="uPhone" name='uPhone' class="m-wrap form-control" type="text" ng-model="userDetails.Phone" /></div>
+
+                            <label class="col-sm-2 control-label" for="uName">用户姓名</label>
+                            <div class="col-sm-4">
+                                <input name='uName' class="m-wrap form-control" type="text" ng-model="userDetails.UserName" id="uName" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="uNick">用户昵称</label>
+                            <div class="col-sm-4">
+                                <input name='uNick' class="m-wrap form-control" type="text" ng-model="userDetails.UserNickName" id="uNick" />
+                            </div>
+
+                            <label class="col-sm-2 control-label" for="avatarUrl">用户头像</label>
+                            <div class="col-sm-4">
+                                <img name='avatarUrl' src="{{userDetails.PhotoUrl?userDetails.PhotoUrl:'images/tq_avatar.png'}}" ng-model='basicinforData.AvatarUrl' id="avatarUrl" class="avatar-pic img-circle" onerror="javascript: this.src = 'images/tq_avatar.png'" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="idverification">实名认证</label>
+                            <div class="col-sm-4">
+                                <input name='idverification' class="m-wrap form-control" type="text" ng-model="userDetails.StatusStr" id="idverification" ng-readonly="true" />
+                            </div>
+
+                            <label class="col-sm-2 control-label" for="uStatus">账号使用状态</label>
+                            <div class="col-sm-4">
+                                <input name='uStatus' class="m-wrap form-control" type="text" ng-model='userDetails.UserStatus' id="uStatus" ng-readonly="true" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="idType">证件类型</label>
+                            <div class="col-sm-4">
+                                <select id="idType" name="idType" class="form-control" ng-readonly="true">
+                                    <option value="0" ng-selected="true">身份证</option>
+                                    <option value="1">学生证</option>
+                                </select>
+                            </div>
+
+                            <label class="col-sm-2 control-label" for="idNo">证件号码</label>
+                            <div class="col-sm-4">
+                                <input name='idNo' class="m-wrap form-control" type="text" ng-model='userDetails.CardNumber' id="idNo" ng-readonly="true" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" ng-click='onConfirm()'><i class="icon-check"></i>确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="icon-remove-sign"></i>关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,77 @@
+﻿<div class="modal_cus fade" id="consumerModal" tabindex="-1" role="dialog" aria-labelledby="consumerModalLabel" aria-hidden="true" style='top: 15%;display:none;' data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal_tag">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="consumerModalLabel">
+                    {{consumerDetails && consumerDetails.SupplierID ?'修改':'新增'}}客户
+                </h4>
+            </div>
+            <div class="modal-body" style="max-height:450px;">
+                <div id="successAlert1" class="alert alert-success" style="display:none;"></div>
+                <div id="warningAlert1" class="alert alert-warning" style="display:none;"></div>
+
+                <div class="span12">
+                    <form name="consumerForm" action="#" class="modal-body form-horizontal" style="max-height: inherit; ">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="qName">客户名称<font class="col-lbl-tq">*</font></label>
+                            <div class="col-sm-4">
+                                <input name='qName' class="m-wrap form-control" type="text" ng-model="consumerDetails.CustomerName" id="qName" required placeholder="请输入20位以内的客户名称" ng-maxlength="20" maxlength="20" />
+                            </div>
+
+                            <label class="col-sm-2 control-label" for="qPhone">手机号</label>
+                            <div class="col-sm-4"><input id="qPhone" name='qPhone' class="m-wrap form-control" type="text" ng-model="consumerDetails.Phone" /></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="province ">区域<font class="col-lbl-tq">*</font></label>
+                            <div class="col-sm-9">
+                                <select class="form-inline row-control select-inline-s" ng-model="consumerDetails.ProvinceId" id="province" ng-options="s.ProvinceId as s.ProvinceName for s in dlgRegion.ProvinceData" ng-change="onChgqProvince()">
+                                    <option value="">(请选择)</option>
+                                </select>
+                                <select class="form-inline row-control select-inline-s" ng-model="consumerDetails.CityId" id="city" ng-options="s.CityId as s.CityName for s in qcityData" ng-disabled="consumerDetails.ProvinceId=='' || consumerDetails.ProvinceId==null" ng-change="onChgqCity()">
+                                    <option value="">(请选择)</option>
+                                </select>
+                                <select class="form-inline row-control select-inline-s" ng-model="consumerDetails.DistinctId" id="district" ng-options="s.DistrictId as s.DistrictName for s in qdistrictData" ng-disabled="consumerDetails.CityId=='' || consumerDetails.CityId==null">
+                                    <option value="">(请选择)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="uStatus">状态</label>
+                            <div class="col-sm-6">
+                                <select id="uStatus" name="uStatus" class="form-control" ng-model='consumerDetails.IsLock'>
+                                    <option value="">(请选择)</option>
+                                    <option value="0">禁用</option>
+                                    <option value="1">启用</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="loc">详细地址</label>
+                            <div class="col-sm-10">
+                                <textarea name='loc' class="m-wrap form-control" ng-model="consumerDetails.Address" id="loc" rows="5" maxlength="90" ng-maxlength="90" cols="30" placeholder="请输入90位以内的详细地址"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="remark">描述</label>
+                            <div class="col-sm-10">
+                                <textarea name='remark' class="m-wrap form-control" ng-model="consumerDetails.Remark" id="remark" rows="6" maxlength="150" ng-maxlength="150" cols="30" placeholder="请输入150位以内的描述"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" ng-click='onAddorEdit()' ng-disabled="consumerForm.$invalid" id="consumerBtn"><i class="icon-check"></i>确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="icon-remove-sign"></i>关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+

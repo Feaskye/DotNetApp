@@ -1,0 +1,99 @@
+﻿<div class="modal_cus fade" id="servicemanModal" tabindex="-1" role="dialog" aria-labelledby="servicemanModalLabel" aria-hidden="true" style='top: 15%;display:none;' data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal_tag">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="servicemanModalLabel">
+                    {{servicemanDetails && servicemanDetails.ServicePersonID ?'修改':'新增'}}维修人员
+                </h4>
+            </div>
+            <div class="modal-body" style="max-height:450px;">
+                <div id="successAlert1" class="alert alert-success" style="display:none;"></div>
+                <div id="warningAlert1" class="alert alert-warning" style="display:none;"></div>
+
+                <div class="span12">
+                    <form name="servicemanForm" action="#" class="modal-body form-horizontal" style="max-height: inherit; ">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="uNick">昵称<font class="col-lbl-tq">*</font></label>
+                            <div class="col-sm-4"><input id="uNick" name='uNick' class="m-wrap form-control" type="text" ng-model="servicemanDetails.UserName" required  maxlength="15" ng-maxlength="15" /></div>
+
+                            <label class="col-sm-2 control-label" for="uName">真实姓名</label>
+                            <div class="col-sm-4">
+                                <input name='uName' class="m-wrap form-control" type="text" ng-model="servicemanDetails.RealName" id="uName" maxlength="15" ng-maxlength="15" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="uPhone">手机号</label>
+                            <div class="col-sm-4">
+                                <input name='uPhone' class="m-wrap form-control" type="text" ng-model="servicemanDetails.Phone" id="uPhone" />
+                            </div>
+
+                            <label class="col-sm-2 control-label" for="uStatus">状态</label>
+                            <div class="col-sm-4">
+                                <select id="uStatus" name="uStatus" class="form-control"  ng-model='servicemanDetails.Status'>
+                                    <option value="">(请选择)</option>
+                                    <option value="0">禁用</option>
+                                    <option value="1">正常</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="uPwd">密码<font class="col-lbl-tq">*</font></label>
+                            <div class="col-sm-4">
+                                <input name='uPwd' class="m-wrap form-control" type="password" ng-model="servicemanDetails.Password" id="uPwd" />
+                            </div>
+
+                            <label class="col-sm-2 control-label" for="uSex">性别</label>
+                            <div class="col-sm-4">
+                                <select id="uSex" name="uSex" class="form-control" ng-model='servicemanDetails.Sex'>
+                                    <option value="">(请选择)</option>
+                                    <option value="0">女</option>
+                                    <option value="1">男</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="province ">省市区<font class="col-lbl-tq">*</font></label>
+                            <div class="col-sm-10">
+                                <select class="form-inline row-control select-inline-s" ng-model="servicemanDetails.ProvinceID" id="province" ng-options="s.ProvinceId as s.ProvinceName for s in dlgRegion.ProvinceData" ng-change="onChgqProvince()">
+                                    <option value="">(请选择)</option>
+                                </select>
+                                <select class="form-inline row-control select-inline-s" ng-model="servicemanDetails.CityID" id="city" ng-options="s.CityId as s.CityName for s in qcityData" ng-disabled="servicemanDetails.ProvinceID=='' || servicemanDetails.ProvinceID==null" ng-change="onChgqCity()">
+                                    <option value="">(请选择)</option>
+                                </select>
+                                <select class="form-inline row-control select-inline-s" ng-model="servicemanDetails.DistrictID" id="district" ng-options="s.DistrictId as s.DistrictName for s in qdistrictData" ng-disabled="servicemanDetails.CityID=='' || servicemanDetails.CityID==null">
+                                    <option value="">(请选择)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="loc">详细地址</label>
+                            <div class="col-sm-10">
+                                <textarea name='loc' class="m-wrap form-control" ng-model="servicemanDetails.Address" id="loc" rows="5" maxlength="90" ng-maxlength="90" cols="30" placeholder="请输入90位以内的详细地址"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="remark">描述</label>
+                            <div class="col-sm-10">
+                                <textarea name='remark' class="m-wrap form-control" ng-model="servicemanDetails.Remark" id="remark" rows="6" maxlength="150" ng-maxlength="150" cols="30" placeholder="请输入150位以内的描述"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" ng-click='onAddorEdit()' ng-disabled="servicemanForm.$invalid" id="servicemanBtn"><i class="icon-check"></i>确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="icon-remove-sign"></i>关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+

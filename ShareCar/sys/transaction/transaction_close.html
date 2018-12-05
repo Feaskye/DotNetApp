@@ -1,0 +1,51 @@
+﻿<div class="modal_cus fade" id="transactionModal" tabindex="-1" role="dialog" aria-labelledby="transactionModalLabel" aria-hidden="true" style='top: 15%;' data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal_tag">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×
+                </button>
+                <h4 class="modal-title" id="transactionModalLabel">
+                    手动还车
+                </h4>
+            </div>
+            <div class="modal-body" style="max-height:450px;">
+                <div id="successAlert1" class="alert alert-success" style="display:none;"></div>
+                <div id="warningAlert1" class="alert alert-warning" style="display:none;"></div>
+
+                <div class="span12">
+                    <form name="userBasicInfoForm" action="#" class="modal-body form-horizontal" style="max-height: inherit; ">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="uPhone">用户手机号</label>
+                            <div class="col-sm-4"><input id="uPhone" name='uPhone' class="m-wrap form-control" type="text" ng-model="transData.Phone" /></div>
+
+                            <label class="col-sm-2 control-label" for="bicycleNo">车号</label>
+                            <div class="col-sm-4">
+                                <input name='bicycleNo' class="m-wrap form-control" type="text" ng-model="transData.BicycleNumber" id="bicycleNo" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="startTime">租车时间</label>
+                            <div class="col-sm-4">
+                                <input name='startTime' class="m-wrap form-control" type="text" ng-model="transData.StartTime" id="startTime" />
+                            </div>
+
+                            <label class="col-sm-2 control-label" for="endTime">还车时间</label>
+                            <div class="col-sm-4">
+                                <input name='endTime' class="m-wrap form-control" type="text" ng-model="transData.EndTime" id="endTime" />
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer" ng-cloak>
+                <button type="button" class="btn btn-info" ng-click='onConfirm()' ng-disabled="isclkConfirm"><i class="icon-check"></i>{{isclkConfirm?'处理中':'确认还车'}}</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="icon-remove-sign"></i>关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,86 @@
+﻿<!--<section class="personal-info">
+ 
+    <form name="UserForm" action="#" class="modal-body form-horizontal" style="max-height: inherit;" enctype="multipart/form-data">
+
+        <input type="hidden" name="UserGuid" id="UserGuid" ng-model="UserInfo.UserGuid" />
+
+        <div class="infoform">
+            <div class="toux">
+                <span>头像</span>
+                <img class="avatar toux-img" src="{{UserInfo.PhotoUrl}}">
+                <img class="arrow" src="images/arrow-right.png" alt="">
+            </div>
+
+            <div class="toux">
+                <span>昵称</span>
+                <input type="text" id="UserNickName" name="UserNickName" ng-model="UserInfo.UserNickName" />
+            </div>
+ 
+
+            <div class="toux">
+                <span>实名认证</span>
+                <span class="txtright">{{UserInfo.StatusStr}}</span>
+            </div>
+
+            <div class="toux">
+                <span>手机号</span>
+                <input type="text" id="Phone" name="Phone" ng-model="UserInfo.Phone" maxlength="11" ng-trim />
+            </div>
+
+       <input type="file" />
+        </div>
+    </form>
+    <div class="info-btn">
+        <button type="button" ng-click='onUpdate()'>
+            <img src="images/btnicon.png" alt="">
+            提交
+        </button>
+    </div>
+</section>-->
+ 
+
+
+<body>
+    <section class="personal-info">
+        <div class="infoform">
+            <div class="toux">
+                <span>头像</span>
+                <img class="avatar toux-img" src="{{UserInfo.PhotoUrl}}" alt="头像">
+                <img class="arrow" src="images/arrow-right.png" alt="">
+            </div>
+
+            <div class="toux">
+                <span>昵称</span>
+                <input type="text" id="UserNickName" name="UserNickName" ng-model="UserInfo.UserNickName" >
+            </div>
+
+            <!--<div class="toux">
+                <span>姓名</span>
+                <span class="txtright">李阳</span>
+            </div>-->
+
+            <div class="toux">
+                <span>实名认证</span>
+                <span class="txtright">{{UserInfo.StatusStr}}</span>
+            </div>
+
+            <div class="toux">
+                <span>手机号</span>
+                <input type="text" id="Phone" name="Phone" ng-model="UserInfo.Phone" maxlength="11" ng-trim >
+            </div>
+        </div>
+
+        <div class="info-btn">
+            <button type="button" ng-click='onUpdate()'>
+                <img src="images/btnicon.png" alt="">
+                提交
+            </button>
+        </div>
+    </section>
+
+
+
+
+
+
+</body>

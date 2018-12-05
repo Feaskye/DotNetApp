@@ -1,0 +1,63 @@
+﻿
+<script src="../lib/jquery.min.js"></script>
+
+<div class="span12">
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon"><i class="icon-list-alt"></i></span>
+            <h5>测试上传图片API接口</h5>
+        </div>
+        <div class="widget-content">
+            <form id="uploadForm" name='queryElectronicFenceForm' class="form-horizontal" role="form">
+                <div class="form-group">
+               
+
+                    <div class="col-lg-3 tag-horizontal cols-btn">
+                        <div class="col-sm-12">
+                      
+                            <input type="file" id="fileUpload" name="file">
+                            <input type="text" id="UserGuid" value="5abababa-6efd-4450-a0e6-e52a92b2608f" />
+                            <button id="testAjax" type="button">上传</button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    
+</div>
+<div ng-include="'bicycle/bicycle_Edit.html'"></div>
+<div ng-include="'bicycle/bicycle_Details.html'"></div>
+<script type="text/javascript">
+    $(function(){
+        //按钮单击时执行
+        $("#testAjax").click(function(){
+            // var formData = new FormData($("#uploadForm")[0]); //只上传图片的时候可以
+    
+            var formData = new FormData();
+            formData.append('picLoc', $("#fileUpload")[0].files[0]);
+            formData.append('UserGuid', "00000000-0000-0000-0000-000000000001");
+
+
+              //Ajax调用处理
+            $.ajax({
+                //url: "http://localhost:5325/api/pcenter/UploadAvatarPhotoFile",
+                url: "http://localhost:5325/api/pcenter/UploadUserPhotoFile",
+                type: "POST",
+                //data:formData,
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+
+               success: function(data){
+                   alert("成功！");
+                  }
+            });
+
+         });
+    });
+</script>   
