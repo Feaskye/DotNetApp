@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utility", "Utility", "{9667E788-F2FC-4A16-82F8-60151FD453AB}"
 EndProject
@@ -20,6 +20,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{77728630-CECF-46FA-87DA-DC80E13C8242}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "sys", "..\sys\", "{04CFFA7F-D1BA-45CF-8D58-2E5CE21941EC}"
+	ProjectSection(SvnOrigin) = preProject
+		@Keys = Enlist,Svn.Uri
+		Enlist = Required
+		Svn.Uri = ../sys/
+	EndProjectSection
 	ProjectSection(WebsiteProperties) = preProject
 		SccProjectName = "Svn"
 		SccAuxPath = "Svn"
@@ -47,6 +52,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MintCyclingData", "MintCyclingData\MintCyclingData.csproj", "{13E411C8-1C6C-4DC0-A4EA-BCF31F0CA053}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "empage", "..\empage\", "{985889E9-74C5-4E46-8EA8-A5D9900C4821}"
+	ProjectSection(SvnOrigin) = preProject
+		@Keys = Enlist,Svn.Uri
+		Enlist = Required
+		Svn.Uri = ../empage/
+	EndProjectSection
 	ProjectSection(WebsiteProperties) = preProject
 		SccProjectName = "Svn"
 		SccAuxPath = "Svn"
@@ -74,6 +84,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MtBikeAdminWebApi", "MtBikeAdminWebApi\MtBikeAdminWebApi.csproj", "{2A6E181F-BFDF-43DF-94EB-40A714C92E98}"
 EndProject
 Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -119,5 +133,8 @@ Global
 		{13E411C8-1C6C-4DC0-A4EA-BCF31F0CA053} = {6AFFD8CF-8D9B-4994-AE34-509633C170C6}
 		{985889E9-74C5-4E46-8EA8-A5D9900C4821} = {77728630-CECF-46FA-87DA-DC80E13C8242}
 		{2A6E181F-BFDF-43DF-94EB-40A714C92E98} = {47241398-65AE-4240-BC12-0AA5C72027BB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {786C0C00-C4C4-4B25-AAA6-A1150612239E}
 	EndGlobalSection
 EndGlobal
