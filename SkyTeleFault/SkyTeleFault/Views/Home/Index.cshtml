@@ -1,0 +1,14 @@
+﻿@model  DataTable
+@{
+    ViewBag.Title = "预览/导出";
+}
+
+<div class="container" style="margin-top:20px;">
+    @if (Model != null && Model.Rows.Count > 0)
+    {
+        foreach (DataRow dr in Model.Rows)
+        {
+            <p style="border-top:1px solid grey;padding-top:3px;">@($"制表人：{dr["InputMan"] as string}，日期：{dr["AddTime"] as string}") <a href="/Home/ImportFile?id=@dr["Id"]" target="_blank" class="btn btn-primary">导出Excel</a></p>
+        }
+    }
+</div>
