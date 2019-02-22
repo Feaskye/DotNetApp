@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SkyTeleFault.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Data;
@@ -67,7 +68,7 @@ namespace SkyTeleFault.App_Start
         /// </summary>
         /// <param name="collection"></param>
         /// <returns></returns>
-        internal bool InsertData(NameValueCollection collection)
+        internal Tuple<bool,string> InsertData(NameValueCollection collection)
         {
             var strSqlText = "Insert into EleCable (InputMan,LineName,UpDownOpen,LineNumber,LineCompany,CompanyTel,OutputTime,CommissionTime,IsAnatomy,IsSendTele,AddTime," +
                 " ConstructCompany, ConstructMan, ConstructPhone, FaultDate, FaultType, FaultReason, 导体, 半导体, 绝缘层, " +
@@ -90,11 +91,18 @@ namespace SkyTeleFault.App_Start
                 dbConn.Open();
 
                 OleDbCommand cmd = new OleDbCommand(strSqlText, dbConn);
-                return cmd.ExecuteNonQuery() > 0;
+                var b = cmd.ExecuteNonQuery() > 0;
+                return new Tuple<bool, string>(b,"");
             }
             catch (Exception ex)
             {
-                throw ex;
+                var msg = ex.Message;
+                if (ex.Message.Contains("数据"))
+                {
+                    msg = "日期格式有误或下拉框未选择！";
+                }
+                return new Tuple<bool, string>(false, msg);
+                //throw ex;
                 //NetLog.WriteSysLog("[获取本地机器信息GetMachineInfo]" + ex.Message);
             }
             finally
@@ -102,8 +110,82 @@ namespace SkyTeleFault.App_Start
                 dbConn.Close();
                 dbConn.Dispose();
             }
-
-            return false;
         }
+
+        /// <summary>
+        /// 返回是否成功
+        /// </summary>
+        /// <param name="collection"></param>
+        /// <returns></returns>
+        internal Tuple<bool, string> UpdateData(NameValueCollection collection)
+        {
+            var strSqlText = "update EleCable set InputMan='" + collection["InputMan"] + "',LineName='" + collection["LineName"] + "',UpDownOpen='" + collection["UpDownOpen"] + "',LineNumber='" + collection["LineNumber"]
+                + "',LineCompany='" + collection["LineCompany"] + "',CompanyTel='" + collection["CompanyTel"] + "',OutputTime='" + collection["OutputTime"] +
+                "',CommissionTime='" + collection["CommissionTime"] + "',IsAnatomy='" + collection["IsAnatomy"] + "',IsSendTele='" + collection["IsSendTele"] + "',AddTime='" + collection["AddTime"] + "" +
+                "',ConstructCompany='" + collection["ConstructCompany"] + "',ConstructMan='" + collection["ConstructMan"] + "',ConstructPhone='" + collection["ConstructPhone"] + "',FaultDate='" + collection["FaultDate"] +
+                "',FaultType='" + collection["FaultType"] + "',FaultReason='" + collection["FaultReason"] + "',导体='" + collection["导体"] + "',半导体='" + collection["半导体"] +
+                "',绝缘层='" + collection["绝缘层"] + "',屏蔽层='" + collection["屏蔽层"] + "',铠装='" + collection["铠装"] + "',XinNumber='" + collection["XinNumber"] +
+                "',RepairCompany='" + collection["RepairCompany"] + "',RepairMan='" + collection["RepairMan"] + "',RepairPhone='" + collection["RepairPhone"] +
+                "',FinishTime='" + collection["FinishTime"] + "',UseTime='" + collection["UseTime"] + "',Description='" + collection["Description"] + "'" +
+                " where id="+ collection["id"] + " ";
+
+            //创建连接对象
+            OleDbConnection dbConn = new OleDbConnection(ConnectionString);
+            try
+            {
+                //打开数据库
+                dbConn.Open();
+
+                OleDbCommand cmd = new OleDbCommand(strSqlText, dbConn);
+                var b = cmd.ExecuteNonQuery() > 0;
+                return new Tuple<bool, string>(b, "");
+            }
+            catch (Exception ex)
+            {
+                var msg = ex.Message;
+                if (ex.Message.Contains("数据"))
+                {
+                    msg = "日期格式有误或下拉框未选择！";
+                }
+                return new Tuple<bool, string>(false, msg);
+                //throw ex;
+                //NetLog.WriteSysLog("[获取本地机器信息GetMachineInfo]" + ex.Message);
+            }
+            finally
+            {
+                dbConn.Close();
+                dbConn.Dispose();
+            }
+        }
+
+        internal Tuple<bool, string> Delete(int id)
+        {
+            var strSqlText = " delete from EleCable  where id=" + id + " ";
+
+            //创建连接对象
+            OleDbConnection dbConn = new OleDbConnection(ConnectionString);
+            try
+            {
+                //打开数据库
+                dbConn.Open();
+
+                OleDbCommand cmd = new OleDbCommand(strSqlText, dbConn);
+                var b = cmd.ExecuteNonQuery() > 0;
+                return new Tuple<bool, string>(b, "");
+            }
+            catch (Exception ex)
+            {
+                return new Tuple<bool, string>(false, ex.Message);
+                //throw ex;
+                //NetLog.WriteSysLog("[获取本地机器信息GetMachineInfo]" + ex.Message);
+            }
+            finally
+            {
+                dbConn.Close();
+                dbConn.Dispose();
+            }
+        }
+
+
     }
 }

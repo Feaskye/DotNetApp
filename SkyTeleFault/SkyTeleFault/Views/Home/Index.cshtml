@@ -8,7 +8,29 @@
     {
         foreach (DataRow dr in Model.Rows)
         {
-            <p style="border-top:1px solid grey;padding-top:3px;">@($"制表人：{dr["InputMan"] as string}，日期：{dr["AddTime"] as string}") <a href="/Home/ImportFile?id=@dr["Id"]" target="_blank" class="btn btn-primary">导出Excel</a></p>
+            <p style="border-top:1px solid grey;padding-top:3px;">
+                @($"制表人：{dr["InputMan"] as string}，日期：{dr["AddTime"] as string}")
+                <a href="/Home/ImportFile?id=@dr["Id"]" target="_blank" class="btn btn-primary">导出Excel</a> | <a href="/Home/AddEleFault?id=@dr["Id"]" target="_blank" class="btn btn-primary">编辑</a> | <a href="javascript:void(0);" data-id="@dr["Id"]"  class="btn btn-primary btndel">删除</a> |
+            </p>
         }
     }
 </div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(function () {
+            $(".btndel").click(function () {
+                var id = $(this).attr("data-id");
+                console.log(id);
+                $.post("/Home/Delete", { id: id }, function (result) {
+                    if (result.state === 1) {
+                        alert("提交成功!");
+                        location.reload();
+                        return;
+                    }
+                    alert("提交失败(" + result.msg + ")!");
+                }, "json");
+            });
+        });
+    </script>
+}

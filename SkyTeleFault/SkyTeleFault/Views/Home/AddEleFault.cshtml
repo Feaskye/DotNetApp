@@ -1,0 +1,312 @@
+﻿@model  DataRow
+@{
+    ViewBag.Title = "添加表";
+}
+<form class="" role="form" id="submitForm" style="width:70%;margin:auto;" method="post">
+    <div class="container">
+        <div class="row panel-title" style="text-align:center">
+            <h3>福田供电局试验检测班电缆（故障）信息一览表</h3>
+            <input id="id" type="hidden" value="@(Model==null?"":Model["id"].ToString())" />
+        </div>
+        <div class="row">
+            <!--前缀-->
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">填表人</span>
+                    <input class="form-control" type="text" name="InputMan" id="InputMan" value="@(Model==null?"":Model["InputMan"].ToString())">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">填表日期</span>
+                    <input class="form-control required" type="text" name="AddTime" value="@(Model==null?"":SkyTeleFault.App_Start.Utils.ToDateString(Model["AddTime"]))">
+                </div>
+            </div>
+        </div>
+        <div class="row panel-title" style="text-align:center">
+            <h3>电缆基本信息</h3>
+        </div>
+        <div class="row">
+            <!--前缀-->
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">线路名称</span>
+                    <input class="form-control required" type="text" name="LineName" value="@(Model==null?"":Model["LineName"].ToString())">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">上下级开关</span>
+                    <input class="form-control required" type="text" name="UpDownOpen" value="@(Model == null ? "" : Model["UpDownOpen"].ToString())">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">电缆型号</span>
+                    <input class="form-control required" type="text" name="LineNumber" value="@(Model==null?"":Model["LineNumber"].ToString())">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">电缆生产厂家</span>
+                    <input class="form-control required" type="text" name="LineCompany" value="@(Model==null?"":Model["LineCompany"].ToString())">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">厂家电话</span>
+                    <input class="form-control required" type="text" name="CompanyTel" value="@(Model==null?"":Model["CompanyTel"].ToString())">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">生产日期</span>
+                    <input class="form-control required" type="text" name="OutputTime" value="@(Model==null?"":SkyTeleFault.App_Start.Utils.ToDateString(Model["OutputTime"]))">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">投运日期</span>
+                    <input class="form-control required" type="text" name="CommissionTime" value="@(Model==null?"":SkyTeleFault.App_Start.Utils.ToDateString(Model["CommissionTime"]))">
+                </div>
+            </div>
+            <!--前缀-->
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">是否解剖</span>
+                    <select class="form-control required" name="IsAnatomy">
+                        <option>--请选择--</option>
+                        <option value="1"  @(Model==null?"":(Model["IsAnatomy"].ToString()=="True"?"selected":""))>是</option>
+                        <option value="0"  @(Model==null?"":(Model["IsAnatomy"].ToString()=="False"?"selected":""))>否</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">是否送电</span>
+                    <select class="form-control required" name="IsSendTele">
+                        <option>--请选择--</option>
+                        <option value="1" @(Model==null?"":(Model["IsSendTele"].ToString()=="True"?"selected":""))>是</option>
+                        <option value="0" @(Model==null?"":(Model["IsSendTele"].ToString()=="False"?"selected":""))>否</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row panel-title" style="text-align:center">
+            <h3>施工信息信息&故障分析</h3>
+        </div>
+        <div class="row">
+            <!--前缀-->
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">施工单位</span>
+                    <input class="form-control required" type="text" name="ConstructCompany"  value="@(Model==null?"":Model["ConstructCompany"].ToString())">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">施工负责人</span>
+                    <input class="form-control required" type="text" name="ConstructMan"  value="@(Model==null?"":Model["ConstructMan"].ToString())">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">施工负责人电话</span>
+                    <input class="form-control required" type="text" name="ConstructPhone"  value="@(Model==null?"":Model["ConstructPhone"].ToString())">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--前缀-->
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">故障日期</span>
+                    <input class="form-control required" type="text" name="FaultDate"  value="@(Model==null?"":SkyTeleFault.App_Start.Utils.ToDateString(Model["FaultDate"]))">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">故障类型</span>
+                    <input class="form-control required" type="text" name="FaultType"  value="@(Model==null?"":Model["FaultType"].ToString())">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">故障原因分析</span>
+                    <input class="form-control required" type="text" name="FaultReason"  value="@(Model==null?"":Model["FaultReason"].ToString())">
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">中间头芯片编号</span>
+                    <input class="form-control required" type="text" name="XinNumber"  value="@(Model==null?"":Model["XinNumber"].ToString())">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row panel-title" style="text-align:center">
+            <h3>故障情况</h3>
+        </div>
+        <div class="row">
+            <!--前缀-->
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">导体</span>
+                    <input class="form-control" type="text" name="导体" value="@(Model==null?"":Model["导体"].ToString())">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">半导体</span>
+                    <input class="form-control" type="text" name="半导体" value="@(Model==null?"":Model["半导体"].ToString())">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">绝缘层</span>
+                    <input class="form-control" type="text" name="绝缘层" value="@(Model==null?"":Model["绝缘层"].ToString())">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--前缀-->
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">屏蔽层</span>
+                    <input class="form-control" type="text" name="屏蔽层" value="@(Model==null?"":Model["屏蔽层"].ToString())">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">铠装</span>
+                    <input class="form-control" type="text" name="铠装" value="@(Model==null?"":Model["铠装"].ToString())">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row panel-title" style="text-align:center">
+            <h3>抢修信息</h3>
+        </div>
+        <div class="row">
+            <!--前缀-->
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">抢修单位</span>
+                    <input class="form-control required" type="text" name="RepairCompany" value="@(Model==null?"":Model["RepairCompany"].ToString())">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">抢修负责人</span>
+                    <input class="form-control required" type="text" name="RepairMan" value="@(Model==null?"":Model["RepairMan"].ToString())">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">抢修负责人电话</span>
+                    <input class="form-control required" type="text" name="RepairPhone" value="@(Model==null?"":Model["RepairPhone"].ToString())">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!--前缀-->
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">抢修完成时间</span>
+                    <input class="form-control required" type="text" name="FinishTime" value="@(Model==null?"":SkyTeleFault.App_Start.Utils.ToDateString(Model["FinishTime"]))">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">抢修用时</span>
+                    <input class="form-control required" type="number" name="UseTime" value="@(Model==null?"":Model["UseTime"].ToString())">
+                </div>
+            </div>
+            <div class="form-group col-lg-3">
+                <div class="input-group">
+                    <span class="input-group-addon">备注</span>
+                    <textarea class="form-control" type="text" name="Description">@(Model==null?"":Model["Description"].ToString())</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row center-block">
+            <input id="submit-btn" class="btn btn-primary submit-button" data-loading-text="正在提交" type="button" value="提 交" />
+        </div>
+
+        @*<div class="row">
+                <!--后缀-->
+                <div class="form-group col-lg-3">
+                    <div class="input-group">
+                        <input class="form-control required" type="text" name="InputMan">
+                        <span class="input-group-addon">查询</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!--下拉框-->
+                <div class="form-group col-lg-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">内容类型</span>
+                        <select class="form-control required">
+                            <option>default</option>
+                            <option>one</option>
+                            <option>two</option>
+                        </select>
+                    </div>
+                </div>
+            </div>*@
+    </div>
+</form>
+@section scripts{
+    <script src="~/Scripts/jquery.form.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#submitForm").validate(
+                {
+                    rules: {
+                        InputMan: "required"
+                    }
+                }
+            );
+
+
+            $("#submit-btn").click(function () {
+                var $form = $('#submitForm');
+                if (!$form.valid()) {
+                    alert("有必填内容!");
+                    return false;
+                }
+                var data = $form.formSerialize();
+                console.log(data);
+                var id = $("#id").val();
+                if (id.length > 0) {
+                    data = data + "&id=" + id;
+                }
+                $.post("/Home/AddEleFault", data, function (result) {
+                    console.log(result);
+                    if (result.state === 1) {
+                        alert("提交成功!");
+                        location.href="/";
+                        return;
+                    }
+                    alert("提交失败(" + result.msg + ")!");
+                }, "json");
+            });
+
+        });
+    </script>
+}
+

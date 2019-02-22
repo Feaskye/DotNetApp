@@ -25,11 +25,18 @@ namespace SkyTeleFault.Controllers
 
 
         [HttpGet]
-        public ActionResult AddEleFault()
+        public ActionResult AddEleFault(int? id)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            DataRow CurrData=null;
+            if (id.HasValue)
+            {
+                var data = _dBAccessHelper.GetDataTable(id.Value);
+                if (data != null && data.Rows.Count > 0)
+                {
+                    CurrData = data.Rows[0];
+                }
+            }
+            return View(CurrData);
         }
 
         [HttpPost]
@@ -41,7 +48,30 @@ namespace SkyTeleFault.Controllers
             {
                 return JsonResult("时间格式有误");
             }
-            _dBAccessHelper.InsertData(collection);
+            Tuple<bool, string> result;
+            if (collection.AllKeys.Contains("id") && !string.IsNullOrWhiteSpace(collection["id"]))
+            {
+                result = _dBAccessHelper.UpdateData(collection);
+            }
+            else
+            {
+                result = _dBAccessHelper.InsertData(collection);
+            }
+            if (!result.Item1)
+            {
+                return JsonResult(result.Item2);
+            }
+            return JsonResult(true);
+        }
+        
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            var result = _dBAccessHelper.Delete(id);//new Tuple<bool, string>(true, ""); //
+            if (!result.Item1)
+            {
+                return JsonResult(result.Item2);
+            }
             return JsonResult(true);
         }
 
