@@ -1,0 +1,2 @@
+2018-07-17 19:08:17.2291 WS.EKA.Portal.Filters.ExceptionAndLogFilter.OnException Error Unexpected character encountered while parsing value: 错. Path '', line 0, position 0.
+2018-07-17 19:08:22.1614 WS.EKA.Portal.Helpers.CommonRequest.ApiGetWeixinShopConfigList Info 接口[api/getWeixinShopConfigList/]返回值有误
